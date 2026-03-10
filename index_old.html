@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Belón Energy - Energy Consultant">
+  <title>Belón Energy</title>
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <main class="landing-container">
+    <div class="logo-container">
+      <img src="assets/img/logo.svg" alt="Belón Energy">
+    </div>
+
+    <div class="construction-badge">
+      <div class="dot"></div>
+      <span>En construcción</span>
+    </div>
+
+    <h1>Estamos trabajando en algo increíble</h1>
+    <p class="subtitle">Nuestra web estará disponible muy pronto.<br>Mientras tanto, puedes contactarnos.</p>
+
+    <hr class="divider">
+
+    <div class="vcards-grid">
+
+      <div class="vcard-item">
+        <div class="vcard-avatar">
+          <span>A</span>
+        </div>
+        <div class="vcard-name">Antonio Belón Miñones</div>
+        <div class="vcard-role">Energy Consultant</div>
+        <div class="vcard-qr" id="qr-antonio"></div>
+        <a href="assets/vcards/contacto1.vcf" download class="vcard-download-btn">
+          Descargar contacto
+        </a>
+      </div>
+
+      <div class="vcard-item">
+        <div class="vcard-avatar">
+          <span>M</span>
+        </div>
+        <div class="vcard-name">Mercedes Belón Miñones</div>
+        <div class="vcard-role">Energy Consultant</div>
+        <div class="vcard-qr" id="qr-mercedes"></div>
+        <a href="assets/vcards/contacto2.vcf" download class="vcard-download-btn">
+          Descargar contacto
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+  <script>
+    var vcards = [
+      {
+        elementId: 'qr-antonio',
+        data: 'BEGIN:VCARD\nVERSION:3.0\nN:Belón Miñones;Antonio;;;\nFN:Antonio Belón Miñones\nORG:Belón Energy\nTITLE:Energy Consultant\nTEL;TYPE=WORK,VOICE:+34 609 56 20 70\nEMAIL;TYPE=WORK:abm@belon.es\nURL:https://www.belonenergy.com\nEND:VCARD'
+      },
+      {
+        elementId: 'qr-mercedes',
+        data: 'BEGIN:VCARD\nVERSION:3.0\nN:Belón Miñones;Mercedes;;;\nFN:Mercedes Belón Miñones\nORG:Belón Energy\nTITLE:Energy Consultant\nTEL;TYPE=WORK,VOICE:+34 629 95 89 88\nEMAIL;TYPE=WORK:mercedes@belon.es\nURL:https://www.belonenergy.com\nEND:VCARD'
+      }
+    ];
+
+    vcards.forEach(function (card) {
+      var canvas = document.createElement('canvas');
+      document.getElementById(card.elementId).appendChild(canvas);
+      new QRious({
+        element: canvas,
+        value: card.data,
+        size: 180,
+        foreground: '#183644',
+        background: '#FFFFFF',
+        level: 'M'
+      });
+    });
+
+    (function () {
+      var isMobile = /Android|iPhone|iPad|iPod|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      if (isMobile) {
+        document.querySelectorAll('.vcard-download-btn').forEach(function (btn) {
+          btn.classList.add('visible');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>
