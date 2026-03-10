@@ -67,6 +67,61 @@
         .cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; z-index: 90; background: #183644; color: #fff; padding: 1rem 1.5rem; box-shadow: 0 -4px 20px rgba(0,0,0,0.15); transform: translateY(100%); transition: transform 0.35s ease; }
         .cookie-banner.is-visible { transform: translateY(0); }
         .cookie-banner .form-modal-box { max-height: 85vh; overflow-y: auto; max-width: 560px; }
+
+        /* Panel de captación: base + modos flotante/embebido */
+        .lead-form-panel {
+            max-width: 420px;
+            width: 100%;
+            z-index: 60;
+            transition: opacity 0.35s ease, transform 0.35s ease;
+        }
+        .lead-form-panel--floating {
+            position: fixed;
+            right: 1rem;
+            top: 6rem;
+        }
+        .lead-form-panel--embedded {
+            position: static;
+            max-width: none;
+        }
+        .lead-form-panel--hidden {
+            opacity: 0;
+            transform: translateY(12px) scale(0.98);
+            pointer-events: none;
+        }
+        @media (max-width: 1024px) {
+            .lead-form-panel--floating {
+                right: 0.75rem;
+                left: 0.75rem;
+                top: auto;
+                bottom: 5.5rem;
+                max-width: none;
+            }
+        }
+
+        /* Botones flotantes */
+        .floating-button {
+            position: fixed;
+            right: 1rem;
+            z-index: 70;
+        }
+        .floating-button-form {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .floating-button-whatsapp {
+            bottom: 1.25rem;
+        }
+        @media (max-width: 640px) {
+            .floating-button {
+                right: 0.75rem;
+            }
+            .floating-button-form {
+                top: auto;
+                bottom: 7.25rem;
+                transform: none;
+            }
+        }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
@@ -79,13 +134,13 @@
 </a>
 <nav class="hidden md:flex items-center gap-8">
 <a class="text-sm font-semibold hover:text-primary/70 transition-colors" href="#servicios">Servicios</a>
-<a class="text-sm font-semibold hover:text-primary/70 transition-colors" href="#proyectos">Proyectos</a>
-<a class="text-sm font-semibold hover:text-primary/70 transition-colors" href="#nosotros">Por qué Belón</a>
+<a class="text-sm font-semibold hover:text-primary/70 transition-colors" href="#proyectos">Cómo funciona</a>
+<a class="text-sm font-semibold hover:text-primary/70 transition-colors" href="#nosotros">Por qué nosotros</a>
 <a class="text-sm font-semibold hover:text-primary/70 transition-colors" href="#contacto">Contacto</a>
 </nav>
 <div class="flex items-center gap-4">
 <a href="#contacto" class="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-bold hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 inline-block">
-                        Solicitar estudio
+                        Analizar factura gratis
                     </a>
 </div>
 </div>
@@ -95,65 +150,64 @@
 <section id="hero" class="relative min-h-[85vh] flex items-center overflow-hidden">
 <div class="absolute inset-0 z-0">
 <div class="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/40 z-10"></div>
-<img alt="Paneles solares en tejado" class="w-full h-full object-cover" src="assets/img/solar-panels-roof-solar-cell.jpg"/>
+<img alt="Ahorro en factura de luz y gas con gestión energética" class="w-full h-full object-cover" src="assets/img/coins-stack-with-light-bulb-jar.jpg"/>
 </div>
 <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
 <div class="max-w-3xl">
 <h1 class="anim-fade-up text-4xl md:text-6xl font-black text-white leading-[1.1] mb-6 tracking-tight">
-                    Liderando la transición energética con precisión de ingeniería.
+                    Nos encargamos de tu factura de luz y gas para que pagues menos.
                 </h1>
 <p class="anim-fade-up anim-stagger-1 text-lg md:text-xl text-white/90 mb-10 font-medium leading-relaxed">
-                    Especialistas en soluciones fotovoltaicas de alto rendimiento para hogares e industrias que buscan independencia energética y rentabilidad garantizada.
+                    Analizamos tus contratos energéticos, optimizamos tus tarifas y gestionamos todo con las compañías para que no pierdas tiempo en llamadas ni pagues de más.
                 </p>
 <div class="anim-fade-up anim-stagger-2 flex flex-col sm:flex-row gap-4">
-<a href="#contacto" class="bg-accent-green hover:bg-accent-green/90 text-white px-8 py-4 rounded-xl text-lg font-bold transition-all transform hover:-translate-y-1 shadow-xl text-center">Solicitar estudio gratuito</a>
-<a href="#proyectos" class="bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white px-8 py-4 rounded-xl text-lg font-bold transition-all text-center">Ver proyectos →</a>
+<a href="#contacto" class="bg-accent-green hover:bg-accent-green/90 text-white px-8 py-4 rounded-xl text-lg font-bold transition-all transform hover:-translate-y-1 shadow-xl text-center">Analizar factura gratis</a>
+<a href="#contacto" class="bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white px-8 py-4 rounded-xl text-lg font-bold transition-all text-center">Subir factura</a>
 </div>
 </div>
 </div>
 </section>
-<!-- Authority Section -->
-<section class="py-12 bg-white dark:bg-background-dark border-b border-slate-100 dark:border-slate-800">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<p class="anim-fade-in text-center text-slate-500 dark:text-slate-400 text-sm font-bold uppercase tracking-widest mb-10">Trabajamos con fabricantes líderes del sector fotovoltaico para garantizar eficiencia, fiabilidad y rendimiento a largo plazo.</p>
-<div class="anim-fade-in anim-stagger-1 flex flex-wrap justify-center items-center gap-12 grayscale opacity-60 hover:grayscale-0 transition-all duration-500">
-<img alt="Huawei" class="h-8 md:h-10" data-alt="Huawei Logo grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA89MhJEsuGLZ6prB3VL7fDQQMzA-RmP-S5oCadC2pZ-fbcetx7ghZ2qCT4qUqR0rKHLOtcKz8qTMqw3Pz_grzn7stCCjd8B2pRxhB1A4WMjfU_Up_QC7Ropkwc41QMyU_ewpooiU48B4MYyLVEGoExTbi7rMti7sntxYRthcEEH3wD-G08vm_wjGIijSrUp4FE2NtgN5Ykdrqtb8U4QBRgqOzly0bgStH3gSUOroBvkJ_1RFBaslHEjR0HzU3_2tamIDRo_t083XU"/>
-<img alt="Victron" class="h-8 md:h-10" data-alt="Victron Energy Logo grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDflM2CczjYs-YbOw6QP2_Usdq4i1tnhrRwHO4R5bJJ1WSB3vbncF0ThXCJ82tI145V5tdcQ8dZtsfhogvsyoJd4XTiR_v5fzpWJJi1kMT7cQ08GZzsLs_-urzE87byMxTbk0cdZuL6JBT5gayCiKMMrKZSwxm1EeiO1_tbPY-QvlyQuvC_ST2s4MFtelSCpHx9QbmSH1osAWdUBt_S3EnDnWDJ1yZDfw6LGH3fJsvXpat8bNtuNpzk0F-TwWmSagaevJ8ryVpEOlA"/>
-<img alt="Fronius" class="h-8 md:h-10" data-alt="Fronius Logo grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBn9P0hsVmaKx20AKaVYEwj6AuFtFzRxWe6blWqmJoqLJAgwBRV9dNL9H7N-_kerxLN0ApMz8IoNZBY6U4d4NsmH7zX6STY7E3X3ozoS4q86FbgEFagieeoNzxUpRcJwOxzbaOUg0IxECAQ_SAEX5o5Rak3tgPpxcCNqwQoudtU8WHU14amtNLxjt8fVp_9IYME8exKrMBJ-wCPNfA7OPW6_eBFmusAB4SHQP7t0Mqc7oZgbumFIu7PxCgBqTcrEoqkbuqVKbA9Kis"/>
-<img alt="SMA" class="h-8 md:h-10" data-alt="SMA Solar Logo grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjOeCI5AI-ScPiyBIQJgz23hYyqSZPmbldegKdbPFDD7la5_nQwVxnkfRFErTsv9B0ypd2kaFJSODDzGKNPW7cr_4YK0iDVAo6f0uegA2qgDJLRz3kSQXbWJ2bO5LvCazinwDeevK0oJi8JMn6puR7zIu16XSpNCEUujIcm-2W3zVM3OU6rCZdqBcl6uAtCmL8Rn-B8ctmiX2ezh8s7uchy74H3vTieAqD-i5SkE8A7GKwe8s87ZZih3AXQ3NJeCCauQ3ElaLl9rw"/>
-<img alt="LONGi" class="h-8 md:h-10" data-alt="LONGi Solar Logo grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5E2zBMMhH2yOqOXvocagUvFbXX0WJqgRZVr6h7O3l3E2AyBDNM3Ndf9Tu2oJxKdCbQCDuIf2NWPVe092eV6nUp_fsdl4QDoQnt-bhDkX_xd9tMYFv-K58jcqsjJCgQQQPA3hqRzdoKpImVc1YwSpW6ZMxkNxGFLQINqvNI80g_ZE-c6nUH7e_PJujyhI-Av8QFajWwWWoP0s4cJpdCjD76WRAKF7_-7ucMCJQex6-fqju383VaUL95menD5aJ_v7wMIE6AYJ7STs"/>
-</div>
-</div>
-</section>
+<!-- Authority Section eliminada -->
 <!-- Why Belón Energy -->
 <section class="py-24 bg-white dark:bg-background-dark" id="nosotros">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="text-center mb-16">
-<h2 class="anim-fade-up text-3xl md:text-4xl font-black text-primary dark:text-slate-100 mb-4 tracking-tight">Ingeniería energética con velocidad y precisión.</h2>
+<div class="text-center mb-12">
+<h2 class="anim-fade-up text-3xl md:text-4xl font-black text-primary dark:text-slate-100 mb-4 tracking-tight">Tu factura energética no debería ser un problema.</h2>
 <div class="anim-fade-up anim-stagger-1 h-1.5 w-20 bg-accent-green mx-auto rounded-full"></div>
+<p class="anim-fade-up anim-stagger-2 mt-6 max-w-3xl mx-auto text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+                        La mayoría de hogares y pequeños negocios pagan de más porque no tienen tiempo para revisar contratos, entender tarifas ni pelearse con las compañías.
+                        En Belón Energy gestionamos tus facturas para que pagues solo lo necesario.
+                    </p>
 </div>
 <div class="grid md:grid-cols-3 gap-8">
 <div class="anim-fade-up anim-stagger-1 p-8 rounded-2xl border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-shadow bg-background-light dark:bg-slate-900/50">
 <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6">
 <span class="material-symbols-outlined text-3xl">precision_manufacturing</span>
 </div>
-<h3 class="text-xl font-bold mb-3 text-primary dark:text-slate-100">Precisión técnica</h3>
-<p class="text-slate-600 dark:text-slate-400 leading-relaxed">Cada proyecto es diseñado por ingenieros expertos utilizando software de simulación avanzada para garantizar el máximo retorno de inversión.</p>
+<h3 class="text-xl font-bold mb-3 text-primary dark:text-slate-100">Facturas que no se entienden</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">Discriminación horaria, peajes, ajustes… Las compañías complican el lenguaje para que no sepas exactamente qué estás pagando.</p>
 </div>
 <div class="anim-fade-up anim-stagger-2 p-8 rounded-2xl border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-shadow bg-background-light dark:bg-slate-900/50">
 <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6">
 <span class="material-symbols-outlined text-3xl">speed</span>
 </div>
-<h3 class="text-xl font-bold mb-3 text-primary dark:text-slate-100">Velocidad operativa</h3>
-<p class="text-slate-600 dark:text-slate-400 leading-relaxed">Gestión integral de permisos y subvenciones. Ejecutamos la instalación en tiempos récord sin comprometer la calidad del montaje.</p>
+<h3 class="text-xl font-bold mb-3 text-primary dark:text-slate-100">Horas perdidas al teléfono</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">Llamadas eternas, menús automáticos y explicaciones distintas según con quién hables. Mientras tanto, tus facturas siguen llegando cada mes.</p>
 </div>
 <div class="anim-fade-up anim-stagger-3 p-8 rounded-2xl border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-shadow bg-background-light dark:bg-slate-900/50">
 <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6">
 <span class="material-symbols-outlined text-3xl">architecture</span>
 </div>
-<h3 class="text-xl font-bold mb-3 text-primary dark:text-slate-100">Soluciones a medida</h3>
-<p class="text-slate-600 dark:text-slate-400 leading-relaxed">No creemos en soluciones estándar. Estudiamos su curva de consumo real para dimensionar el sistema exacto que usted necesita.</p>
+<h3 class="text-xl font-bold mb-3 text-primary dark:text-slate-100">Subidas de precios sin avisar</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">Las condiciones cambian, aparecen cargos extra y casi nunca tienes una visión clara de si estás pagando un precio justo.</p>
 </div>
+</div>
+<div class="mt-14 max-w-4xl mx-auto text-center">
+<h3 class="text-2xl font-black text-primary dark:text-slate-100 mb-3">Gestionamos tu energía por ti.</h3>
+<p class="text-slate-600 dark:text-slate-400 text-base md:text-lg leading-relaxed">
+                    Nos encargamos de analizar tus facturas, optimizar tus contratos de luz y gas y hablar con las compañías en tu nombre.
+                    Tú solo nos envías tu factura y nosotros nos ocupamos del resto.
+                </p>
 </div>
 </div>
 </section>
@@ -161,33 +215,29 @@
 <section class="py-24 text-white bg-[#183644]" id="servicios">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="mb-16">
-<h2 class="anim-fade-up text-3xl md:text-4xl font-black mb-4">Soluciones energéticas integrales</h2>
-<p class="anim-fade-up anim-stagger-1 text-slate-300 max-w-2xl">Ingeniería especializada aplicada a cada necesidad energética, desde el hogar hasta la gran industria.</p>
+<h2 class="anim-fade-up text-3xl md:text-4xl font-black mb-4">Servicios pensados para que pagues menos.</h2>
+<p class="anim-fade-up anim-stagger-1 text-slate-300 max-w-2xl">Un servicio integral de gestión de facturas de luz y gas para hogares y pequeños negocios que quieren olvidarse de las compañías energéticas.</p>
 </div>
-<div class="grid md:grid-cols-3 gap-8">
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
 <div class="anim-slide-left anim-stagger-1 group relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 p-8 hover:bg-white/10 transition-all cursor-pointer">
-<span class="material-symbols-outlined text-5xl text-accent-green mb-6 block">home_work</span>
-<h3 class="text-2xl font-bold mb-4">Autoconsumo residencial</h3>
-<p class="text-slate-300 mb-6">Transforme su tejado en una fuente de ingresos y ahorro. Instalaciones estéticas y eficientes con baterías de última generación.</p>
-<a class="text-accent-green font-bold flex items-center gap-2 group-hover:gap-4 transition-all" href="#">
-                        Saber más <span class="material-symbols-outlined">arrow_forward</span>
-</a>
+<span class="material-symbols-outlined text-5xl text-accent-green mb-6 block">receipt_long</span>
+<h3 class="text-2xl font-bold mb-4">Auditoría de factura</h3>
+<p class="text-slate-300 mb-6">Revisamos tus facturas de luz y gas para detectar sobrecostes, tarifas incorrectas y servicios que no necesitas.</p>
 </div>
 <div class="anim-slide-left anim-stagger-2 group relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 p-8 hover:bg-white/10 transition-all cursor-pointer">
-<span class="material-symbols-outlined text-5xl text-accent-green mb-6 block">factory</span>
-<h3 class="text-2xl font-bold mb-4">Proyectos industriales</h3>
-<p class="text-slate-300 mb-6">Reduzca drásticamente los costes operativos de su empresa. Proyectos llave en mano con monitorización en tiempo real.</p>
-<a class="text-accent-green font-bold flex items-center gap-2 group-hover:gap-4 transition-all" href="#">
-                        Saber más <span class="material-symbols-outlined">arrow_forward</span>
-</a>
+<span class="material-symbols-outlined text-5xl text-accent-green mb-6 block">tune</span>
+<h3 class="text-2xl font-bold mb-4">Optimización de tarifa</h3>
+<p class="text-slate-300 mb-6">Comparamos comercializadoras y propuestas para ajustar tu contrato a tu consumo real y cambiarte a la mejor tarifa disponible.</p>
 </div>
 <div class="anim-slide-left anim-stagger-3 group relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 p-8 hover:bg-white/10 transition-all cursor-pointer">
-<span class="material-symbols-outlined text-5xl text-accent-green mb-6 block">engineering</span>
-<h3 class="text-2xl font-bold mb-4">Mantenimiento especializado</h3>
-<p class="text-slate-300 mb-6">Asegure la vida útil de su inversión. Servicio preventivo y correctivo con técnicos titulados y repuestos originales.</p>
-<a class="text-accent-green font-bold flex items-center gap-2 group-hover:gap-4 transition-all" href="#">
-                        Saber más <span class="material-symbols-outlined">arrow_forward</span>
-</a>
+<span class="material-symbols-outlined text-5xl text-accent-green mb-6 block">support_agent</span>
+<h3 class="text-2xl font-bold mb-4">Gestión con compañías</h3>
+<p class="text-slate-300 mb-6">Hacemos las llamadas y trámites por ti: cambios de contrato, ajustes de potencia, incidencias de facturación y reclamaciones.</p>
+</div>
+<div class="anim-slide-left anim-stagger-3 group relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 p-8 hover:bg-white/10 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-5xl text-accent-green mb-6 block">update</span>
+<h3 class="text-2xl font-bold mb-4">Seguimiento continuo</h3>
+<p class="text-slate-300 mb-6">Revisamos periódicamente tus facturas para asegurarnos de que sigues con la mejor tarifa y te avisamos si aparece una opción mejor.</p>
 </div>
 </div>
 </div>
@@ -197,83 +247,30 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
 <div>
-<h2 class="anim-fade-up text-3xl md:text-4xl font-black text-primary dark:text-slate-100 mb-4">Más instalaciones, más energía limpia.</h2>
-<p class="anim-fade-up anim-stagger-1 text-slate-600 dark:text-slate-400">Resultados reales que demuestran nuestra capacidad técnica en la Costa del Sol.</p>
-</div>
-<a href="#proyectos" class="anim-fade-up anim-stagger-2 text-primary font-bold border-b-2 border-primary pb-1 hover:opacity-80 transition-opacity">Ver galería completa</a>
-</div>
-<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-<!-- Project Card 1 -->
-<div class="anim-fade-up anim-stagger-1 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-800 group shadow-sm hover:shadow-xl transition-all">
-<div class="h-64 relative overflow-hidden">
-<img alt="Villa Marbella" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Proyecto residencial de paneles solares en Marbella" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGJmY3X7r3kerz9GNcflvlcD3gJa9NjUXPN1AXVGvZk3VYMFugyAtqTmOP82ODgHxBqcYBkemgCwcGH2BgYIUvdgLU12uHIgkvOLn4lShYe_0y0IjBeZaKXGzsb0XiD9oIL2qfTzItQMqDhbh85VTDE5ThEV4G1JeN_Rz88zyQIgaLMbVsyqvb0TH9TmEMfDPhi62JJQviIEMIcUMDUF931cIBCeUOM5cBMCanUDPqsRtZXnG_TpAIKUmjpWnkC-89Bu3cn_UFb1c"/>
-<div class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">RESIDENCIAL</div>
-</div>
-<div class="p-6">
-<div class="flex items-center gap-2 text-slate-500 mb-2">
-<span class="material-symbols-outlined text-sm">location_on</span>
-<span class="text-sm font-semibold uppercase tracking-wider" data-location="Marbella, España">Marbella, Málaga</span>
-</div>
-<h4 class="text-xl font-bold text-primary dark:text-slate-100 mb-4">Instalación residencial – Marbella</h4>
-<div class="grid grid-cols-2 gap-4">
-<div class="bg-background-light dark:bg-slate-800 p-3 rounded-lg">
-<span class="block text-[10px] font-bold text-slate-500 uppercase">Potencia</span>
-<span class="text-lg font-black text-primary dark:text-accent-green">6.2 kWp</span>
-</div>
-<div class="bg-background-light dark:bg-slate-800 p-3 rounded-lg">
-<span class="block text-[10px] font-bold text-slate-500 uppercase">Ahorro anual est.</span>
-<span class="text-lg font-black text-accent-green">72% Factura</span>
+<h2 class="anim-fade-up text-3xl md:text-4xl font-black text-primary dark:text-slate-100 mb-4">Cómo funciona nuestro servicio.</h2>
+<p class="anim-fade-up anim-stagger-1 text-slate-600 dark:text-slate-400">Un proceso sencillo para que pases de facturas confusas a pagar solo lo justo.</p>
 </div>
 </div>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="anim-fade-up anim-stagger-1 rounded-2xl border border-slate-100 dark:border-slate-800 bg-background-light dark:bg-slate-900/60 p-6 shadow-sm">
+<span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-accent-green text-white text-sm font-bold mb-4">1</span>
+<h3 class="text-lg font-bold text-primary dark:text-slate-100 mb-2">Subes tu factura o rellenas el formulario</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Puedes adjuntar tu factura de luz o gas o simplemente indicarnos tus datos de contacto y tu gasto aproximado.</p>
 </div>
+<div class="anim-fade-up anim-stagger-2 rounded-2xl border border-slate-100 dark:border-slate-800 bg-background-light dark:bg-slate-900/60 p-6 shadow-sm">
+<span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-accent-green text-white text-sm font-bold mb-4">2</span>
+<h3 class="text-lg font-bold text-primary dark:text-slate-100 mb-2">Analizamos tu contrato energético</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Revisamos condiciones, tarifas, potencias y servicios añadidos para detectar dónde estás pagando de más.</p>
 </div>
-<!-- Project Card 2 -->
-<div class="anim-fade-up anim-stagger-2 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-800 group shadow-sm hover:shadow-xl transition-all">
-<div class="h-64 relative overflow-hidden">
-<img alt="Nave Industrial" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Instalación solar industrial en nave de Málaga" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHLqaf3DLK72ZV5lyCikCO3IEwxzw9z0RBewwFWCSkFV8wbgie8hDmFq7y93jhYAYxbw9h_xGLsotK-BFixy70KGJ3Q4pdLvkzsxFPbWrX6lYDHBgOEcoWvpXNvyChOzPVTzRk90CT8yzMcaxMEOIjxj20aQAy6dYjyg2ys_xXet8PaLuwI2gAvZvLBZ9rdu7SAftV_dip0qXJ2lCAzlJHfUwV2-P1O2KuGa44bmAgbzEF_5waYqSesSpxKUI4OpoTfbPqYnbXzDM"/>
-<div class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">INDUSTRIAL</div>
+<div class="anim-fade-up anim-stagger-3 rounded-2xl border border-slate-100 dark:border-slate-800 bg-background-light dark:bg-slate-900/60 p-6 shadow-sm">
+<span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-accent-green text-white text-sm font-bold mb-4">3</span>
+<h3 class="text-lg font-bold text-primary dark:text-slate-100 mb-2">Optimizamos tu tarifa y gestionamos los cambios</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Hablamos con las compañías por ti para aplicar la tarifa adecuada, ajustar potencias y resolver incidencias.</p>
 </div>
-<div class="p-6">
-<div class="flex items-center gap-2 text-slate-500 mb-2">
-<span class="material-symbols-outlined text-sm">location_on</span>
-<span class="text-sm font-semibold uppercase tracking-wider" data-location="Málaga, España">Málaga Capital</span>
-</div>
-<h4 class="text-xl font-bold text-primary dark:text-slate-100 mb-4">Instalación industrial – Málaga</h4>
-<div class="grid grid-cols-2 gap-4">
-<div class="bg-background-light dark:bg-slate-800 p-3 rounded-lg">
-<span class="block text-[10px] font-bold text-slate-500 uppercase">Potencia</span>
-<span class="text-lg font-black text-primary dark:text-accent-green">45.0 kWp</span>
-</div>
-<div class="bg-background-light dark:bg-slate-800 p-3 rounded-lg">
-<span class="block text-[10px] font-bold text-slate-500 uppercase">Ahorro anual est.</span>
-<span class="text-lg font-black text-accent-green">12.5k €</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Project Card 3 -->
-<div class="anim-fade-up anim-stagger-3 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-800 group shadow-sm hover:shadow-xl transition-all">
-<div class="h-64 relative overflow-hidden">
-<img alt="Complejo Deportivo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Proyecto solar especializado con microinversores" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABO1QB5VTPomtvY9bw68X8TeXcbN6kD41tkqclnRuuN22X3qNMklyuhXxY9U_nJjYDU0qnAjSMSzgCYoumQHHFj7GbivosZ3J067KRlaQiXEzy2x7p_E5BNX2RTtOZ5XT-xYHy0SqKTHrBEYNkUiR7YlE7Jqt3wVGWjgZSmnSlHqJ9mLMBFYEI456UBBx6TBVSeUi8BCNKr5vm-bwZwBGAFTmfxNPu1tG3kU-6wswEUXqabcmU5wpuJWrMc39UZV0rUEXZoJqfEvI"/>
-<div class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">COMERCIAL</div>
-</div>
-<div class="p-6">
-<div class="flex items-center gap-2 text-slate-500 mb-2">
-<span class="material-symbols-outlined text-sm">location_on</span>
-<span class="text-sm font-semibold uppercase tracking-wider" data-location="Estepona, España">Estepona</span>
-</div>
-<h4 class="text-xl font-bold text-primary dark:text-slate-100 mb-4">Instalación comercial – Estepona</h4>
-<div class="grid grid-cols-2 gap-4">
-<div class="bg-background-light dark:bg-slate-800 p-3 rounded-lg">
-<span class="block text-[10px] font-bold text-slate-500 uppercase">Potencia</span>
-<span class="text-lg font-black text-primary dark:text-accent-green">15.8 kWp</span>
-</div>
-<div class="bg-background-light dark:bg-slate-800 p-3 rounded-lg">
-<span class="block text-[10px] font-bold text-slate-500 uppercase">Ahorro anual est.</span>
-<span class="text-lg font-black text-accent-green">85%</span>
-</div>
-</div>
-</div>
+<div class="anim-fade-up anim-stagger-3 rounded-2xl border border-slate-100 dark:border-slate-800 bg-background-light dark:bg-slate-900/60 p-6 shadow-sm">
+<span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-accent-green text-white text-sm font-bold mb-4">4</span>
+<h3 class="text-lg font-bold text-primary dark:text-slate-100 mb-2">Empiezas a pagar menos</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Te explicamos de forma sencilla los cambios realizados y cuánto puedes ahorrar a partir de ahora.</p>
 </div>
 </div>
 </div>
@@ -331,10 +328,10 @@
 <!-- Strong CTA -->
 <section class="py-20 bg-accent-green">
 <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-<h2 class="anim-fade-up text-3xl md:text-5xl font-black mb-8 leading-tight">Descubre cuánto puedes ahorrar con energía solar.</h2>
-<p class="anim-fade-up anim-stagger-1 text-xl opacity-90 mb-10 max-w-2xl mx-auto font-medium">Realizamos un estudio fotovoltaico personalizado sin compromiso. No vendemos paneles, diseñamos ahorros.</p>
+<h2 class="anim-fade-up text-3xl md:text-5xl font-black mb-8 leading-tight">Descubre si estás pagando de más en tu factura.</h2>
+<p class="anim-fade-up anim-stagger-1 text-xl opacity-90 mb-10 max-w-2xl mx-auto font-medium">Analizamos tu contrato de luz y gas, sin compromiso, y te proponemos cómo pagar menos.</p>
 <a href="#contacto" class="anim-fade-up anim-stagger-2 inline-block bg-white text-accent-green px-10 py-5 rounded-xl text-xl font-bold hover:bg-slate-50 transition-all shadow-2xl">
-                Empezar mi estudio gratuito
+                Analizar factura gratis
             </a><p class="text-sm opacity-80 mt-4">Estudio energético sin compromiso.</p>
 </div>
 </section>
@@ -343,9 +340,12 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="grid lg:grid-cols-2 gap-16 items-start">
 <div class="anim-slide-left">
-<h2 class="text-4xl font-black text-primary dark:text-slate-100 mb-6">Hablemos de su proyecto</h2>
-<p class="text-lg text-slate-600 dark:text-slate-400 mb-10 leading-relaxed">
-                        Nuestro equipo de ingeniería revisará su caso y le proporcionará una propuesta técnica preliminar en menos de 48 horas.
+<h2 class="text-4xl font-black text-primary dark:text-slate-100 mb-6">Envíanos tu factura y nos encargamos de todo</h2>
+<p class="text-lg text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
+                        Analizamos tu factura de luz y hablamos con la distribuidora por ti. Sin llamadas eternas, sin contestadores automáticos y sin letra pequeña.
+                    </p>
+<p class="text-base text-slate-600 dark:text-slate-400 mb-10 leading-relaxed">
+                        El formulario flotante que ves a la derecha está siempre disponible para que nos dejes tus datos en cualquier momento de la visita.
                     </p>
 <div class="space-y-6">
 <div class="flex items-center gap-4">
@@ -354,7 +354,7 @@
 </div>
 <div>
 <p class="text-sm font-bold text-slate-400 uppercase tracking-widest">Llámanos</p>
-<p class="text-lg font-bold text-primary dark:text-slate-100">+34 951 000 000</p>
+<p class="text-lg font-bold text-primary dark:text-slate-100">+34 609 56 20 70</p>
 </div>
 </div>
 <div class="flex items-center gap-4">
@@ -363,7 +363,7 @@
 </div>
 <div>
 <p class="text-sm font-bold text-slate-400 uppercase tracking-widest">Email</p>
-<p class="text-lg font-bold text-primary dark:text-slate-100">info@belonenergy.com</p>
+<p class="text-lg font-bold text-primary dark:text-slate-100">hola@belonenergy.com</p>
 </div>
 </div>
 <div class="flex items-center gap-4">
@@ -372,51 +372,95 @@
 </div>
 <div>
 <p class="text-sm font-bold text-slate-400 uppercase tracking-widest">Sede Central</p>
-<p class="text-lg font-bold text-primary dark:text-slate-100">Polígono Industrial Marbella, Calle A, 29603</p>
+<p class="text-lg font-bold text-primary dark:text-slate-100">C. Notario Luis Oliver, 1<br/>29601 Marbella, Málaga</p>
 </div>
 </div>
 </div>
-</div>
-<div class="anim-slide-right bg-background-light dark:bg-slate-900/50 p-8 md:p-10 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-2xl">
+        </div>
+        <div class="anim-slide-right hidden lg:block" id="contact-form-slot"></div>
+        </div>
+        </div>
+        </section>
+
+<!-- Panel flotante con formulario de captación -->
+<aside id="lead-form-panel" class="lead-form-panel lead-form-panel--floating">
+<div class="anim-slide-right bg-background-light dark:bg-slate-900/50 p-4 sm:p-5 md:p-6 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-2xl">
+<h3 class="text-lg font-black text-primary dark:text-slate-100 mb-3">Consigue tu mejor tarifa sin llamadas eternas</h3>
+<p class="text-xs text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">
+            Déjanos tus datos y, si quieres, sube tu factura de luz. Nosotros hablamos con la distribuidora y te proponemos la mejor opción.
+        </p>
 <!-- Endpoint propio: Netlify = "/.netlify/functions/send-email" | PHP = "https://tudominio.com/api/send-email.php" -->
-<form id="contact-form" class="grid grid-cols-1 md:grid-cols-2 gap-6" novalidate data-form-endpoint="/.netlify/functions/send-email">
+<form id="contact-form" class="grid grid-cols-1 md:grid-cols-2 gap-4" novalidate data-form-endpoint="/.netlify/functions/send-email">
 <!-- Honeypot anti-spam: si un bot lo rellena, no enviamos -->
 <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="absolute opacity-0 pointer-events-none h-0 w-0 overflow-hidden" aria-hidden="true"/>
-<div class="md:col-span-2">
-<label class="block text-sm font-bold text-primary dark:text-slate-100 mb-2" for="contact-name">Nombre completo</label>
-<input id="contact-name" name="nombre" class="w-full rounded-xl border border-slate-200 dark:border-slate-800 dark:bg-slate-800 focus:ring-2 focus:ring-accent-green focus:border-accent-green px-4 py-3" placeholder="Ej: Juan García" type="text" required maxlength="200" autocomplete="name"/>
+<div class="md:col-span-2 flex rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900">
+<button type="button" class="flex-1 px-3 py-2.5 text-xs font-bold text-center transition-colors segment-tab bg-accent-green text-white" data-segment="Particular">Particular</button>
+<button type="button" class="flex-1 px-3 py-2.5 text-xs font-semibold text-center transition-colors segment-tab bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300" data-segment="Comunidad">Comunidad</button>
+<button type="button" class="flex-1 px-3 py-2.5 text-xs font-semibold text-center transition-colors segment-tab bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300" data-segment="Empresa">Empresa</button>
 </div>
-<div>
-<label class="block text-sm font-bold text-primary dark:text-slate-100 mb-2" for="contact-email">Email</label>
-<input id="contact-email" name="email" class="w-full rounded-xl border border-slate-200 dark:border-slate-800 dark:bg-slate-800 focus:ring-2 focus:ring-accent-green focus:border-accent-green px-4 py-3" placeholder="juan@ejemplo.com" type="email" required maxlength="254" autocomplete="email"/>
-</div>
-<div>
-<label class="block text-sm font-bold text-primary dark:text-slate-100 mb-2" for="contact-phone">Teléfono</label>
-<input id="contact-phone" name="telefono" class="w-full rounded-xl border border-slate-200 dark:border-slate-800 dark:bg-slate-800 focus:ring-2 focus:ring-accent-green focus:border-accent-green px-4 py-3" placeholder="+34 000 000 000" type="tel" maxlength="50" autocomplete="tel"/>
-</div>
-<div>
-<label class="block text-sm font-bold text-primary dark:text-slate-100 mb-2" for="contact-property">Tipo de propiedad</label>
-<select id="contact-property" name="tipo_propiedad" class="w-full rounded-xl border border-slate-200 dark:border-slate-800 dark:bg-slate-800 focus:ring-2 focus:ring-accent-green focus:border-accent-green px-4 py-3"><option value="Vivienda">Vivienda</option><option value="Empresa">Empresa</option><option value="Comunidad">Comunidad</option></select>
-</div>
-<div>
-<label class="block text-sm font-bold text-primary dark:text-slate-100 mb-2" for="contact-gasto">Gasto mensual (€)</label>
-<select id="contact-gasto" name="gasto_mensual" class="w-full rounded-xl border border-slate-200 dark:border-slate-800 dark:bg-slate-800 focus:ring-2 focus:ring-accent-green focus:border-accent-green px-4 py-3"><option value="&lt;50€">&lt;50€</option><option value="50–100€">50–100€</option><option value="100–200€">100–200€</option><option value="+200€">+200€</option></select>
+<input type="hidden" name="segmento" id="contact-segmento" value="Particular"/>
+<div class="md:col-span-2 text-[11px] sm:text-xs text-slate-600 dark:text-slate-300 bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700 rounded-2xl px-3 py-2.5 leading-relaxed" id="segmento-mensaje">
+<strong>Particular.</strong> Déjanos tus datos y una copia opcional de tu última factura. Analizamos tu consumo y te llamamos con una propuesta clara, sin llamadas eternas ni contestadores automáticos.
 </div>
 <div class="md:col-span-2">
-<label class="block text-sm font-bold text-primary dark:text-slate-100 mb-2" for="contact-roof">Tipo de tejado</label>
-<select id="contact-roof" name="tipo_tejado" class="w-full rounded-xl border border-slate-200 dark:border-slate-800 dark:bg-slate-800 focus:ring-2 focus:ring-accent-green focus:border-accent-green px-4 py-3"><option value="Tejado inclinado">Tejado inclinado</option><option value="Cubierta plana">Cubierta plana</option><option value="No lo sé">No lo sé</option></select>
+<label class="block text-xs font-bold text-primary dark:text-slate-100 mb-1.5" for="contact-name">Nombre completo</label>
+<input id="contact-name" name="nombre" class="w-full rounded-xl border border-slate-200 dark:border-slate-800 dark:bg-slate-800 focus:ring-2 focus:ring-accent-green focus:border-accent-green px-3 py-2.5 text-sm" placeholder="Ej: Juan García" type="text" required maxlength="200" autocomplete="name"/>
 </div>
-<div class="md:col-span-2 pt-4">
-<button id="contact-submit" class="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 disabled:opacity-60 disabled:cursor-not-allowed" type="submit">
-Enviar solicitud de estudio
+<div>
+<label class="block text-xs font-bold text-primary dark:text-slate-100 mb-1.5" for="contact-phone">Teléfono</label>
+<input id="contact-phone" name="telefono" class="w-full rounded-xl border border-slate-200 dark:border-slate-800 dark:bg-slate-800 focus:ring-2 focus:ring-accent-green focus:border-accent-green px-3 py-2.5 text-sm" placeholder="+34 000 000 000" type="tel" maxlength="50" autocomplete="tel" required/>
+</div>
+<div>
+<label class="block text-xs font-bold text-primary dark:text-slate-100 mb-1.5" for="contact-email">Email (opcional)</label>
+<input id="contact-email" name="email" class="w-full rounded-xl border border-slate-200 dark:border-slate-800 dark:bg-slate-800 focus:ring-2 focus:ring-accent-green focus:border-accent-green px-3 py-2.5 text-sm" placeholder="juan@ejemplo.com" type="email" maxlength="254" autocomplete="email"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-primary dark:text-slate-100 mb-1.5" for="contact-supply">Tipo de suministro</label>
+<select id="contact-supply" name="tipo_suministro" class="w-full rounded-xl border border-slate-200 dark:border-slate-800 dark:bg-slate-800 focus:ring-2 focus:ring-accent-green focus:border-accent-green px-3 py-2.5 text-sm">
+<option value="Luz y gas">Luz y gas</option>
+<option value="Solo luz">Solo luz</option>
+<option value="Solo gas">Solo gas</option>
+</select>
+</div>
+<div>
+<label class="block text-xs font-bold text-primary dark:text-slate-100 mb-1.5" for="contact-bill">Factura mensual aproximada</label>
+<select id="contact-bill" name="factura_mensual" class="w-full rounded-xl border border-slate-200 dark:border-slate-800 dark:bg-slate-800 focus:ring-2 focus:ring-accent-green focus:border-accent-green px-3 py-2.5 text-sm">
+<option value="Menos de 50€">Menos de 50€</option>
+<option value="50–100€">50–100€</option>
+<option value="100–200€">100–200€</option>
+<option value="+200€">Más de 200€</option>
+</select>
+</div>
+<div class="md:col-span-2">
+<label class="block text-xs font-bold text-primary dark:text-slate-100 mb-1.5" for="contact-factura">Sube tu última factura (opcional)</label>
+<input id="contact-factura" name="factura" class="block w-full text-xs text-slate-700 dark:text-slate-200 file:mr-3 file:py-2 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-primary file:text-white hover:file:bg-primary/90 cursor-pointer" type="file" accept=".pdf,.jpg,.jpeg,.png"/>
+<p class="mt-1.5 text-[10px] text-slate-500">Factura reciente de luz o gas en PDF o imagen. Si no la tienes a mano, puedes enviárnosla después.</p>
+</div>
+<div class="md:col-span-2 flex items-start gap-2 mt-1">
+<input id="contact-privacy" name="acepta_privacidad" type="checkbox" class="mt-1 rounded border-slate-300 text-accent-green focus:ring-accent-green" required/>
+<label for="contact-privacy" class="text-[10px] text-slate-600 dark:text-slate-300 leading-relaxed">He leído y acepto la <button type="button" class="underline hover:text-primary dark:hover:text-accent-green transition-colors cursor-pointer" id="open-privacy-from-form">política de privacidad y protección de datos</button>.</label>
+</div>
+<div class="md:col-span-2 pt-1.5">
+<button id="contact-submit" class="w-full bg-primary text-white py-3 rounded-xl font-bold text-sm hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 disabled:opacity-60 disabled:cursor-not-allowed" type="submit">
+Quiero que reviséis mi factura
 </button>
-<p class="text-center text-xs text-slate-500 mt-4">Al enviar, acepta nuestra <button type="button" class="underline hover:text-primary dark:hover:text-accent-green transition-colors cursor-pointer" id="open-privacy-from-form">política de privacidad y protección de datos</button>.</p>
+<p class="text-center text-[10px] text-slate-500 mt-2">Analizamos tu caso sin compromiso y te llamamos en menos de 48 horas.</p>
 </div>
 </form>
 </div>
-</div>
-</div>
-</section>
+</aside>
+
+<!-- Botón flotante para abrir/cerrar formulario -->
+<button id="lead-form-toggle" type="button" class="floating-button floating-button-form bg-primary text-white rounded-full shadow-xl shadow-primary/40 px-3 py-3 flex items-center justify-center hover:bg-primary/90 transition-all">
+<span class="material-symbols-outlined text-2xl" aria-hidden="true">edit_note</span>
+<span class="sr-only">Abrir o cerrar formulario de Belón Energy</span>
+</button>
+
+<!-- Botón flotante de WhatsApp -->
+<a href="https://wa.me/34609562070?text=Hola%20Bel%C3%B3n%20Energy,%20quiero%20que%20revis%C3%A9is%20mi%20factura%20de%20luz." target="_blank" rel="noopener noreferrer" class="floating-button floating-button-whatsapp bg-[#25D366] text-white rounded-full shadow-xl shadow-green-500/40 px-3 py-3 flex items-center justify-center hover:bg-[#1ebe5c] transition-all">
+<span class="material-symbols-outlined text-3xl" aria-hidden="true">chat</span>
+<span class="sr-only">Abrir conversación de WhatsApp con Belón Energy</span>
+</a>
 
 <!-- Modales de respuesta del formulario -->
 <div id="modal-success" class="form-modal" role="dialog" aria-modal="true" aria-labelledby="modal-success-title">
@@ -446,8 +490,8 @@ Enviar solicitud de estudio
 <h2 id="modal-privacy-title" class="text-xl font-black text-primary mb-4">Política de privacidad y protección de datos</h2>
 <div class="text-slate-600 text-sm leading-relaxed space-y-4">
 <p><strong class="text-primary">Responsable.</strong> Los datos que nos facilite serán tratados por Belón Energy. Puede contactarnos en hola@belonenergy.com o en C. Notario Luis Oliver, 1, 29601 Marbella, Málaga.</p>
-<p><strong class="text-primary">Finalidad y legitimación.</strong> Utilizamos sus datos para atender su solicitud de información o de estudio fotovoltaico, en base a su consentimiento y a la ejecución de medidas precontractuales.</p>
-<p><strong class="text-primary">Datos que recabamos.</strong> Nombre, email, teléfono, tipo de propiedad, consumo estimado y tipo de tejado, únicamente los que nos indica en el formulario.</p>
+<p><strong class="text-primary">Finalidad y legitimación.</strong> Utilizamos sus datos para atender su solicitud de revisión de factura y optimización de contratos de luz y gas, en base a su consentimiento y a la ejecución de medidas precontractuales.</p>
+<p><strong class="text-primary">Datos que recabamos.</strong> Nombre, email, teléfono, tipo de suministro, importe mensual aproximado y, si lo desea, copia de su factura, únicamente los que nos indica en el formulario.</p>
 <p><strong class="text-primary">Destinatarios.</strong> No cedemos sus datos a terceros, salvo obligación legal. El envío del formulario se gestiona mediante servicios que cumplen la normativa aplicable.</p>
 <p><strong class="text-primary">Derechos.</strong> Puede acceder, rectificar, suprimir sus datos, limitar u oponerse al tratamiento y a la portabilidad, dirigiéndose a la dirección de contacto anterior. Tiene derecho a reclamar ante la autoridad de control (AEPD).</p>
 <p><strong class="text-primary">Cookies.</strong> Esta web puede utilizar cookies técnicas necesarias para el funcionamiento y, si acepta el banner, cookies de preferencias. Puede configurar o rechazar las no esenciales desde el aviso de cookies. No usamos cookies de terceros para publicidad sin su consentimiento.</p>
@@ -523,6 +567,11 @@ Ingeniería especializada en energía fotovoltaica. Soluciones de autoconsumo pa
   var modalError = document.getElementById('modal-error');
   var modalErrorMsg = document.getElementById('modal-error-message');
   var modalPrivacy = document.getElementById('modal-privacy');
+  var leadFormPanel = document.getElementById('lead-form-panel');
+  var leadFormToggle = document.getElementById('lead-form-toggle');
+  var contactSection = document.getElementById('contacto');
+  var contactFormSlot = document.getElementById('contact-form-slot');
+  var leadFormOriginalParent = leadFormPanel && leadFormPanel.parentNode;
 
   function openModal(modal) {
     if (modal) {
@@ -565,24 +614,152 @@ Ingeniería especializada en energía fotovoltaica. Soluciones de autoconsumo pa
   function validateForm() {
     var name = document.getElementById('contact-name');
     var email = document.getElementById('contact-email');
+    var phone = document.getElementById('contact-phone');
+    var privacy = document.getElementById('contact-privacy');
     var valid = true;
-    [name, email].forEach(function(field) {
-      if (!field || !field.value.trim()) {
-        field.setCustomValidity('Campo obligatorio');
-        valid = false;
-      } else {
-        field.setCustomValidity('');
-      }
-    });
+
+    if (!name || !name.value.trim()) {
+      name && name.setCustomValidity('Campo obligatorio');
+      valid = false;
+    } else {
+      name.setCustomValidity('');
+    }
+
+    var hasEmail = email && email.value.trim();
+    var hasPhone = phone && phone.value.trim();
+    if (!hasEmail && !hasPhone) {
+      if (email) email.setCustomValidity('Indica al menos un medio de contacto');
+      if (phone) phone.setCustomValidity('Indica al menos un medio de contacto');
+      valid = false;
+    } else {
+      email && email.setCustomValidity('');
+      phone && phone.setCustomValidity('');
+    }
+
+    if (privacy && !privacy.checked) {
+      privacy.setCustomValidity('Debes aceptar la política de privacidad');
+      valid = false;
+    } else if (privacy) {
+      privacy.setCustomValidity('');
+    }
+
     return valid;
   }
 
-  var MAX_LENGTH = { nombre: 200, email: 254, telefono: 50 };
+  var MAX_LENGTH = { nombre: 200, email: 254, telefono: 50, segmento: 50, tipo_suministro: 100, factura_mensual: 100 };
   function trimToMax(str, max) {
     if (typeof str !== 'string') return '';
     var t = str.trim();
     return t.length > max ? t.slice(0, max) : t;
   }
+
+  // Cambio de pestañas (Particular / Comunidad / Empresa)
+  var segmentTabs = document.querySelectorAll('.segment-tab');
+  var segmentHidden = document.getElementById('contact-segmento');
+  var segmentMessage = document.getElementById('segmento-mensaje');
+  function updateSegment(segment) {
+    if (segmentHidden) segmentHidden.value = segment;
+    segmentTabs.forEach(function(tab) {
+      var isActive = tab.getAttribute('data-segment') === segment;
+      if (isActive) {
+        tab.classList.add('bg-accent-green','text-white');
+        tab.classList.remove('bg-slate-100','dark:bg-slate-800','text-slate-600','dark:text-slate-300');
+      } else {
+        tab.classList.remove('bg-accent-green','text-white');
+        tab.classList.add('bg-slate-100','dark:bg-slate-800','text-slate-600','dark:text-slate-300');
+      }
+    });
+    if (segmentMessage) {
+      if (segment === 'Comunidad') {
+        segmentMessage.innerHTML = '<strong>Comunidad.</strong> Si administras una comunidad de propietarios, revisamos las facturas del edificio y negociamos directamente con la distribuidora para optimizar el coste energético del conjunto.';
+      } else if (segment === 'Empresa') {
+        segmentMessage.innerHTML = '<strong>Empresa.</strong> Analizamos los consumos de tu negocio y centralizamos la gestión con la distribuidora para que no pierdas tiempo en llamadas y gestiones administrativas.';
+      } else {
+        segmentMessage.innerHTML = '<strong>Particular.</strong> Déjanos tus datos y una copia opcional de tu última factura. Analizamos tu consumo y te llamamos con una propuesta clara, sin llamadas eternas ni contestadores automáticos.';
+      }
+    }
+  }
+  segmentTabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      var seg = tab.getAttribute('data-segment') || 'Particular';
+      updateSegment(seg);
+    });
+  });
+  if (segmentHidden && !segmentHidden.value) {
+    updateSegment('Particular');
+  }
+
+  // Mostrar/ocultar panel flotante del formulario
+  function showLeadForm() {
+    if (leadFormPanel) {
+      leadFormPanel.classList.remove('lead-form-panel--hidden');
+    }
+    if (leadFormToggle) {
+      leadFormToggle.setAttribute('aria-pressed', 'true');
+      leadFormToggle.style.display = '';
+    }
+  }
+  function hideLeadForm() {
+    if (leadFormPanel) {
+      leadFormPanel.classList.add('lead-form-panel--hidden');
+    }
+    if (leadFormToggle) {
+      leadFormToggle.setAttribute('aria-pressed', 'false');
+    }
+  }
+  if (leadFormToggle) {
+    leadFormToggle.addEventListener('click', function() {
+      var isHidden = leadFormPanel && leadFormPanel.classList.contains('lead-form-panel--hidden');
+      if (isHidden) {
+        showLeadForm();
+      } else {
+        hideLeadForm();
+      }
+    });
+  }
+  // Mover el formulario entre modo flotante y embebido según la sección de contacto
+  function moveFormToContact() {
+    if (!leadFormPanel || !contactFormSlot) return;
+    leadFormPanel.classList.add('lead-form-panel--hidden');
+    setTimeout(function() {
+      contactFormSlot.appendChild(leadFormPanel);
+      leadFormPanel.classList.remove('lead-form-panel--floating');
+      leadFormPanel.classList.add('lead-form-panel--embedded');
+      if (leadFormToggle) leadFormToggle.style.display = 'none';
+      requestAnimationFrame(function() {
+        leadFormPanel.classList.remove('lead-form-panel--hidden');
+      });
+    }, 180);
+  }
+  function moveFormToFloating() {
+    if (!leadFormPanel || !leadFormOriginalParent) return;
+    leadFormPanel.classList.add('lead-form-panel--hidden');
+    setTimeout(function() {
+      leadFormOriginalParent.appendChild(leadFormPanel);
+      leadFormPanel.classList.remove('lead-form-panel--embedded');
+      leadFormPanel.classList.add('lead-form-panel--floating');
+      if (leadFormToggle) leadFormToggle.style.display = '';
+      requestAnimationFrame(function() {
+        leadFormPanel.classList.remove('lead-form-panel--hidden');
+      });
+    }, 180);
+  }
+
+  if (contactSection && leadFormPanel) {
+    var contactObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          moveFormToContact();
+        } else {
+          moveFormToFloating();
+        }
+      });
+    }, { rootMargin: '-30% 0px -30% 0px', threshold: 0.2 });
+    contactObserver.observe(contactSection);
+  }
+
+  // Por defecto, formulario flotante abierto al cargar
+  showLeadForm();
 
   if (form && formEndpoint && formEndpoint.trim() !== '') {
     form.addEventListener('submit', function(e) {
@@ -603,14 +780,26 @@ Ingeniería especializada en energía fotovoltaica. Soluciones de autoconsumo pa
       }
       submitBtn.disabled = true;
       submitBtn.textContent = 'Enviando…';
-      var payload = {
-        nombre: trimToMax(form.querySelector('[name="nombre"]').value, MAX_LENGTH.nombre),
-        email: trimToMax(form.querySelector('[name="email"]').value, MAX_LENGTH.email),
-        telefono: trimToMax(form.querySelector('[name="telefono"]').value, MAX_LENGTH.telefono),
-        tipo_propiedad: form.querySelector('[name="tipo_propiedad"]').value,
-        gasto_mensual: form.querySelector('[name="gasto_mensual"]').value,
-        tipo_tejado: form.querySelector('[name="tipo_tejado"]').value
-      };
+
+      var formData = new FormData();
+      var nombre = trimToMax(form.querySelector('[name="nombre"]').value, MAX_LENGTH.nombre);
+      var emailValue = trimToMax(form.querySelector('[name="email"]').value, MAX_LENGTH.email);
+      var telefono = trimToMax(form.querySelector('[name="telefono"]').value, MAX_LENGTH.telefono);
+      var segmento = trimToMax((segmentHidden && segmentHidden.value) || 'Particular', MAX_LENGTH.segmento);
+      var tipoSuministro = trimToMax((form.querySelector('[name="tipo_suministro"]') && form.querySelector('[name="tipo_suministro"]').value) || '', MAX_LENGTH.tipo_suministro);
+      var facturaMensual = trimToMax((form.querySelector('[name="factura_mensual"]') && form.querySelector('[name="factura_mensual"]').value) || '', MAX_LENGTH.factura_mensual);
+      var facturaInput = form.querySelector('[name="factura"]');
+
+      formData.append('nombre', nombre);
+      formData.append('email', emailValue);
+      formData.append('telefono', telefono);
+      formData.append('segmento', segmento);
+      formData.append('tipo_suministro', tipoSuministro);
+      formData.append('factura_mensual', facturaMensual);
+
+      if (facturaInput && facturaInput.files && facturaInput.files[0]) {
+        formData.append('factura', facturaInput.files[0]);
+      }
       var url = formEndpoint.trim().startsWith('http') ? formEndpoint.trim() : (window.location.origin + formEndpoint.trim());
       if (url.indexOf('https://') !== 0 && !isLocal) {
         if (modalErrorMsg) modalErrorMsg.textContent = 'El endpoint del formulario debe usar HTTPS en producción.';
@@ -621,8 +810,7 @@ Ingeniería especializada en energía fotovoltaica. Soluciones de autoconsumo pa
       }
       fetch(url, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        body: formData
       }).then(function(res) {
         return res.json().then(function(data) {
           if (data.success) {
