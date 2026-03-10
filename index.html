@@ -157,12 +157,36 @@
             display: none;
         }
         @media (max-width: 1024px) {
+            /* Tablets: panel flotante ancho pero no a pantalla completa */
             .lead-form-panel--floating {
                 right: 0.75rem;
                 left: 0.75rem;
                 top: auto;
                 bottom: 5.5rem;
                 max-width: none;
+            }
+        }
+        @media (max-width: 767px) {
+            /* Móvil: el formulario se comporta como un modal a pantalla completa */
+            .lead-form-panel--floating {
+                inset: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                max-width: none;
+                padding: 1rem;
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                overflow-y: auto;
+                background: rgba(0, 0, 0, 0.35);
+                backdrop-filter: blur(4px);
+            }
+            .lead-form-panel--floating > div {
+                width: 100%;
+                max-width: 480px;
+                margin-top: 1.25rem;
             }
         }
 
@@ -979,6 +1003,10 @@ Ingeniería especializada en energía fotovoltaica. Soluciones de autoconsumo pa
 
     if (leadFormPanel) {
       leadFormPanel.classList.remove('lead-form-panel--hidden');
+      // En móvil, cuando el formulario es flotante, bloqueamos el scroll del body (experiencia de modal)
+      if (isMobile && leadFormPanel.classList.contains('lead-form-panel--floating')) {
+        document.body.style.overflow = 'hidden';
+      }
     }
     if (leadFormToggle) {
       leadFormToggle.setAttribute('aria-pressed', 'true');
@@ -999,6 +1027,8 @@ Ingeniería especializada en energía fotovoltaica. Soluciones de autoconsumo pa
     if (leadFormPanel) {
       leadFormPanel.classList.add('lead-form-panel--hidden');
     }
+    // Siempre liberamos el scroll global al ocultar el formulario flotante
+    document.body.style.overflow = '';
     if (leadFormToggle) {
       leadFormToggle.setAttribute('aria-pressed', 'false');
       leadFormToggle.classList.remove('floating-button--round');
@@ -1039,6 +1069,8 @@ Ingeniería especializada en energía fotovoltaica. Soluciones de autoconsumo pa
       contactFormSlot.appendChild(leadFormPanel);
       leadFormPanel.classList.remove('lead-form-panel--floating');
       leadFormPanel.classList.add('lead-form-panel--embedded');
+      // En modo embebido nunca bloqueamos el scroll del body
+      document.body.style.overflow = '';
       if (leadFormToggle) leadFormToggle.style.display = 'none';
       requestAnimationFrame(function() {
         // En la sección de contacto el formulario siempre debe ser visible
@@ -1057,6 +1089,10 @@ Ingeniería especializada en energía fotovoltaica. Soluciones de autoconsumo pa
       requestAnimationFrame(function() {
         if (!leadFormClosedByUser) {
           leadFormPanel.classList.remove('lead-form-panel--hidden');
+          // Si volvemos al modo flotante en móvil y el usuario no lo ha cerrado, restablecemos la experiencia tipo modal
+          if (isMobile) {
+            document.body.style.overflow = 'hidden';
+          }
         }
       });
     }, 180);
