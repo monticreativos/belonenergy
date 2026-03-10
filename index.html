@@ -7,10 +7,15 @@
 <title>Revisamos y gestionamos tu factura de luz y gas | Belón Energy</title>
 <meta name="description" content="Belón Energy revisa tu factura de luz y gas, detecta sobrecostes, optimiza tus tarifas y gestiona las gestiones con las compañías para que pagues menos sin perder tiempo en llamadas. Análisis de factura gratis y sin compromiso para hogares y pequeños negocios."/>
 <link rel="icon" type="image/png" href="assets/img/favicon.png"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Preconnect para reducir latencia de recursos externos -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin/>
+<!-- Preload del recurso LCP (imagen poster del hero) para mejorar FCP/LCP -->
+<link rel="preload" as="image" href="assets/img/coins-stack-with-light-bulb-jar.jpg"/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">tailwind.config = {
             darkMode: "class",
             theme: {
@@ -280,11 +285,11 @@
 <section id="hero" class="relative min-h-[85vh] flex items-center overflow-hidden">
 <div class="absolute inset-0 z-0">
 <div class="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/40 z-10"></div>
-<video class="w-full h-full object-cover object-bottom" src="assets/video/video.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+<video id="hero-video" class="w-full h-full object-cover object-bottom" data-src="assets/video/video.mp4" poster="assets/img/coins-stack-with-light-bulb-jar.jpg" autoplay muted loop playsinline preload="metadata" fetchpriority="high" aria-hidden="true"></video>
 </div>
 <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
 <div class="max-w-3xl">
-<h1 class="anim-fade-up text-4xl md:text-6xl font-black text-white leading-[1.1] mb-6 tracking-tight" data-i18n="hero_title">
+<h1 class="anim-fade-up text-4xl md:text-6xl font-black text-white leading-[1.1] mb-6 tracking-tight is-visible" data-i18n="hero_title">
                     Revisamos y gestionamos tu factura de luz y gas para que pagues menos.
                 </h1>
 <p class="anim-fade-up anim-stagger-1 text-lg md:text-xl text-white/90 mb-10 font-medium leading-relaxed" data-i18n="hero_subtitle">
@@ -297,6 +302,9 @@
 </div>
 </div>
 </section>
+<script>
+(function(){var v=document.getElementById('hero-video');if(!v)return;var m=window.matchMedia('(max-width:767px)').matches;if(!m){v.src=v.getAttribute('data-src');}else{if('requestIdleCallback'in window){requestIdleCallback(function(){v.src=v.getAttribute('data-src');},{timeout:4e3});}else{setTimeout(function(){v.src=v.getAttribute('data-src');},1500);}}})();
+</script>
 <!-- Authority Section eliminada -->
 <!-- Why Belón Energy -->
 <section class="py-24 bg-white dark:bg-background-dark" id="nosotros">
@@ -736,7 +744,7 @@ Quiero que reviséis mi factura
 <!-- Marca: logo grande + descripción -->
 <div class="md:col-span-1">
 <a href="#" class="inline-block mb-4">
-<img src="assets/img/Logo PNG blanco.png" alt="Belón Energy" class="h-12 w-auto"/>
+<img src="assets/img/Logo PNG blanco.png" alt="Belón Energy" class="h-12 w-auto" loading="lazy"/>
 </a>
 <p class="text-slate-400 text-sm leading-relaxed max-w-xs" data-i18n="footer_brand_text">
 Ingeniería especializada en energía fotovoltaica. Soluciones de autoconsumo para un futuro sostenible.
