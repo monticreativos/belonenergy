@@ -132,11 +132,18 @@
             color: #64748b;
             cursor: pointer;
             transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+            padding: 0;
         }
         .lead-form-close:hover {
             background-color: rgba(15, 23, 42, 0.08);
             color: #0f172a;
             box-shadow: 0 4px 10px rgba(15,23,42,0.15);
+        }
+        .lead-form-close .material-symbols-outlined {
+            display: block;
+            line-height: 1;
+            font-size: 18px;
+            transform: translateY(0.5px);
         }
         .dark .lead-form-close {
             background: rgba(15, 23, 42, 0.6);
@@ -164,12 +171,14 @@
             position: fixed;
             right: 1rem;
             z-index: 70;
-            width: 3.25rem;
-            height: 3.25rem;
-            border-radius: 9999px;
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+        .floating-button--round {
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 9999px;
             padding: 0;
         }
         .floating-button-form {
@@ -522,7 +531,7 @@
         </section>
 
 <!-- Panel flotante con formulario de captación -->
-<aside id="lead-form-panel" class="lead-form-panel lead-form-panel--floating">
+<aside id="lead-form-panel" class="lead-form-panel lead-form-panel--floating lead-form-panel--hidden">
 <div class="anim-slide-right bg-background-light dark:bg-slate-900/50 p-4 sm:p-5 md:p-6 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-2xl relative">
 <button type="button" id="lead-form-close" class="lead-form-close" aria-label="Ocultar formulario">
 <span class="material-symbols-outlined text-base" aria-hidden="true">close</span>
@@ -606,14 +615,17 @@ Quiero que reviséis mi factura
 </aside>
 
 <!-- Botón flotante para abrir/cerrar formulario -->
-<button id="lead-form-toggle" type="button" class="floating-button floating-button-form bg-primary text-white rounded-full shadow-xl shadow-primary/40 px-3 py-3 flex items-center justify-center hover:bg-primary/90 transition-all">
-<span class="material-symbols-outlined text-2xl" aria-hidden="true">edit_note</span>
+<button id="lead-form-toggle" type="button" class="floating-button floating-button-form bg-primary text-white rounded-full shadow-xl shadow-primary/40 px-4 py-2 flex items-center justify-center gap-2 hover:bg-primary/90 transition-all">
+<span id="lead-form-toggle-icon" class="material-symbols-outlined text-xl" aria-hidden="true">info</span>
+<span id="lead-form-toggle-text" class="text-xs font-semibold whitespace-nowrap">Analizar factura gratis</span>
 <span class="sr-only">Abrir o cerrar formulario de Belón Energy</span>
 </button>
 
 <!-- Botón flotante de WhatsApp -->
-<a href="https://wa.me/34609562070?text=Hola%20Bel%C3%B3n%20Energy,%20quiero%20que%20revis%C3%A9is%20mi%20factura%20de%20luz." target="_blank" rel="noopener noreferrer" class="floating-button floating-button-whatsapp bg-[#25D366] text-white rounded-full shadow-xl shadow-green-500/40 px-3 py-3 flex items-center justify-center hover:bg-[#1ebe5c] transition-all">
-<span class="material-symbols-outlined text-3xl" aria-hidden="true">chat</span>
+<a href="https://wa.me/34609562070?text=Hola%20Bel%C3%B3n%20Energy,%20quiero%20que%20revis%C3%A9is%20mi%20factura%20de%20luz." target="_blank" rel="noopener noreferrer" class="floating-button floating-button-whatsapp floating-button--round bg-[#25D366] text-white rounded-full shadow-xl shadow-green-500/40 flex items-center justify-center hover:bg-[#1ebe5c] transition-all">
+<svg aria-hidden="true" viewBox="0 0 32 32" class="w-12 h-12 fill-current">
+<path d="M16.04 6.001c-4.411 0-8 3.587-8 7.998 0 1.41.371 2.783 1.079 3.993l-1.144 4.178 4.289-1.123c1.173.642 2.5.98 3.846.981h.003c4.411 0 7.999-3.588 7.999-7.999 0-2.138-.832-4.146-2.344-5.657S18.177 6.001 16.04 6.001zm0 2.003c1.602 0 3.108.624 4.241 1.758 1.133 1.133 1.757 2.639 1.757 4.241 0 3.308-2.693 5.999-5.998 5.999h-.002c-1.1 0-2.187-.304-3.135-.879l-.224-.134-2.545.666.68-2.484-.146-.255c-.636-1.108-.972-2.379-.972-3.689 0-3.308 2.692-5.999 5.998-5.999zm-2.013 2.666c-.133 0-.34.049-.518.245-.179.197-.68.662-.68 1.614 0 .952.696 1.873.793 2.003.098.13 1.34 2.142 3.287 2.913 1.626.642 1.957.516 2.311.483.355-.032 1.142-.466 1.302-.916.16-.449.16-.835.113-.916-.048-.081-.179-.13-.374-.227-.196-.098-1.159-.571-1.338-.636-.179-.065-.309-.098-.438.098-.13.196-.503.636-.616.767-.113.13-.226.147-.422.049-.196-.098-.828-.305-1.578-.973-.583-.518-.976-1.157-1.091-1.353-.113-.195-.012-.301.085-.397.087-.087.196-.227.293-.34.098-.114.13-.196.196-.327.065-.13.033-.245-.017-.34-.049-.098-.431-1.039-.607-1.421-.16-.355-.326-.306-.458-.312z"/>
+</svg>
 <span class="sr-only">Abrir conversación de WhatsApp con Belón Energy</span>
 </a>
 
@@ -734,9 +746,12 @@ Ingeniería especializada en energía fotovoltaica. Soluciones de autoconsumo pa
   var themeToggle = document.getElementById('theme-toggle');
   var themeToggleLabel = document.getElementById('theme-toggle-label');
   var leadFormCloseBtn = document.getElementById('lead-form-close');
+  var leadFormToggleIcon = document.getElementById('lead-form-toggle-icon');
+  var leadFormToggleText = document.getElementById('lead-form-toggle-text');
   var humanCheckInput = document.getElementById('human-check');
   var formLoadTimeInput = document.getElementById('form-load-time');
   var pageLoadTime = Date.now();
+  var leadFormClosedByUser = false;
 
   // --------------------
   // Gestión de modo claro / oscuro
@@ -958,36 +973,59 @@ Ingeniería especializada en energía fotovoltaica. Soluciones de autoconsumo pa
   }
 
   // Mostrar/ocultar panel flotante del formulario
-  function showLeadForm() {
+  function showLeadForm(isManual) {
+    // Si el usuario lo ha cerrado explícitamente, no lo abrimos de forma automática
+    if (!isManual && leadFormClosedByUser) return;
+
     if (leadFormPanel) {
       leadFormPanel.classList.remove('lead-form-panel--hidden');
     }
     if (leadFormToggle) {
       leadFormToggle.setAttribute('aria-pressed', 'true');
       leadFormToggle.style.display = '';
+      leadFormToggle.classList.add('floating-button--round');
+      if (leadFormToggleIcon) leadFormToggleIcon.textContent = 'close';
+      if (leadFormToggleText) {
+        leadFormToggleText.textContent = '';
+        leadFormToggleText.classList.add('hidden');
+      }
+    }
+
+    if (isManual) {
+      leadFormClosedByUser = false;
     }
   }
-  function hideLeadForm() {
+  function hideLeadForm(isManual) {
     if (leadFormPanel) {
       leadFormPanel.classList.add('lead-form-panel--hidden');
     }
     if (leadFormToggle) {
       leadFormToggle.setAttribute('aria-pressed', 'false');
+      leadFormToggle.classList.remove('floating-button--round');
+      if (leadFormToggleIcon) leadFormToggleIcon.textContent = 'info';
+      if (leadFormToggleText) {
+        leadFormToggleText.textContent = 'Analizar factura gratis';
+        leadFormToggleText.classList.remove('hidden');
+      }
+    }
+
+    if (isManual) {
+      leadFormClosedByUser = true;
     }
   }
   if (leadFormToggle) {
     leadFormToggle.addEventListener('click', function() {
       var isHidden = leadFormPanel && leadFormPanel.classList.contains('lead-form-panel--hidden');
       if (isHidden) {
-        showLeadForm();
+        showLeadForm(true);
       } else {
-        hideLeadForm();
+        hideLeadForm(true);
       }
     });
   }
   if (leadFormCloseBtn) {
     leadFormCloseBtn.addEventListener('click', function() {
-      hideLeadForm();
+      hideLeadForm(true);
       if (leadFormToggle) {
         leadFormToggle.focus();
       }
@@ -1003,6 +1041,7 @@ Ingeniería especializada en energía fotovoltaica. Soluciones de autoconsumo pa
       leadFormPanel.classList.add('lead-form-panel--embedded');
       if (leadFormToggle) leadFormToggle.style.display = 'none';
       requestAnimationFrame(function() {
+        // En la sección de contacto el formulario siempre debe ser visible
         leadFormPanel.classList.remove('lead-form-panel--hidden');
       });
     }, 180);
@@ -1016,7 +1055,9 @@ Ingeniería especializada en energía fotovoltaica. Soluciones de autoconsumo pa
       leadFormPanel.classList.add('lead-form-panel--floating');
       if (leadFormToggle) leadFormToggle.style.display = '';
       requestAnimationFrame(function() {
-        leadFormPanel.classList.remove('lead-form-panel--hidden');
+        if (!leadFormClosedByUser) {
+          leadFormPanel.classList.remove('lead-form-panel--hidden');
+        }
       });
     }, 180);
   }
@@ -1034,8 +1075,15 @@ Ingeniería especializada en energía fotovoltaica. Soluciones de autoconsumo pa
     contactObserver.observe(contactSection);
   }
 
-  // Por defecto, formulario flotante abierto al cargar
-  showLeadForm();
+  // Por defecto, en escritorio el formulario flotante aparece abierto.
+  // En pantallas pequeñas (móvil) se inicia cerrado para no ser agresivo.
+  var isMobile = window.matchMedia && window.matchMedia('(max-width: 767px)').matches;
+  if (isMobile) {
+    leadFormClosedByUser = true;
+    hideLeadForm(false);
+  } else {
+    showLeadForm(false);
+  }
 
   if (form && formEndpoint && formEndpoint.trim() !== '') {
     form.addEventListener('submit', function(e) {
