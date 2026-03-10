@@ -3,7 +3,9 @@
 <html lang="es"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Belón Energy - Ingeniería Fotovoltaica de Precisión</title>
+<meta name="robots" content="index, follow"/>
+<title>Revisamos y gestionamos tu factura de luz y gas | Belón Energy</title>
+<meta name="description" content="Belón Energy revisa tu factura de luz y gas, detecta sobrecostes, optimiza tus tarifas y gestiona las gestiones con las compañías para que pagues menos sin perder tiempo en llamadas. Análisis de factura gratis y sin compromiso para hogares y pequeños negocios."/>
 <link rel="icon" type="image/png" href="assets/img/favicon.png"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
@@ -222,7 +224,26 @@
                 transform: none;
             }
         }
-    </style>
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Belón Energy",
+  "description": "Servicio especializado en revisar y gestionar facturas de luz y gas: análisis de factura, optimización de tarifas y gestión con compañías para hogares y pequeños negocios.",
+  "url": "https://www.belonenergy.com/",
+  "telephone": "+34 636 497 068",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "C. Notario Luis Oliver, 1",
+    "addressLocality": "Marbella",
+    "addressRegion": "Málaga",
+    "postalCode": "29601",
+    "addressCountry": "ES"
+  },
+  "areaServed": "ES"
+}
+</script>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
 <!-- Top Navigation -->
@@ -234,17 +255,21 @@
 <img src="assets/img/Logo PNG blanco.png" alt="Belón Energy" class="h-12 sm:h-14 w-auto hidden dark:inline-block"/>
 </a>
 <nav class="hidden md:flex items-center gap-8">
-<a class="text-sm font-semibold hover:text-primary/70 transition-colors" href="#servicios">Servicios</a>
-<a class="text-sm font-semibold hover:text-primary/70 transition-colors" href="#proyectos">Cómo funciona</a>
-<a class="text-sm font-semibold hover:text-primary/70 transition-colors" href="#nosotros">Por qué nosotros</a>
-<a class="text-sm font-semibold hover:text-primary/70 transition-colors" href="#contacto">Contacto</a>
+<a class="text-sm font-semibold hover:text-primary/70 transition-colors" href="#servicios" data-i18n="nav_services">Servicios</a>
+<a class="text-sm font-semibold hover:text-primary/70 transition-colors" href="#proyectos" data-i18n="nav_how_it_works">Cómo funciona</a>
+<a class="text-sm font-semibold hover:text-primary/70 transition-colors" href="#nosotros" data-i18n="nav_why_us">Por qué nosotros</a>
+<a class="text-sm font-semibold hover:text-primary/70 transition-colors" href="#contacto" data-i18n="nav_contact">Contacto</a>
 </nav>
 <div class="flex items-center gap-4">
+<div class="hidden sm:inline-flex items-center gap-1 rounded-full bg-white/70 dark:bg-background-dark/80 border border-primary/10 dark:border-slate-700 px-1 py-0.5 text-xs font-semibold">
+<button type="button" data-lang-switch="es" class="px-2 py-1 rounded-md border border-transparent hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer transition-colors">ES</button>
+<button type="button" data-lang-switch="en" class="px-2 py-1 rounded-md border border-transparent hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer transition-colors">EN</button>
+</div>
 <button id="theme-toggle" type="button" class="hidden sm:inline-flex items-center justify-center rounded-full border border-primary/15 bg-white/70 text-primary w-9 h-9 text-xs font-semibold shadow-sm hover:bg-white hover:border-primary/30 dark:bg-background-dark dark:text-slate-100 dark:border-slate-700 dark:hover:bg-slate-900/80 transition-colors">
 <span class="material-symbols-outlined text-sm" aria-hidden="true">dark_mode</span>
 <span id="theme-toggle-label" class="sr-only">Modo oscuro</span>
 </button>
-<a href="#contacto" class="bg-accent-green hover:bg-accent-green/90 text-white px-6 py-2.5 rounded-lg text-sm font-bold transition-all shadow-lg shadow-primary/20 inline-block">
+<a href="#contacto" class="bg-accent-green hover:bg-accent-green/90 text-white px-6 py-2.5 rounded-lg text-sm font-bold transition-all shadow-lg shadow-primary/20 inline-block" data-i18n="header_cta">
                         Analizar factura gratis
                     </a>
 </div>
@@ -259,15 +284,15 @@
 </div>
 <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
 <div class="max-w-3xl">
-<h1 class="anim-fade-up text-4xl md:text-6xl font-black text-white leading-[1.1] mb-6 tracking-tight">
-                    Nos encargamos de tu factura de luz y gas para que pagues menos.
+<h1 class="anim-fade-up text-4xl md:text-6xl font-black text-white leading-[1.1] mb-6 tracking-tight" data-i18n="hero_title">
+                    Revisamos y gestionamos tu factura de luz y gas para que pagues menos.
                 </h1>
-<p class="anim-fade-up anim-stagger-1 text-lg md:text-xl text-white/90 mb-10 font-medium leading-relaxed">
-                    Analizamos tus contratos energéticos, optimizamos tus tarifas y gestionamos todo con las compañías para que no pierdas tiempo en llamadas ni pagues de más.
+<p class="anim-fade-up anim-stagger-1 text-lg md:text-xl text-white/90 mb-10 font-medium leading-relaxed" data-i18n="hero_subtitle">
+                    Analizamos tu factura de luz y gas, detectamos sobrecostes, optimizamos tus tarifas y hablamos con las compañías por ti para que dejes de perder tiempo en llamadas y pagues solo lo justo.
                 </p>
 <div class="anim-fade-up anim-stagger-2 flex flex-col sm:flex-row gap-4">
-<a href="#contacto" class="bg-accent-green hover:bg-accent-green/90 text-white px-8 py-4 rounded-xl text-lg font-bold transition-all transform hover:-translate-y-1 shadow-xl text-center">Analizar factura gratis</a>
-<a href="#contacto" class="bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white px-8 py-4 rounded-xl text-lg font-bold transition-all text-center">Subir factura</a>
+<a href="#contacto" class="bg-accent-green hover:bg-accent-green/90 text-white px-8 py-4 rounded-xl text-lg font-bold transition-all transform hover:-translate-y-1 shadow-xl text-center" data-i18n="hero_cta_primary">Analizar factura gratis</a>
+<a href="#contacto" class="bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white px-8 py-4 rounded-xl text-lg font-bold transition-all text-center" data-i18n="hero_cta_secondary">Subir factura</a>
 </div>
 </div>
 </div>
@@ -277,9 +302,9 @@
 <section class="py-24 bg-white dark:bg-background-dark" id="nosotros">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="text-center mb-12">
-<h2 class="anim-fade-up text-3xl md:text-4xl font-black text-primary dark:text-slate-100 mb-4 tracking-tight">Tu factura energética no debería ser un problema.</h2>
+<h2 class="anim-fade-up text-3xl md:text-4xl font-black text-primary dark:text-slate-100 mb-4 tracking-tight" data-i18n="why_title">Tu factura energética no debería ser un problema.</h2>
 <div class="anim-fade-up anim-stagger-1 h-1.5 w-20 bg-accent-green mx-auto rounded-full"></div>
-<p class="anim-fade-up anim-stagger-2 mt-6 max-w-3xl mx-auto text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+<p class="anim-fade-up anim-stagger-2 mt-6 max-w-3xl mx-auto text-lg text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="why_intro">
                         La mayoría de hogares y pequeños negocios pagan de más porque no tienen tiempo para revisar contratos, entender tarifas ni pelearse con las compañías.
                         En Belón Energy gestionamos tus facturas para que pagues solo lo necesario.
                     </p>
@@ -289,27 +314,27 @@
 <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6">
 <span class="material-symbols-outlined text-3xl">precision_manufacturing</span>
 </div>
-<h3 class="text-xl font-bold mb-3 text-primary dark:text-slate-100">Facturas que no se entienden</h3>
-<p class="text-slate-600 dark:text-slate-400 leading-relaxed">Discriminación horaria, peajes, ajustes… Las compañías complican el lenguaje para que no sepas exactamente qué estás pagando.</p>
+<h3 class="text-xl font-bold mb-3 text-primary dark:text-slate-100" data-i18n="why_card1_title">Facturas que no se entienden</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="why_card1_text">Discriminación horaria, peajes, ajustes… Las compañías complican el lenguaje para que no sepas exactamente qué estás pagando.</p>
 </div>
 <div class="anim-fade-up anim-stagger-2 p-8 rounded-2xl border border-slate-100 dark:border-primary/40 hover:shadow-xl transition-shadow bg-background-light dark:bg-background-dark">
 <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6">
 <span class="material-symbols-outlined text-3xl">speed</span>
 </div>
-<h3 class="text-xl font-bold mb-3 text-primary dark:text-slate-100">Horas perdidas al teléfono</h3>
-<p class="text-slate-600 dark:text-slate-400 leading-relaxed">Llamadas eternas, menús automáticos y explicaciones distintas según con quién hables. Mientras tanto, tus facturas siguen llegando cada mes.</p>
+<h3 class="text-xl font-bold mb-3 text-primary dark:text-slate-100" data-i18n="why_card2_title">Horas perdidas al teléfono</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="why_card2_text">Llamadas eternas, menús automáticos y explicaciones distintas según con quién hables. Mientras tanto, tus facturas siguen llegando cada mes.</p>
 </div>
 <div class="anim-fade-up anim-stagger-3 p-8 rounded-2xl border border-slate-100 dark:border-primary/40 hover:shadow-xl transition-shadow bg-background-light dark:bg-background-dark">
 <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6">
 <span class="material-symbols-outlined text-3xl">architecture</span>
 </div>
-<h3 class="text-xl font-bold mb-3 text-primary dark:text-slate-100">Subidas de precios sin avisar</h3>
-<p class="text-slate-600 dark:text-slate-400 leading-relaxed">Las condiciones cambian, aparecen cargos extra y casi nunca tienes una visión clara de si estás pagando un precio justo.</p>
+<h3 class="text-xl font-bold mb-3 text-primary dark:text-slate-100" data-i18n="why_card3_title">Subidas de precios sin avisar</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="why_card3_text">Las condiciones cambian, aparecen cargos extra y casi nunca tienes una visión clara de si estás pagando un precio justo.</p>
 </div>
 </div>
 <div class="mt-14 max-w-4xl mx-auto text-center">
-<h3 class="text-2xl font-black text-primary dark:text-slate-100 mb-3">Gestionamos tu energía por ti.</h3>
-<p class="text-slate-600 dark:text-slate-400 text-base md:text-lg leading-relaxed">
+<h3 class="text-2xl font-black text-primary dark:text-slate-100 mb-3" data-i18n="why_bottom_title">Gestionamos tu energía por ti.</h3>
+<p class="text-slate-600 dark:text-slate-400 text-base md:text-lg leading-relaxed" data-i18n="why_bottom_text">
                     Nos encargamos de analizar tus facturas, optimizar tus contratos de luz y gas y hablar con las compañías en tu nombre.
                     Tú solo nos envías tu factura y nosotros nos ocupamos del resto.
                 </p>
@@ -320,29 +345,29 @@
 <section class="py-24 text-white bg-[#183644]" id="servicios">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="mb-16">
-<h2 class="anim-fade-up text-3xl md:text-4xl font-black mb-4">Servicios pensados para que pagues menos.</h2>
-<p class="anim-fade-up anim-stagger-1 text-slate-300 max-w-2xl">Un servicio integral de gestión de facturas de luz y gas para hogares y pequeños negocios que quieren olvidarse de las compañías energéticas.</p>
+<h2 class="anim-fade-up text-3xl md:text-4xl font-black mb-4" data-i18n="services_title">Servicios pensados para que pagues menos.</h2>
+<p class="anim-fade-up anim-stagger-1 text-slate-300 max-w-2xl" data-i18n="services_intro">Un servicio integral de gestión de facturas de luz y gas para hogares y pequeños negocios que quieren olvidarse de las compañías energéticas.</p>
 </div>
 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
 <div class="anim-slide-left anim-stagger-1 group relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 p-8 hover:bg-white/10 transition-all cursor-pointer">
 <span class="material-symbols-outlined text-5xl text-accent-green mb-6 block">receipt_long</span>
-<h3 class="text-2xl font-bold mb-4">Auditoría de factura</h3>
-<p class="text-slate-300 mb-6">Revisamos tus facturas de luz y gas para detectar sobrecostes, tarifas incorrectas y servicios que no necesitas.</p>
+<h3 class="text-2xl font-bold mb-4" data-i18n="service1_title">Auditoría de factura</h3>
+<p class="text-slate-300 mb-6" data-i18n="service1_text">Revisamos tus facturas de luz y gas para detectar sobrecostes, tarifas incorrectas y servicios que no necesitas.</p>
 </div>
 <div class="anim-slide-left anim-stagger-2 group relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 p-8 hover:bg-white/10 transition-all cursor-pointer">
 <span class="material-symbols-outlined text-5xl text-accent-green mb-6 block">tune</span>
-<h3 class="text-2xl font-bold mb-4">Optimización de tarifa</h3>
-<p class="text-slate-300 mb-6">Comparamos comercializadoras y propuestas para ajustar tu contrato a tu consumo real y cambiarte a la mejor tarifa disponible.</p>
+<h3 class="text-2xl font-bold mb-4" data-i18n="service2_title">Optimización de tarifa</h3>
+<p class="text-slate-300 mb-6" data-i18n="service2_text">Comparamos comercializadoras y propuestas para ajustar tu contrato a tu consumo real y cambiarte a la mejor tarifa disponible.</p>
 </div>
 <div class="anim-slide-left anim-stagger-3 group relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 p-8 hover:bg-white/10 transition-all cursor-pointer">
 <span class="material-symbols-outlined text-5xl text-accent-green mb-6 block">support_agent</span>
-<h3 class="text-2xl font-bold mb-4">Gestión con compañías</h3>
-<p class="text-slate-300 mb-6">Hacemos las llamadas y trámites por ti: cambios de contrato, ajustes de potencia, incidencias de facturación y reclamaciones.</p>
+<h3 class="text-2xl font-bold mb-4" data-i18n="service3_title">Gestión con compañías</h3>
+<p class="text-slate-300 mb-6" data-i18n="service3_text">Hacemos las llamadas y trámites por ti: cambios de contrato, ajustes de potencia, incidencias de facturación y reclamaciones.</p>
 </div>
 <div class="anim-slide-left anim-stagger-3 group relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 p-8 hover:bg-white/10 transition-all cursor-pointer">
 <span class="material-symbols-outlined text-5xl text-accent-green mb-6 block">update</span>
-<h3 class="text-2xl font-bold mb-4">Seguimiento continuo</h3>
-<p class="text-slate-300 mb-6">Revisamos periódicamente tus facturas para asegurarnos de que sigues con la mejor tarifa y te avisamos si aparece una opción mejor.</p>
+<h3 class="text-2xl font-bold mb-4" data-i18n="service4_title">Seguimiento continuo</h3>
+<p class="text-slate-300 mb-6" data-i18n="service4_text">Revisamos periódicamente tus facturas para asegurarnos de que sigues con la mejor tarifa y te avisamos si aparece una opción mejor.</p>
 </div>
 </div>
 </div>
@@ -352,30 +377,30 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
 <div>
-<h2 class="anim-fade-up text-3xl md:text-4xl font-black text-primary dark:text-slate-100 mb-4">Cómo funciona nuestro servicio.</h2>
-<p class="anim-fade-up anim-stagger-1 text-slate-600 dark:text-slate-400">Un proceso sencillo para que pases de facturas confusas a pagar solo lo justo.</p>
+<h2 class="anim-fade-up text-3xl md:text-4xl font-black text-primary dark:text-slate-100 mb-4" data-i18n="how_title">Cómo funciona nuestro servicio para revisar tu factura.</h2>
+<p class="anim-fade-up anim-stagger-1 text-slate-600 dark:text-slate-400" data-i18n="how_intro">Un proceso sencillo de revisión de factura de luz y gas para que pases de facturas confusas a pagar solo lo justo, sin tratar directamente con las compañías.</p>
 </div>
 </div>
 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
 <div class="anim-fade-up anim-stagger-1 rounded-2xl border border-slate-100 dark:border-primary/40 bg-background-light dark:bg-background-dark p-6 shadow-sm">
 <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-accent-green text-white text-sm font-bold mb-4">1</span>
-<h3 class="text-lg font-bold text-primary dark:text-slate-100 mb-2">Subes tu factura o rellenas el formulario</h3>
-<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Puedes adjuntar tu factura de luz o gas o simplemente indicarnos tus datos de contacto y tu gasto aproximado.</p>
+<h3 class="text-lg font-bold text-primary dark:text-slate-100 mb-2" data-i18n="how_step1_title">Subes tu factura o rellenas el formulario</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="how_step1_text">Puedes adjuntar tu factura de luz o gas o simplemente indicarnos tus datos de contacto y tu gasto aproximado.</p>
 </div>
 <div class="anim-fade-up anim-stagger-2 rounded-2xl border border-slate-100 dark:border-primary/40 bg-background-light dark:bg-background-dark p-6 shadow-sm">
 <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-accent-green text-white text-sm font-bold mb-4">2</span>
-<h3 class="text-lg font-bold text-primary dark:text-slate-100 mb-2">Analizamos tu contrato energético</h3>
-<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Revisamos condiciones, tarifas, potencias y servicios añadidos para detectar dónde estás pagando de más.</p>
+<h3 class="text-lg font-bold text-primary dark:text-slate-100 mb-2" data-i18n="how_step2_title">Analizamos tu contrato energético</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="how_step2_text">Revisamos condiciones, tarifas, potencias y servicios añadidos para detectar dónde estás pagando de más.</p>
 </div>
 <div class="anim-fade-up anim-stagger-3 rounded-2xl border border-slate-100 dark:border-primary/40 bg-background-light dark:bg-background-dark p-6 shadow-sm">
 <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-accent-green text-white text-sm font-bold mb-4">3</span>
-<h3 class="text-lg font-bold text-primary dark:text-slate-100 mb-2">Optimizamos tu tarifa y gestionamos los cambios</h3>
-<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Hablamos con las compañías por ti para aplicar la tarifa adecuada, ajustar potencias y resolver incidencias.</p>
+<h3 class="text-lg font-bold text-primary dark:text-slate-100 mb-2" data-i18n="how_step3_title">Optimizamos tu tarifa y gestionamos los cambios</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="how_step3_text">Hablamos con las compañías por ti para aplicar la tarifa adecuada, ajustar potencias y resolver incidencias.</p>
 </div>
 <div class="anim-fade-up anim-stagger-3 rounded-2xl border border-slate-100 dark:border-primary/40 bg-background-light dark:bg-background-dark p-6 shadow-sm">
 <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-accent-green text-white text-sm font-bold mb-4">4</span>
-<h3 class="text-lg font-bold text-primary dark:text-slate-100 mb-2">Empiezas a pagar menos</h3>
-<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Te explicamos de forma sencilla los cambios realizados y cuánto puedes ahorrar a partir de ahora.</p>
+<h3 class="text-lg font-bold text-primary dark:text-slate-100 mb-2" data-i18n="how_step4_title">Empiezas a pagar menos</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="how_step4_text">Te explicamos de forma sencilla los cambios realizados y cuánto puedes ahorrar a partir de ahora.</p>
 </div>
 </div>
 </div>
@@ -383,7 +408,7 @@
 <!-- Testimonials -->
 <section class="py-24 bg-background-light dark:bg-background-dark">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<h2 class="anim-fade-up text-center text-3xl font-black text-primary dark:text-slate-100 mb-16">Lo que dicen nuestros clientes</h2>
+<h2 class="anim-fade-up text-center text-3xl font-black text-primary dark:text-slate-100 mb-16" data-i18n="testimonials_title">Lo que dicen nuestros clientes</h2>
 <div class="grid md:grid-cols-3 gap-8">
 <div class="anim-scale-in anim-stagger-1 bg-white dark:bg-background-dark p-8 rounded-2xl shadow-sm italic text-slate-700 dark:text-slate-300 relative">
 <div class="flex text-yellow-500 mb-4">
@@ -393,10 +418,10 @@
 <span class="material-symbols-outlined fill-1">star</span>
 <span class="material-symbols-outlined fill-1">star</span>
 </div>
-                    "La precisión técnica de Belón es de otro nivel. Todo funcionó exactamente como prometieron en el estudio inicial."
+<p data-i18n="testimonial1_text">"La precisión técnica de Belón es de otro nivel. Todo funcionó exactamente como prometieron en el estudio inicial."</p>
                     <div class="mt-6 flex items-center gap-4 not-italic">
 <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary">JR</div>
-<span class="font-bold text-sm text-primary dark:text-slate-100">Juan Rodríguez - Residente Marbella</span>
+<span class="font-bold text-sm text-primary dark:text-slate-100" data-i18n="testimonial1_author">Juan Rodríguez - Residente Marbella</span>
 </div>
 </div>
 <div class="anim-scale-in anim-stagger-2 bg-white dark:bg-background-dark p-8 rounded-2xl shadow-sm italic text-slate-700 dark:text-slate-300 relative">
@@ -407,10 +432,10 @@
 <span class="material-symbols-outlined fill-1">star</span>
 <span class="material-symbols-outlined fill-1">star</span>
 </div>
-                    "Increíble servicio post-venta. Tuvimos una duda con la app y nos atendieron un domingo en 10 minutos. Totalmente recomendados."
+<p data-i18n="testimonial2_text">"Increíble servicio post-venta. Tuvimos una duda con la app y nos atendieron un domingo en 10 minutos. Totalmente recomendados."</p>
                     <div class="mt-6 flex items-center gap-4 not-italic">
 <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary">ML</div>
-<span class="font-bold text-sm text-primary dark:text-slate-100">María López - Gerente Industrial</span>
+<span class="font-bold text-sm text-primary dark:text-slate-100" data-i18n="testimonial2_author">María López - Gerente Industrial</span>
 </div>
 </div>
 <div class="anim-scale-in anim-stagger-3 bg-white dark:bg-background-dark p-8 rounded-2xl shadow-sm italic text-slate-700 dark:text-slate-300 relative">
@@ -421,10 +446,10 @@
 <span class="material-symbols-outlined fill-1">star</span>
 <span class="material-symbols-outlined fill-1">star</span>
 </div>
-                    "Buscábamos ingeniería pura y no comerciales agresivos. Belón nos dio la confianza técnica que necesitábamos."
+<p data-i18n="testimonial3_text">"Buscábamos ingeniería pura y no comerciales agresivos. Belón nos dio la confianza técnica que necesitábamos."</p>
                     <div class="mt-6 flex items-center gap-4 not-italic">
 <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary">AB</div>
-<span class="font-bold text-sm text-primary dark:text-slate-100">Andrés Benítez - Arquitecto</span>
+<span class="font-bold text-sm text-primary dark:text-slate-100" data-i18n="testimonial3_author">Andrés Benítez - Arquitecto</span>
 </div>
 </div>
 </div>
@@ -433,11 +458,11 @@
 <!-- Strong CTA -->
 <section class="py-20 bg-accent-green">
 <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-<h2 class="anim-fade-up text-3xl md:text-5xl font-black mb-8 leading-tight">Descubre si estás pagando de más en tu factura.</h2>
-<p class="anim-fade-up anim-stagger-1 text-xl opacity-90 mb-10 max-w-2xl mx-auto font-medium">Analizamos tu contrato de luz y gas, sin compromiso, y te proponemos cómo pagar menos.</p>
-<a href="#contacto" class="anim-fade-up anim-stagger-2 inline-block bg-white text-accent-green px-10 py-5 rounded-xl text-xl font-bold hover:bg-slate-50 transition-all shadow-2xl">
+<h2 class="anim-fade-up text-3xl md:text-5xl font-black mb-8 leading-tight" data-i18n="strong_cta_title">Descubre si estás pagando de más en tu factura.</h2>
+<p class="anim-fade-up anim-stagger-1 text-xl opacity-90 mb-10 max-w-2xl mx-auto font-medium" data-i18n="strong_cta_subtitle">Analizamos tu contrato de luz y gas, sin compromiso, y te proponemos cómo pagar menos.</p>
+<a href="#contacto" class="anim-fade-up anim-stagger-2 inline-block bg-white text-accent-green px-10 py-5 rounded-xl text-xl font-bold hover:bg-slate-50 transition-all shadow-2xl" data-i18n="strong_cta_button">
                 Analizar factura gratis
-            </a><p class="text-sm opacity-80 mt-4">Estudio energético sin compromiso.</p>
+            </a><p class="text-sm opacity-80 mt-4" data-i18n="strong_cta_note">Estudio energético sin compromiso.</p>
 </div>
 </section>
 
@@ -445,62 +470,62 @@
 <section class="py-24 bg-white dark:bg-background-dark">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="mb-16 text-center max-w-4xl mx-auto">
-<h2 class="anim-fade-up text-3xl md:text-4xl font-black text-primary dark:text-slate-100 mb-4">Más soluciones para optimizar tu energía</h2>
-<p class="anim-fade-up anim-stagger-1 text-base md:text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+<h2 class="anim-fade-up text-3xl md:text-4xl font-black text-primary dark:text-slate-100 mb-4" data-i18n="extra_title">Más soluciones para optimizar tu energía</h2>
+<p class="anim-fade-up anim-stagger-1 text-base md:text-lg text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="extra_intro">
                     Además de gestionar tu factura de luz y gas, ofrecemos soluciones energéticas para viviendas y empresas que buscan reducir costes y mejorar su eficiencia.
                 </p>
 </div>
 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-14">
 <article class="anim-slide-left anim-stagger-1 group relative overflow-hidden rounded-2xl bg-primary/5 dark:bg-background-dark border border-primary/10 dark:border-primary/40 p-8 hover:bg-primary/8 dark:hover:bg-background-dark/80 transition-all cursor-pointer">
 <span class="material-symbols-outlined text-4xl text-accent-green mb-4 block">solar_power</span>
-<h3 class="text-xl font-bold mb-3 text-primary dark:text-slate-100">Instalaciones fotovoltaicas</h3>
-<p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">Diseñamos e instalamos sistemas solares adaptados al consumo real de cada vivienda o empresa.</p>
+<h3 class="text-xl font-bold mb-3 text-primary dark:text-slate-100" data-i18n="extra_card1_title">Instalaciones fotovoltaicas</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed" data-i18n="extra_card1_text">Diseñamos e instalamos sistemas solares adaptados al consumo real de cada vivienda o empresa.</p>
 <ul class="text-sm text-slate-500 dark:text-slate-400 space-y-1.5 mb-3">
-<li>· Estudio energético</li>
-<li>· Diseño de la instalación</li>
-<li>· Tramitación administrativa</li>
-<li>· Instalación y puesta en marcha</li>
+<li data-i18n="extra_card1_li1">· Estudio energético</li>
+<li data-i18n="extra_card1_li2">· Diseño de la instalación</li>
+<li data-i18n="extra_card1_li3">· Tramitación administrativa</li>
+<li data-i18n="extra_card1_li4">· Instalación y puesta en marcha</li>
 </ul>
-<p class="text-sm font-semibold text-slate-700 dark:text-slate-200">Para que produzcas tu propia energía y reduzcas al máximo tu factura eléctrica.</p>
+<p class="text-sm font-semibold text-slate-700 dark:text-slate-200" data-i18n="extra_card1_footer">Para que produzcas tu propia energía y reduzcas al máximo tu factura eléctrica.</p>
 </article>
 <article class="anim-slide-left anim-stagger-2 group relative overflow-hidden rounded-2xl bg-primary/5 dark:bg-background-dark border border-primary/10 dark:border-primary/40 p-8 hover:bg-primary/8 dark:hover:bg-background-dark/80 transition-all cursor-pointer">
 <span class="material-symbols-outlined text-4xl text-accent-green mb-4 block">request_quote</span>
-<h3 class="text-xl font-bold mb-3 text-primary dark:text-slate-100">Renting fotovoltaico</h3>
-<p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">Instala energía solar sin inversión inicial y paga una cuota mensual fija.</p>
+<h3 class="text-xl font-bold mb-3 text-primary dark:text-slate-100" data-i18n="extra_card2_title">Renting fotovoltaico</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed" data-i18n="extra_card2_text">Instala energía solar sin inversión inicial y paga una cuota mensual fija.</p>
 <ul class="text-sm text-slate-500 dark:text-slate-400 space-y-1.5 mb-3">
-<li>· Sin inversión inicial</li>
-<li>· Ahorro desde el primer día</li>
-<li>· Mantenimiento incluido</li>
-<li>· Contrato flexible</li>
+<li data-i18n="extra_card2_li1">· Sin inversión inicial</li>
+<li data-i18n="extra_card2_li2">· Ahorro desde el primer día</li>
+<li data-i18n="extra_card2_li3">· Mantenimiento incluido</li>
+<li data-i18n="extra_card2_li4">· Contrato flexible</li>
 </ul>
-<p class="text-sm font-semibold text-slate-700 dark:text-slate-200">Una forma sencilla de acceder al autoconsumo sin comprometer tu liquidez.</p>
+<p class="text-sm font-semibold text-slate-700 dark:text-slate-200" data-i18n="extra_card2_footer">Una forma sencilla de acceder al autoconsumo sin comprometer tu liquidez.</p>
 </article>
 <article class="anim-slide-left anim-stagger-3 group relative overflow-hidden rounded-2xl bg-primary/5 dark:bg-background-dark border border-primary/10 dark:border-primary/40 p-8 hover:bg-primary/8 dark:hover:bg-background-dark/80 transition-all cursor-pointer">
 <span class="material-symbols-outlined text-4xl text-accent-green mb-4 block">warehouse</span>
-<h3 class="text-xl font-bold mb-3 text-primary dark:text-slate-100">Alquiler de tejados</h3>
-<p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">Si dispones de una cubierta amplia o nave industrial, podemos alquilar tu tejado para proyectos solares.</p>
+<h3 class="text-xl font-bold mb-3 text-primary dark:text-slate-100" data-i18n="extra_card3_title">Alquiler de tejados</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed" data-i18n="extra_card3_text">Si dispones de una cubierta amplia o nave industrial, podemos alquilar tu tejado para proyectos solares.</p>
 <ul class="text-sm text-slate-500 dark:text-slate-400 space-y-1.5 mb-3">
-<li>· Estudio de viabilidad</li>
-<li>· Búsqueda de inversores</li>
-<li>· Gestión completa del proyecto</li>
+<li data-i18n="extra_card3_li1">· Estudio de viabilidad</li>
+<li data-i18n="extra_card3_li2">· Búsqueda de inversores</li>
+<li data-i18n="extra_card3_li3">· Gestión completa del proyecto</li>
 </ul>
-<p class="text-sm font-semibold text-slate-700 dark:text-slate-200">Genera ingresos pasivos sin inversión ni preocupaciones técnicas.</p>
+<p class="text-sm font-semibold text-slate-700 dark:text-slate-200" data-i18n="extra_card3_footer">Genera ingresos pasivos sin inversión ni preocupaciones técnicas.</p>
 </article>
 <article class="anim-slide-left anim-stagger-3 group relative overflow-hidden rounded-2xl bg-primary/5 dark:bg-background-dark border border-primary/10 dark:border-primary/40 p-8 hover:bg-primary/8 dark:hover:bg-background-dark/80 transition-all cursor-pointer">
 <span class="material-symbols-outlined text-4xl text-accent-green mb-4 block">assignment_turned_in</span>
-<h3 class="text-xl font-bold mb-3 text-primary dark:text-slate-100">Certificado de eficiencia energética</h3>
-<p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">Emitimos certificados energéticos oficiales para viviendas, locales y edificios.</p>
+<h3 class="text-xl font-bold mb-3 text-primary dark:text-slate-100" data-i18n="extra_card4_title">Certificado de eficiencia energética</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed" data-i18n="extra_card4_text">Emitimos certificados energéticos oficiales para viviendas, locales y edificios.</p>
 <ul class="text-sm text-slate-500 dark:text-slate-400 space-y-1.5 mb-3">
-<li>· Obligatorio para vender o alquilar</li>
-<li>· Válido para trámites inmobiliarios</li>
-<li>· Inspección técnica y registro oficial</li>
+<li data-i18n="extra_card4_li1">· Obligatorio para vender o alquilar</li>
+<li data-i18n="extra_card4_li2">· Válido para trámites inmobiliarios</li>
+<li data-i18n="extra_card4_li3">· Inspección técnica y registro oficial</li>
 </ul>
-<p class="text-sm font-semibold text-slate-700 dark:text-slate-200">Un trámite rápido y seguro para cumplir con la normativa vigente.</p>
+<p class="text-sm font-semibold text-slate-700 dark:text-slate-200" data-i18n="extra_card4_footer">Un trámite rápido y seguro para cumplir con la normativa vigente.</p>
 </article>
 </div>
 <div class="text-center">
-<p class="text-sm md:text-base text-slate-600 dark:text-slate-300 mb-4">¿Quieres saber qué solución energética es la mejor para tu caso?</p>
-<a href="#contacto" class="inline-flex items-center justify-center px-8 py-3 rounded-xl bg-primary text-white text-sm md:text-base font-bold shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all">
+<p class="text-sm md:text-base text-slate-600 dark:text-slate-300 mb-4" data-i18n="extra_cta_text">¿Quieres saber qué solución energética es la mejor para tu caso?</p>
+<a href="#contacto" class="inline-flex items-center justify-center px-8 py-3 rounded-xl bg-primary text-white text-sm md:text-base font-bold shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all" data-i18n="extra_cta_button">
                 Solicitar asesoramiento
             </a>
 </div>
@@ -512,11 +537,11 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="grid lg:grid-cols-2 gap-16 items-start">
 <div class="anim-slide-left">
-<h2 class="text-4xl font-black text-primary dark:text-slate-100 mb-6">Envíanos tu factura y nos encargamos de todo</h2>
-<p class="text-lg text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
-                        Analizamos tu factura de luz y hablamos con la distribuidora por ti. Sin llamadas eternas, sin contestadores automáticos y sin letra pequeña.
+<h2 class="text-4xl font-black text-primary dark:text-slate-100 mb-6" data-i18n="contact_section_title">Envíanos tu factura y nos encargamos de todo</h2>
+<p class="text-lg text-slate-600 dark:text-slate-400 mb-6 leading-relaxed" data-i18n="contact_section_p1">
+                        Envíanos tu factura de luz o gas y la revisamos línea a línea para detectar sobrecostes y errores. Nosotros hablamos con la distribuidora o comercializadora por ti, sin llamadas eternas ni letra pequeña.
                     </p>
-<p class="text-base text-slate-600 dark:text-slate-400 mb-10 leading-relaxed">
+<p class="text-base text-slate-600 dark:text-slate-400 mb-10 leading-relaxed" data-i18n="contact_section_p2">
                         El formulario flotante que ves a la derecha está siempre disponible para que nos dejes tus datos en cualquier momento de la visita.
                     </p>
 <div class="space-y-6">
@@ -525,7 +550,7 @@
 <span class="material-symbols-outlined">call</span>
 </div>
 <div>
-<p class="text-sm font-bold text-slate-400 uppercase tracking-widest">Llámanos</p>
+<p class="text-sm font-bold text-slate-400 uppercase tracking-widest" data-i18n="contact_call_label">Llámanos</p>
 <p class="text-lg font-bold text-primary dark:text-slate-100">+34 636 497 068</p>
 </div>
 </div>
@@ -534,7 +559,7 @@
 <span class="material-symbols-outlined">mail</span>
 </div>
 <div>
-<p class="text-sm font-bold text-slate-400 uppercase tracking-widest">Email</p>
+<p class="text-sm font-bold text-slate-400 uppercase tracking-widest" data-i18n="contact_email_label">Email</p>
 <p class="text-lg font-bold text-primary dark:text-slate-100">hola@belonenergy.com</p>
 </div>
 </div>
@@ -543,7 +568,7 @@
 <span class="material-symbols-outlined">location_on</span>
 </div>
 <div>
-<p class="text-sm font-bold text-slate-400 uppercase tracking-widest">Sede Central</p>
+<p class="text-sm font-bold text-slate-400 uppercase tracking-widest" data-i18n="contact_hq_label">Sede Central</p>
 <p class="text-lg font-bold text-primary dark:text-slate-100">C. Notario Luis Oliver, 1<br/>29601 Marbella, Málaga</p>
 </div>
 </div>
@@ -560,8 +585,8 @@
 <button type="button" id="lead-form-close" class="lead-form-close" aria-label="Ocultar formulario">
 <span class="material-symbols-outlined text-base" aria-hidden="true">close</span>
 </button>
-<h3 class="text-lg font-black text-primary dark:text-slate-100 mb-3">Consigue tu mejor tarifa sin llamadas eternas</h3>
-<p class="text-xs text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">
+<h3 class="text-lg font-black text-primary dark:text-slate-100 mb-3" data-i18n="lead_panel_title">Consigue tu mejor tarifa sin llamadas eternas</h3>
+<p class="text-xs text-slate-600 dark:text-slate-400 mb-4 leading-relaxed" data-i18n="lead_panel_intro">
             Déjanos tus datos y, si quieres, sube tu factura de luz. Nosotros hablamos con la distribuidora y te proponemos la mejor opción.
         </p>
 <!-- Endpoint propio: Netlify = "/.netlify/functions/send-email" | PHP = "https://tudominio.com/api/send-email.php" -->
@@ -572,67 +597,67 @@
 <input type="hidden" name="_load_time" id="form-load-time" value=""/>
 <input type="hidden" name="_human" id="human-check" value=""/>
 <div class="md:col-span-2 flex rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900">
-<button type="button" class="flex-1 px-3 py-2.5 text-xs font-bold text-center transition-colors segment-tab bg-accent-green text-white" data-segment="Particular">Particular</button>
-<button type="button" class="flex-1 px-3 py-2.5 text-xs font-semibold text-center transition-colors segment-tab bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300" data-segment="Comunidad">Comunidad</button>
-<button type="button" class="flex-1 px-3 py-2.5 text-xs font-semibold text-center transition-colors segment-tab bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300" data-segment="Empresa">Empresa</button>
+<button type="button" class="flex-1 px-3 py-2.5 text-xs font-bold text-center transition-colors segment-tab bg-accent-green text-white" data-segment="Particular" data-i18n="segment_tab_particular">Particular</button>
+<button type="button" class="flex-1 px-3 py-2.5 text-xs font-semibold text-center transition-colors segment-tab bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300" data-segment="Comunidad" data-i18n="segment_tab_community">Comunidad</button>
+<button type="button" class="flex-1 px-3 py-2.5 text-xs font-semibold text-center transition-colors segment-tab bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300" data-segment="Empresa" data-i18n="segment_tab_company">Empresa</button>
 </div>
 <input type="hidden" name="segmento" id="contact-segmento" value="Particular"/>
 <div class="md:col-span-2 text-[11px] sm:text-xs text-slate-600 dark:text-slate-300 bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700 rounded-2xl px-3 py-2.5 leading-relaxed" id="segmento-mensaje">
 <strong>Particular.</strong> Déjanos tus datos y una copia opcional de tu última factura. Analizamos tu consumo y te llamamos con una propuesta clara, sin llamadas eternas ni contestadores automáticos.
 </div>
 <div class="md:col-span-2">
-<label class="block text-xs font-bold text-primary dark:text-slate-100 mb-1.5" for="contact-name">Nombre completo</label>
-<input id="contact-name" name="nombre" class="w-full rounded-xl border border-slate-200 dark:border-slate-800 dark:bg-slate-800 focus:ring-2 focus:ring-accent-green focus:border-accent-green px-3 py-2.5 text-sm" placeholder="Ej: Juan García" type="text" required maxlength="200" autocomplete="name"/>
+<label class="block text-xs font-bold text-primary dark:text-slate-100 mb-1.5" for="contact-name" data-i18n="contact_name_label">Nombre completo</label>
+<input id="contact-name" name="nombre" class="w-full rounded-xl border border-slate-200 dark:border-slate-800 dark:bg-slate-800 focus:ring-2 focus:ring-accent-green focus:border-accent-green px-3 py-2.5 text-sm" placeholder="Ej: Juan García" type="text" required maxlength="200" autocomplete="name" data-i18n-placeholder="contact_name_placeholder"/>
 </div>
 <div>
-<label class="block text-xs font-bold text-primary dark:text-slate-100 mb-1.5" for="contact-phone">Teléfono</label>
-<input id="contact-phone" name="telefono" class="w-full rounded-xl border border-slate-200 dark:border-slate-800 dark:bg-slate-800 focus:ring-2 focus:ring-accent-green focus:border-accent-green px-3 py-2.5 text-sm" placeholder="+34 000 000 000" type="tel" maxlength="50" autocomplete="tel" required/>
+<label class="block text-xs font-bold text-primary dark:text-slate-100 mb-1.5" for="contact-phone" data-i18n="contact_phone_label">Teléfono</label>
+<input id="contact-phone" name="telefono" class="w-full rounded-xl border border-slate-200 dark:border-slate-800 dark:bg-slate-800 focus:ring-2 focus:ring-accent-green focus:border-accent-green px-3 py-2.5 text-sm" placeholder="+34 000 000 000" type="tel" maxlength="50" autocomplete="tel" required data-i18n-placeholder="contact_phone_placeholder"/>
 </div>
 <div>
-<label class="block text-xs font-bold text-primary dark:text-slate-100 mb-1.5" for="contact-email">Email (opcional)</label>
-<input id="contact-email" name="email" class="w-full rounded-xl border border-slate-200 dark:border-slate-800 dark:bg-slate-800 focus:ring-2 focus:ring-accent-green focus:border-accent-green px-3 py-2.5 text-sm" placeholder="juan@ejemplo.com" type="email" maxlength="254" autocomplete="email"/>
+<label class="block text-xs font-bold text-primary dark:text-slate-100 mb-1.5" for="contact-email" data-i18n="contact_email_label">Email (opcional)</label>
+<input id="contact-email" name="email" class="w-full rounded-xl border border-slate-200 dark:border-slate-800 dark:bg-slate-800 focus:ring-2 focus:ring-accent-green focus:border-accent-green px-3 py-2.5 text-sm" placeholder="juan@ejemplo.com" type="email" maxlength="254" autocomplete="email" data-i18n-placeholder="contact_email_placeholder"/>
 </div>
 <div>
-<label class="block text-xs font-bold text-primary dark:text-slate-100 mb-1.5" for="contact-supply">Tipo de suministro</label>
+<label class="block text-xs font-bold text-primary dark:text-slate-100 mb-1.5" for="contact-supply" data-i18n="contact_supply_label">Tipo de suministro</label>
 <select id="contact-supply" name="tipo_suministro" class="w-full rounded-xl border border-slate-200 dark:border-slate-800 dark:bg-slate-800 focus:ring-2 focus:ring-accent-green focus:border-accent-green px-3 py-2.5 text-sm">
-<option value="Luz y gas">Luz y gas</option>
-<option value="Solo luz">Solo luz</option>
-<option value="Solo gas">Solo gas</option>
+<option value="Luz y gas" data-i18n="supply_option_both">Luz y gas</option>
+<option value="Solo luz" data-i18n="supply_option_power">Solo luz</option>
+<option value="Solo gas" data-i18n="supply_option_gas">Solo gas</option>
 </select>
 </div>
 <div>
-<label class="block text-xs font-bold text-primary dark:text-slate-100 mb-1.5" for="contact-bill">Factura mensual aproximada</label>
+<label class="block text-xs font-bold text-primary dark:text-slate-100 mb-1.5" for="contact-bill" data-i18n="contact_bill_label">Factura mensual aproximada</label>
 <select id="contact-bill" name="factura_mensual" class="w-full rounded-xl border border-slate-200 dark:border-slate-800 dark:bg-slate-800 focus:ring-2 focus:ring-accent-green focus:border-accent-green px-3 py-2.5 text-sm">
-<option value="Menos de 50€">Menos de 50€</option>
-<option value="50–100€">50–100€</option>
-<option value="100–200€">100–200€</option>
-<option value="+200€">Más de 200€</option>
+<option value="Menos de 50€" data-i18n="bill_option_lt_50">Menos de 50€</option>
+<option value="50–100€" data-i18n="bill_option_50_100">50–100€</option>
+<option value="100–200€" data-i18n="bill_option_100_200">100–200€</option>
+<option value="+200€" data-i18n="bill_option_gt_200">Más de 200€</option>
 </select>
 </div>
 <div class="md:col-span-2">
-<label class="block text-xs font-bold text-primary dark:text-slate-100 mb-1.5" for="contact-factura">Sube tu última factura (opcional)</label>
+<label class="block text-xs font-bold text-primary dark:text-slate-100 mb-1.5" for="contact-factura" data-i18n="contact_invoice_label">Sube tu última factura (opcional)</label>
 <div id="file-dropzone" class="file-dropzone px-3 py-3 flex items-center gap-3">
 <div class="flex items-center justify-center w-9 h-9 rounded-full bg-primary/10 text-primary shrink-0">
 <span class="material-symbols-outlined text-xl">upload_file</span>
 </div>
 <div class="flex-1 min-w-0">
-<p class="text-[11px] font-semibold text-slate-700 dark:text-slate-100 truncate">
+<p class="text-[11px] font-semibold text-slate-700 dark:text-slate-100 truncate" data-i18n="contact_invoice_text">
 <span id="file-dropzone-label">Arrastra aquí tu factura o haz clic para seleccionarla</span>
 </p>
-<p class="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">Aceptamos archivos PDF o imagen (JPG, PNG). Si no la tienes a mano, puedes enviárnosla después.</p>
+<p class="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5" data-i18n="contact_invoice_help">Aceptamos archivos PDF o imagen (JPG, PNG). Si no la tienes a mano, puedes enviárnosla después.</p>
 </div>
 <input id="contact-factura" name="factura" class="file-dropzone-input" type="file" accept=".pdf,.jpg,.jpeg,.png"/>
 </div>
 </div>
 <div class="md:col-span-2 flex items-start gap-2 mt-1">
 <input id="contact-privacy" name="acepta_privacidad" type="checkbox" class="mt-1 rounded border-slate-300 text-accent-green focus:ring-accent-green" required/>
-<label for="contact-privacy" class="text-[10px] text-slate-600 dark:text-slate-300 leading-relaxed">He leído y acepto la <button type="button" class="underline hover:text-primary dark:hover:text-accent-green transition-colors cursor-pointer" id="open-privacy-from-form">política de privacidad y protección de datos</button>.</label>
+<label for="contact-privacy" class="text-[10px] text-slate-600 dark:text-slate-300 leading-relaxed" data-i18n="contact_privacy_text">He leído y acepto la <button type="button" class="underline hover:text-primary dark:hover:text-accent-green transition-colors cursor-pointer" id="open-privacy-from-form">política de privacidad y protección de datos</button>.</label>
 </div>
 <div class="md:col-span-2 pt-1.5">
-<button id="contact-submit" class="w-full bg-primary text-white py-3 rounded-xl font-bold text-sm hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 disabled:opacity-60 disabled:cursor-not-allowed" type="submit">
+<button id="contact-submit" class="w-full bg-primary text-white py-3 rounded-xl font-bold text-sm hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 disabled:opacity-60 disabled:cursor-not-allowed" type="submit" data-i18n="contact_submit">
 Quiero que reviséis mi factura
 </button>
-<p class="text-center text-[10px] text-slate-500 mt-2">Analizamos tu caso sin compromiso y te llamamos en menos de 48 horas.</p>
+<p class="text-center text-[10px] text-slate-500 mt-2" data-i18n="contact_submit_note">Analizamos tu caso sin compromiso y te llamamos en menos de 48 horas.</p>
 </div>
 </form>
 </div>
@@ -641,7 +666,7 @@ Quiero que reviséis mi factura
 <!-- Botón flotante para abrir/cerrar formulario -->
 <button id="lead-form-toggle" type="button" class="floating-button floating-button-form bg-primary text-white rounded-full shadow-xl shadow-primary/40 px-4 py-2 flex items-center justify-center gap-2 hover:bg-primary/90 transition-all">
 <span id="lead-form-toggle-icon" class="material-symbols-outlined text-xl" aria-hidden="true">info</span>
-<span id="lead-form-toggle-text" class="text-xs font-semibold whitespace-nowrap">Analizar factura gratis</span>
+<span id="lead-form-toggle-text" class="text-xs font-semibold whitespace-nowrap" data-i18n="floating_cta">Analizar factura gratis</span>
 <span class="sr-only">Abrir o cerrar formulario de Belón Energy</span>
 </button>
 
@@ -713,24 +738,24 @@ Quiero que reviséis mi factura
 <a href="#" class="inline-block mb-4">
 <img src="assets/img/Logo PNG blanco.png" alt="Belón Energy" class="h-12 w-auto"/>
 </a>
-<p class="text-slate-400 text-sm leading-relaxed max-w-xs">
+<p class="text-slate-400 text-sm leading-relaxed max-w-xs" data-i18n="footer_brand_text">
 Ingeniería especializada en energía fotovoltaica. Soluciones de autoconsumo para un futuro sostenible.
 </p>
 </div>
 <!-- Enlaces útiles (un solo bloque) -->
 <div>
-<h5 class="font-bold mb-4 text-white text-sm uppercase tracking-wider">Enlaces</h5>
+<h5 class="font-bold mb-4 text-white text-sm uppercase tracking-wider" data-i18n="footer_links_title">Enlaces</h5>
 <ul class="space-y-3 text-slate-400 text-sm">
-<li><a class="hover:text-white transition-colors" href="#servicios">Servicios</a></li>
-<li><a class="hover:text-white transition-colors" href="#proyectos">Proyectos</a></li>
-<li><a class="hover:text-white transition-colors" href="#nosotros">Por qué Belón</a></li>
-<li><a class="hover:text-white transition-colors" href="#contacto">Contacto</a></li>
-<li><button type="button" id="open-privacy-footer" class="text-left hover:text-white transition-colors cursor-pointer">Política de privacidad</button></li>
+<li><a class="hover:text-white transition-colors" href="#servicios" data-i18n="footer_link_services">Servicios</a></li>
+<li><a class="hover:text-white transition-colors" href="#proyectos" data-i18n="footer_link_projects">Proyectos</a></li>
+<li><a class="hover:text-white transition-colors" href="#nosotros" data-i18n="footer_link_why">Por qué Belón</a></li>
+<li><a class="hover:text-white transition-colors" href="#contacto" data-i18n="footer_link_contact">Contacto</a></li>
+<li><button type="button" id="open-privacy-footer" class="text-left hover:text-white transition-colors cursor-pointer" data-i18n="footer_link_privacy">Política de privacidad</button></li>
 </ul>
 </div>
 <!-- Contacto -->
 <div>
-<h5 class="font-bold mb-4 text-white text-sm uppercase tracking-wider">Contacto</h5>
+<h5 class="font-bold mb-4 text-white text-sm uppercase tracking-wider" data-i18n="footer_contact_title">Contacto</h5>
 <p class="text-slate-400 text-sm leading-relaxed">C. Notario Luis Oliver, 1<br/>29601 Marbella, Málaga</p>
 <p class="text-slate-400 text-sm mt-3"><a class="hover:text-white transition-colors" href="tel:+34636497068">+34 636 497 068</a></p>
 <p class="text-slate-400 text-sm"><a class="hover:text-white transition-colors" href="mailto:hola@belonenergy.com">hola@belonenergy.com</a></p>
@@ -739,8 +764,8 @@ Ingeniería especializada en energía fotovoltaica. Soluciones de autoconsumo pa
 <!-- Barra inferior: copyright + redes (solo aquí) -->
 <div class="border-t border-white/10 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
 <div class="order-2 sm:order-1 flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-1">
-<p class="text-slate-500 text-xs font-medium">© Belón Energy. Todos los derechos reservados.</p>
-<button type="button" id="open-cookie-settings" class="text-slate-400 hover:text-white text-xs font-medium underline transition-colors cursor-pointer">Gestionar cookies</button>
+<p class="text-slate-500 text-xs font-medium" data-i18n="footer_copyright">© Belón Energy. Todos los derechos reservados.</p>
+<button type="button" id="open-cookie-settings" class="text-slate-400 hover:text-white text-xs font-medium underline transition-colors cursor-pointer" data-i18n="footer_cookie_settings">Gestionar cookies</button>
 </div>
 <div class="flex gap-5 order-1 sm:order-2">
 <a class="text-slate-400 hover:text-white transition-colors" href="#" aria-label="LinkedIn"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
@@ -749,6 +774,7 @@ Ingeniería especializada en energía fotovoltaica. Soluciones de autoconsumo pa
 </div>
 </div>
 </footer>
+<script src="js/i18n.js"></script>
 <script>
 (function() {
   var THEME_STORAGE_KEY = 'belon_theme';
@@ -776,6 +802,10 @@ Ingeniería especializada en energía fotovoltaica. Soluciones de autoconsumo pa
   var formLoadTimeInput = document.getElementById('form-load-time');
   var pageLoadTime = Date.now();
   var leadFormClosedByUser = false;
+  var FLOATING_CTA_TEXT = {
+    es: 'Analizar factura gratis',
+    en: 'Free bill review'
+  };
 
   // --------------------
   // Gestión de modo claro / oscuro
@@ -964,6 +994,19 @@ Ingeniería especializada en energía fotovoltaica. Soluciones de autoconsumo pa
   var segmentTabs = document.querySelectorAll('.segment-tab');
   var segmentHidden = document.getElementById('contact-segmento');
   var segmentMessage = document.getElementById('segmento-mensaje');
+  var currentLang = document.documentElement.getAttribute('data-lang') || 'es';
+  var SEGMENT_TEXT = {
+    es: {
+      Particular: '<strong>Particular.</strong> Déjanos tus datos y una copia opcional de tu última factura. Analizamos tu consumo y te llamamos con una propuesta clara, sin llamadas eternas ni contestadores automáticos.',
+      Comunidad: '<strong>Comunidad.</strong> Si administras una comunidad de propietarios, revisamos las facturas del edificio y negociamos directamente con la distribuidora para optimizar el coste energético del conjunto.',
+      Empresa: '<strong>Empresa.</strong> Analizamos los consumos de tu negocio y centralizamos la gestión con la distribuidora para que no pierdas tiempo en llamadas y gestiones administrativas.'
+    },
+    en: {
+      Particular: '<strong>Residential.</strong> Leave us your details and, if you wish, an optional copy of your latest bill. We analyse your consumption and call you with a clear proposal, without endless calls or automated menus.',
+      Comunidad: '<strong>Community.</strong> If you manage a homeowners’ association, we review the building’s bills and negotiate directly with the distributor to optimise the overall energy cost.',
+      Empresa: '<strong>Business.</strong> We analyse your company’s consumption and centralise communication with the distributor so you do not lose time on calls and admin tasks.'
+    }
+  };
   function updateSegment(segment) {
     if (segmentHidden) segmentHidden.value = segment;
     segmentTabs.forEach(function(tab) {
@@ -977,13 +1020,8 @@ Ingeniería especializada en energía fotovoltaica. Soluciones de autoconsumo pa
       }
     });
     if (segmentMessage) {
-      if (segment === 'Comunidad') {
-        segmentMessage.innerHTML = '<strong>Comunidad.</strong> Si administras una comunidad de propietarios, revisamos las facturas del edificio y negociamos directamente con la distribuidora para optimizar el coste energético del conjunto.';
-      } else if (segment === 'Empresa') {
-        segmentMessage.innerHTML = '<strong>Empresa.</strong> Analizamos los consumos de tu negocio y centralizamos la gestión con la distribuidora para que no pierdas tiempo en llamadas y gestiones administrativas.';
-      } else {
-        segmentMessage.innerHTML = '<strong>Particular.</strong> Déjanos tus datos y una copia opcional de tu última factura. Analizamos tu consumo y te llamamos con una propuesta clara, sin llamadas eternas ni contestadores automáticos.';
-      }
+      var langMap = SEGMENT_TEXT[currentLang] || SEGMENT_TEXT.es;
+      segmentMessage.innerHTML = langMap[segment] || SEGMENT_TEXT.es[segment] || '';
     }
   }
   segmentTabs.forEach(function(tab) {
@@ -995,6 +1033,13 @@ Ingeniería especializada en energía fotovoltaica. Soluciones de autoconsumo pa
   if (segmentHidden && !segmentHidden.value) {
     updateSegment('Particular');
   }
+
+  // Reactivar textos de segmento cuando cambie el idioma
+  document.addEventListener('i18n:language-changed', function (e) {
+    currentLang = (e.detail && e.detail.lang) || 'es';
+    var seg = (segmentHidden && segmentHidden.value) || 'Particular';
+    updateSegment(seg);
+  });
 
   // Mostrar/ocultar panel flotante del formulario
   function showLeadForm(isManual) {
@@ -1034,7 +1079,8 @@ Ingeniería especializada en energía fotovoltaica. Soluciones de autoconsumo pa
       leadFormToggle.classList.remove('floating-button--round');
       if (leadFormToggleIcon) leadFormToggleIcon.textContent = 'info';
       if (leadFormToggleText) {
-        leadFormToggleText.textContent = 'Analizar factura gratis';
+        var currentLang = document.documentElement.getAttribute('data-lang') || 'es';
+        leadFormToggleText.textContent = FLOATING_CTA_TEXT[currentLang] || FLOATING_CTA_TEXT.es;
         leadFormToggleText.classList.remove('hidden');
       }
     }
