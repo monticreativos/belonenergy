@@ -13,26 +13,35 @@
 <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin/>
 <!-- Preload del recurso LCP (imagen poster del hero) para mejorar FCP/LCP -->
 <link rel="preload" as="image" href="assets/img/coins-stack-with-light-bulb-jar.jpg"/>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Fuentes: carga asíncrona para no bloquear el renderizado -->
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"/></noscript>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"/></noscript>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#183644",
-                        "accent-green": "#2E7F5A",
-                        "background-light": "#f6f7f8",
-                        "background-dark": "#131c1f",
-                    },
-                    fontFamily: {
-                        "display": ["Manrope", "sans-serif"]
-                    },
-                    borderRadius: {"DEFAULT": "0.5rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-                },
-            },
-        }</script>
+<script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "primary": "#183644", "accent-green": "#2E7F5A", "background-light": "#f6f7f8", "background-dark": "#131c1f" }, fontFamily: { "display": ["Manrope", "sans-serif"] }, borderRadius: { "DEFAULT": "0.5rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" } } } };</script>
+<style>
+        /* Critical: layout hero y header sin depender de Tailwind (mejora FCP/LCP) */
+        body{font-family:system-ui,-apple-system,sans-serif;}
+        .max-w-7xl{max-width:80rem;margin-left:auto;margin-right:auto;}
+        .mx-auto{margin-left:auto;margin-right:auto;}
+        .px-4{padding-left:1rem;padding-right:1rem;}
+        .px-6{padding-left:1.5rem;padding-right:1.5rem;}
+        .py-24{padding-top:6rem;padding-bottom:6rem;}
+        .py-4{padding-top:1rem;padding-bottom:1rem;}
+        #hero{min-height:85vh;display:flex;align-items:center;overflow:hidden;position:relative;}
+        #hero .relative.z-20{position:relative;z-index:20;padding:6rem 1rem 6rem;}
+        #hero .max-w-3xl{max-width:48rem;}
+        #hero h1{font-size:clamp(1.875rem,5vw,3.75rem);font-weight:800;color:#fff;line-height:1.1;margin-bottom:1.5rem;}
+        #hero p.text-white\/90{color:rgba(255,255,255,.9);font-size:1.125rem;margin-bottom:2.5rem;line-height:1.6;}
+        #hero a.bg-accent-green{background:#2E7F5A;color:#fff;padding:1rem 2rem;border-radius:0.75rem;font-weight:700;display:inline-block;text-decoration:none;}
+        #hero .flex{display:flex;}
+        #hero .flex-col{flex-direction:column;}
+        #hero .gap-4{gap:1rem;}
+        @media (min-width:640px){.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem;} #hero p{font-size:1.25rem;} #hero a{font-size:1.125rem;} #hero .sm\:flex-row{flex-direction:row;}}
+        @media (min-width:768px){#hero h1{font-size:3.75rem;}}
+        @media (min-width:1024px){#hero .relative.z-20{padding:6rem 2rem 6rem;}}
+</style>
 <style>
         html { scroll-behavior: smooth; }
         body { font-family: 'Manrope', sans-serif; }
