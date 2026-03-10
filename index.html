@@ -89,6 +89,32 @@
             transform: translateY(12px) scale(0.98);
             pointer-events: none;
         }
+        /* Zona de subida de factura */
+        .file-dropzone {
+            position: relative;
+            border-radius: 0.75rem;
+            border: 1px dashed rgba(15, 23, 42, 0.18);
+            background: rgba(255, 255, 255, 0.9);
+            transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .dark .file-dropzone {
+            background: rgba(15, 23, 42, 0.9);
+            border-color: rgba(148, 163, 184, 0.5);
+        }
+        .file-dropzone:hover {
+            border-color: #2E7F5A;
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+        }
+        .file-dropzone.is-dragover {
+            border-color: #2E7F5A;
+            background-color: rgba(46, 127, 90, 0.04);
+        }
+        .file-dropzone-input {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
         @media (max-width: 1024px) {
             .lead-form-panel--floating {
                 right: 0.75rem;
@@ -104,6 +130,13 @@
             position: fixed;
             right: 1rem;
             z-index: 70;
+            width: 3.25rem;
+            height: 3.25rem;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
         }
         .floating-button-form {
             top: 50%;
@@ -130,7 +163,8 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="flex justify-between items-center py-4">
 <a href="#" class="flex items-center gap-2">
-<img src="assets/img/logo.svg" alt="Belón Energy" class="h-12 sm:h-14 w-auto"/>
+<img src="assets/img/logo.svg" alt="Belón Energy" class="h-12 sm:h-14 w-auto dark:hidden"/>
+<img src="assets/img/logo_blanco.svg" alt="Belón Energy" class="h-12 sm:h-14 w-auto hidden dark:inline-block"/>
 </a>
 <nav class="hidden md:flex items-center gap-8">
 <a class="text-sm font-semibold hover:text-primary/70 transition-colors" href="#servicios">Servicios</a>
@@ -139,7 +173,11 @@
 <a class="text-sm font-semibold hover:text-primary/70 transition-colors" href="#contacto">Contacto</a>
 </nav>
 <div class="flex items-center gap-4">
-<a href="#contacto" class="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-bold hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 inline-block">
+<button id="theme-toggle" type="button" class="hidden sm:inline-flex items-center justify-center rounded-full border border-primary/15 bg-white/70 text-primary w-9 h-9 text-xs font-semibold shadow-sm hover:bg-white hover:border-primary/30 dark:bg-background-dark dark:text-slate-100 dark:border-slate-700 dark:hover:bg-slate-900/80 transition-colors">
+<span class="material-symbols-outlined text-sm" aria-hidden="true">dark_mode</span>
+<span id="theme-toggle-label" class="sr-only">Modo oscuro</span>
+</button>
+<a href="#contacto" class="bg-accent-green hover:bg-accent-green/90 text-white px-6 py-2.5 rounded-lg text-sm font-bold transition-all shadow-lg shadow-primary/20 inline-block">
                         Analizar factura gratis
                     </a>
 </div>
@@ -150,7 +188,7 @@
 <section id="hero" class="relative min-h-[85vh] flex items-center overflow-hidden">
 <div class="absolute inset-0 z-0">
 <div class="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/40 z-10"></div>
-<img alt="Ahorro en factura de luz y gas con gestión energética" class="w-full h-full object-cover" src="assets/img/coins-stack-with-light-bulb-jar.jpg"/>
+<img alt="Ahorro en factura de luz y gas con gestión energética" class="w-full h-full object-cover object-bottom" src="assets/img/coins-stack-with-light-bulb-jar.jpg"/>
 </div>
 <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
 <div class="max-w-3xl">
@@ -180,21 +218,21 @@
                     </p>
 </div>
 <div class="grid md:grid-cols-3 gap-8">
-<div class="anim-fade-up anim-stagger-1 p-8 rounded-2xl border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-shadow bg-background-light dark:bg-slate-900/50">
+<div class="anim-fade-up anim-stagger-1 p-8 rounded-2xl border border-slate-100 dark:border-primary/40 hover:shadow-xl transition-shadow bg-background-light dark:bg-background-dark">
 <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6">
 <span class="material-symbols-outlined text-3xl">precision_manufacturing</span>
 </div>
 <h3 class="text-xl font-bold mb-3 text-primary dark:text-slate-100">Facturas que no se entienden</h3>
 <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Discriminación horaria, peajes, ajustes… Las compañías complican el lenguaje para que no sepas exactamente qué estás pagando.</p>
 </div>
-<div class="anim-fade-up anim-stagger-2 p-8 rounded-2xl border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-shadow bg-background-light dark:bg-slate-900/50">
+<div class="anim-fade-up anim-stagger-2 p-8 rounded-2xl border border-slate-100 dark:border-primary/40 hover:shadow-xl transition-shadow bg-background-light dark:bg-background-dark">
 <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6">
 <span class="material-symbols-outlined text-3xl">speed</span>
 </div>
 <h3 class="text-xl font-bold mb-3 text-primary dark:text-slate-100">Horas perdidas al teléfono</h3>
 <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Llamadas eternas, menús automáticos y explicaciones distintas según con quién hables. Mientras tanto, tus facturas siguen llegando cada mes.</p>
 </div>
-<div class="anim-fade-up anim-stagger-3 p-8 rounded-2xl border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-shadow bg-background-light dark:bg-slate-900/50">
+<div class="anim-fade-up anim-stagger-3 p-8 rounded-2xl border border-slate-100 dark:border-primary/40 hover:shadow-xl transition-shadow bg-background-light dark:bg-background-dark">
 <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6">
 <span class="material-symbols-outlined text-3xl">architecture</span>
 </div>
@@ -252,22 +290,22 @@
 </div>
 </div>
 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-<div class="anim-fade-up anim-stagger-1 rounded-2xl border border-slate-100 dark:border-slate-800 bg-background-light dark:bg-slate-900/60 p-6 shadow-sm">
+<div class="anim-fade-up anim-stagger-1 rounded-2xl border border-slate-100 dark:border-primary/40 bg-background-light dark:bg-background-dark p-6 shadow-sm">
 <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-accent-green text-white text-sm font-bold mb-4">1</span>
 <h3 class="text-lg font-bold text-primary dark:text-slate-100 mb-2">Subes tu factura o rellenas el formulario</h3>
 <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Puedes adjuntar tu factura de luz o gas o simplemente indicarnos tus datos de contacto y tu gasto aproximado.</p>
 </div>
-<div class="anim-fade-up anim-stagger-2 rounded-2xl border border-slate-100 dark:border-slate-800 bg-background-light dark:bg-slate-900/60 p-6 shadow-sm">
+<div class="anim-fade-up anim-stagger-2 rounded-2xl border border-slate-100 dark:border-primary/40 bg-background-light dark:bg-background-dark p-6 shadow-sm">
 <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-accent-green text-white text-sm font-bold mb-4">2</span>
 <h3 class="text-lg font-bold text-primary dark:text-slate-100 mb-2">Analizamos tu contrato energético</h3>
 <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Revisamos condiciones, tarifas, potencias y servicios añadidos para detectar dónde estás pagando de más.</p>
 </div>
-<div class="anim-fade-up anim-stagger-3 rounded-2xl border border-slate-100 dark:border-slate-800 bg-background-light dark:bg-slate-900/60 p-6 shadow-sm">
+<div class="anim-fade-up anim-stagger-3 rounded-2xl border border-slate-100 dark:border-primary/40 bg-background-light dark:bg-background-dark p-6 shadow-sm">
 <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-accent-green text-white text-sm font-bold mb-4">3</span>
 <h3 class="text-lg font-bold text-primary dark:text-slate-100 mb-2">Optimizamos tu tarifa y gestionamos los cambios</h3>
 <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Hablamos con las compañías por ti para aplicar la tarifa adecuada, ajustar potencias y resolver incidencias.</p>
 </div>
-<div class="anim-fade-up anim-stagger-3 rounded-2xl border border-slate-100 dark:border-slate-800 bg-background-light dark:bg-slate-900/60 p-6 shadow-sm">
+<div class="anim-fade-up anim-stagger-3 rounded-2xl border border-slate-100 dark:border-primary/40 bg-background-light dark:bg-background-dark p-6 shadow-sm">
 <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-accent-green text-white text-sm font-bold mb-4">4</span>
 <h3 class="text-lg font-bold text-primary dark:text-slate-100 mb-2">Empiezas a pagar menos</h3>
 <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Te explicamos de forma sencilla los cambios realizados y cuánto puedes ahorrar a partir de ahora.</p>
@@ -276,11 +314,11 @@
 </div>
 </section>
 <!-- Testimonials -->
-<section class="py-24 bg-background-light dark:bg-slate-900/40">
+<section class="py-24 bg-background-light dark:bg-background-dark">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <h2 class="anim-fade-up text-center text-3xl font-black text-primary dark:text-slate-100 mb-16">Lo que dicen nuestros clientes</h2>
 <div class="grid md:grid-cols-3 gap-8">
-<div class="anim-scale-in anim-stagger-1 bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-sm italic text-slate-700 dark:text-slate-300 relative">
+<div class="anim-scale-in anim-stagger-1 bg-white dark:bg-background-dark p-8 rounded-2xl shadow-sm italic text-slate-700 dark:text-slate-300 relative">
 <div class="flex text-yellow-500 mb-4">
 <span class="material-symbols-outlined fill-1">star</span>
 <span class="material-symbols-outlined fill-1">star</span>
@@ -294,7 +332,7 @@
 <span class="font-bold text-sm text-primary dark:text-slate-100">Juan Rodríguez - Residente Marbella</span>
 </div>
 </div>
-<div class="anim-scale-in anim-stagger-2 bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-sm italic text-slate-700 dark:text-slate-300 relative">
+<div class="anim-scale-in anim-stagger-2 bg-white dark:bg-background-dark p-8 rounded-2xl shadow-sm italic text-slate-700 dark:text-slate-300 relative">
 <div class="flex text-yellow-500 mb-4">
 <span class="material-symbols-outlined fill-1">star</span>
 <span class="material-symbols-outlined fill-1">star</span>
@@ -308,7 +346,7 @@
 <span class="font-bold text-sm text-primary dark:text-slate-100">María López - Gerente Industrial</span>
 </div>
 </div>
-<div class="anim-scale-in anim-stagger-3 bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-sm italic text-slate-700 dark:text-slate-300 relative">
+<div class="anim-scale-in anim-stagger-3 bg-white dark:bg-background-dark p-8 rounded-2xl shadow-sm italic text-slate-700 dark:text-slate-300 relative">
 <div class="flex text-yellow-500 mb-4">
 <span class="material-symbols-outlined fill-1">star</span>
 <span class="material-symbols-outlined fill-1">star</span>
@@ -335,6 +373,73 @@
             </a><p class="text-sm opacity-80 mt-4">Estudio energético sin compromiso.</p>
 </div>
 </section>
+
+<!-- Additional Energy Solutions -->
+<section class="py-24 bg-white dark:bg-background-dark">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="mb-16 text-center max-w-4xl mx-auto">
+<h2 class="anim-fade-up text-3xl md:text-4xl font-black text-primary dark:text-slate-100 mb-4">Más soluciones para optimizar tu energía</h2>
+<p class="anim-fade-up anim-stagger-1 text-base md:text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+                    Además de gestionar tu factura de luz y gas, ofrecemos soluciones energéticas para viviendas y empresas que buscan reducir costes y mejorar su eficiencia.
+                </p>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-14">
+<article class="anim-slide-left anim-stagger-1 group relative overflow-hidden rounded-2xl bg-primary/5 dark:bg-background-dark border border-primary/10 dark:border-primary/40 p-8 hover:bg-primary/8 dark:hover:bg-background-dark/80 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-4xl text-accent-green mb-4 block">solar_power</span>
+<h3 class="text-xl font-bold mb-3 text-primary dark:text-slate-100">Instalaciones fotovoltaicas</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">Diseñamos e instalamos sistemas solares adaptados al consumo real de cada vivienda o empresa.</p>
+<ul class="text-sm text-slate-500 dark:text-slate-400 space-y-1.5 mb-3">
+<li>· Estudio energético</li>
+<li>· Diseño de la instalación</li>
+<li>· Tramitación administrativa</li>
+<li>· Instalación y puesta en marcha</li>
+</ul>
+<p class="text-sm font-semibold text-slate-700 dark:text-slate-200">Para que produzcas tu propia energía y reduzcas al máximo tu factura eléctrica.</p>
+</article>
+<article class="anim-slide-left anim-stagger-2 group relative overflow-hidden rounded-2xl bg-primary/5 dark:bg-background-dark border border-primary/10 dark:border-primary/40 p-8 hover:bg-primary/8 dark:hover:bg-background-dark/80 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-4xl text-accent-green mb-4 block">request_quote</span>
+<h3 class="text-xl font-bold mb-3 text-primary dark:text-slate-100">Renting fotovoltaico</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">Instala energía solar sin inversión inicial y paga una cuota mensual fija.</p>
+<ul class="text-sm text-slate-500 dark:text-slate-400 space-y-1.5 mb-3">
+<li>· Sin inversión inicial</li>
+<li>· Ahorro desde el primer día</li>
+<li>· Mantenimiento incluido</li>
+<li>· Contrato flexible</li>
+</ul>
+<p class="text-sm font-semibold text-slate-700 dark:text-slate-200">Una forma sencilla de acceder al autoconsumo sin comprometer tu liquidez.</p>
+</article>
+<article class="anim-slide-left anim-stagger-3 group relative overflow-hidden rounded-2xl bg-primary/5 dark:bg-background-dark border border-primary/10 dark:border-primary/40 p-8 hover:bg-primary/8 dark:hover:bg-background-dark/80 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-4xl text-accent-green mb-4 block">warehouse</span>
+<h3 class="text-xl font-bold mb-3 text-primary dark:text-slate-100">Alquiler de tejados</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">Si dispones de una cubierta amplia o nave industrial, podemos alquilar tu tejado para proyectos solares.</p>
+<ul class="text-sm text-slate-500 dark:text-slate-400 space-y-1.5 mb-3">
+<li>· Estudio de viabilidad</li>
+<li>· Búsqueda de inversores</li>
+<li>· Gestión completa del proyecto</li>
+</ul>
+<p class="text-sm font-semibold text-slate-700 dark:text-slate-200">Genera ingresos pasivos sin inversión ni preocupaciones técnicas.</p>
+</article>
+<article class="anim-slide-left anim-stagger-3 group relative overflow-hidden rounded-2xl bg-primary/5 dark:bg-background-dark border border-primary/10 dark:border-primary/40 p-8 hover:bg-primary/8 dark:hover:bg-background-dark/80 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-4xl text-accent-green mb-4 block">assignment_turned_in</span>
+<h3 class="text-xl font-bold mb-3 text-primary dark:text-slate-100">Certificado de eficiencia energética</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">Emitimos certificados energéticos oficiales para viviendas, locales y edificios.</p>
+<ul class="text-sm text-slate-500 dark:text-slate-400 space-y-1.5 mb-3">
+<li>· Obligatorio para vender o alquilar</li>
+<li>· Válido para trámites inmobiliarios</li>
+<li>· Inspección técnica y registro oficial</li>
+</ul>
+<p class="text-sm font-semibold text-slate-700 dark:text-slate-200">Un trámite rápido y seguro para cumplir con la normativa vigente.</p>
+</article>
+</div>
+<div class="text-center">
+<p class="text-sm md:text-base text-slate-600 dark:text-slate-300 mb-4">¿Quieres saber qué solución energética es la mejor para tu caso?</p>
+<a href="#contacto" class="inline-flex items-center justify-center px-8 py-3 rounded-xl bg-primary text-white text-sm md:text-base font-bold shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all">
+                Solicitar asesoramiento
+            </a>
+</div>
+</div>
+</section>
+
 <!-- Contact Form Section -->
 <section class="py-24 bg-white dark:bg-background-dark" id="contacto">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -433,8 +538,18 @@
 </div>
 <div class="md:col-span-2">
 <label class="block text-xs font-bold text-primary dark:text-slate-100 mb-1.5" for="contact-factura">Sube tu última factura (opcional)</label>
-<input id="contact-factura" name="factura" class="block w-full text-xs text-slate-700 dark:text-slate-200 file:mr-3 file:py-2 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-primary file:text-white hover:file:bg-primary/90 cursor-pointer" type="file" accept=".pdf,.jpg,.jpeg,.png"/>
-<p class="mt-1.5 text-[10px] text-slate-500">Factura reciente de luz o gas en PDF o imagen. Si no la tienes a mano, puedes enviárnosla después.</p>
+<div id="file-dropzone" class="file-dropzone px-3 py-3 flex items-center gap-3">
+<div class="flex items-center justify-center w-9 h-9 rounded-full bg-primary/10 text-primary shrink-0">
+<span class="material-symbols-outlined text-xl">upload_file</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-[11px] font-semibold text-slate-700 dark:text-slate-100 truncate">
+<span id="file-dropzone-label">Arrastra aquí tu factura o haz clic para seleccionarla</span>
+</p>
+<p class="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">Aceptamos archivos PDF o imagen (JPG, PNG). Si no la tienes a mano, puedes enviárnosla después.</p>
+</div>
+<input id="contact-factura" name="factura" class="file-dropzone-input" type="file" accept=".pdf,.jpg,.jpeg,.png"/>
+</div>
 </div>
 <div class="md:col-span-2 flex items-start gap-2 mt-1">
 <input id="contact-privacy" name="acepta_privacidad" type="checkbox" class="mt-1 rounded border-slate-300 text-accent-green focus:ring-accent-green" required/>
@@ -560,6 +675,7 @@ Ingeniería especializada en energía fotovoltaica. Soluciones de autoconsumo pa
 </footer>
 <script>
 (function() {
+  var THEME_STORAGE_KEY = 'belon_theme';
   var form = document.getElementById('contact-form');
   var submitBtn = document.getElementById('contact-submit');
   var formEndpoint = form && form.getAttribute('data-form-endpoint');
@@ -572,6 +688,61 @@ Ingeniería especializada en energía fotovoltaica. Soluciones de autoconsumo pa
   var contactSection = document.getElementById('contacto');
   var contactFormSlot = document.getElementById('contact-form-slot');
   var leadFormOriginalParent = leadFormPanel && leadFormPanel.parentNode;
+  var fileDropzone = document.getElementById('file-dropzone');
+  var fileInput = document.getElementById('contact-factura');
+  var fileLabel = document.getElementById('file-dropzone-label');
+  var themeToggle = document.getElementById('theme-toggle');
+  var themeToggleLabel = document.getElementById('theme-toggle-label');
+
+  // --------------------
+  // Gestión de modo claro / oscuro
+  // --------------------
+  function applyTheme(theme) {
+    var isDark = theme === 'dark';
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    if (themeToggle && themeToggleLabel) {
+      if (isDark) {
+        themeToggleLabel.textContent = 'Modo claro';
+        themeToggle.querySelector('.material-symbols-outlined').textContent = 'light_mode';
+      } else {
+        themeToggleLabel.textContent = 'Modo oscuro';
+        themeToggle.querySelector('.material-symbols-outlined').textContent = 'dark_mode';
+      }
+    }
+  }
+  function getStoredTheme() {
+    try {
+      return localStorage.getItem(THEME_STORAGE_KEY);
+    } catch (e) {
+      return null;
+    }
+  }
+  function storeTheme(theme) {
+    try {
+      localStorage.setItem(THEME_STORAGE_KEY, theme);
+    } catch (e) {}
+  }
+  (function initTheme() {
+    var stored = getStoredTheme();
+    if (stored === 'dark' || stored === 'light') {
+      applyTheme(stored);
+      return;
+    }
+    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(prefersDark ? 'dark' : 'light');
+  })();
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function() {
+      var isDark = document.documentElement.classList.contains('dark');
+      var nextTheme = isDark ? 'light' : 'dark';
+      applyTheme(nextTheme);
+      storeTheme(nextTheme);
+    });
+  }
 
   function openModal(modal) {
     if (modal) {
@@ -651,6 +822,43 @@ Ingeniería especializada en energía fotovoltaica. Soluciones de autoconsumo pa
     if (typeof str !== 'string') return '';
     var t = str.trim();
     return t.length > max ? t.slice(0, max) : t;
+  }
+
+  // Drag & drop para la factura
+  if (fileDropzone && fileInput) {
+    ['dragenter','dragover'].forEach(function(evt) {
+      fileDropzone.addEventListener(evt, function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        fileDropzone.classList.add('is-dragover');
+      });
+    });
+    ['dragleave','dragend','drop'].forEach(function(evt) {
+      fileDropzone.addEventListener(evt, function(e) {
+        if (evt !== 'drop') {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+        fileDropzone.classList.remove('is-dragover');
+      });
+    });
+    fileDropzone.addEventListener('drop', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+        fileInput.files = e.dataTransfer.files;
+        if (fileLabel) {
+          fileLabel.textContent = e.dataTransfer.files[0].name;
+        }
+      }
+    });
+    fileInput.addEventListener('change', function() {
+      if (fileInput.files && fileInput.files.length > 0 && fileLabel) {
+        fileLabel.textContent = fileInput.files[0].name;
+      } else if (fileLabel) {
+        fileLabel.textContent = 'Arrastra aquí tu factura o haz clic para seleccionarla';
+      }
+    });
   }
 
   // Cambio de pestañas (Particular / Comunidad / Empresa)
