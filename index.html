@@ -23,7 +23,7 @@
 <style>
         /* Critical: layout hero y header sin depender de Tailwind (mejora FCP/LCP) */
         body{font-family:system-ui,-apple-system,sans-serif;}
-        .max-w-7xl{max-width:80rem;margin-left:auto;margin-right:auto;}
+        .max-w-7xl{max-width:75rem;margin-left:auto;margin-right:auto;}
         .mx-auto{margin-left:auto;margin-right:auto;}
         .px-4{padding-left:1rem;padding-right:1rem;}
         .px-6{padding-left:1.5rem;padding-right:1.5rem;}
@@ -291,22 +291,33 @@
 </div>
 </header>
 <!-- Hero Section -->
-<section id="hero" class="relative min-h-[85vh] flex items-center overflow-hidden">
-<div class="absolute inset-0 z-0">
-<div class="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/40 z-10"></div>
-<video id="hero-video" class="w-full h-full object-cover object-bottom" data-src="assets/video/video.mp4" poster="assets/img/coins-stack-with-light-bulb-jar.jpg" autoplay muted loop playsinline preload="metadata" fetchpriority="high" aria-hidden="true"></video>
-</div>
-<div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+<section id="hero" class="relative min-h-[85vh] flex items-center overflow-hidden bg-gradient-to-r from-primary/95 to-primary/60">
+<div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+<div class="grid lg:grid-cols-2 gap-12 items-center">
 <div class="max-w-3xl">
 <h1 class="anim-fade-up text-4xl md:text-6xl font-black text-white leading-[1.1] mb-6 tracking-tight is-visible" data-i18n="hero_title">
-                    Revisamos y gestionamos tu factura de luz y gas para que pagues menos.
+                    ¿Estás pagando más de lo necesario en tu factura de luz?
                 </h1>
-<p class="anim-fade-up anim-stagger-1 text-lg md:text-xl text-white/90 mb-10 font-medium leading-relaxed" data-i18n="hero_subtitle">
-                    Analizamos tu factura de luz y gas, detectamos sobrecostes, optimizamos tus tarifas y hablamos con las compañías por ti para que dejes de perder tiempo en llamadas y pagues solo lo justo.
+<p class="anim-fade-up anim-stagger-1 text-lg md:text-xl text-white/90 mb-8 font-medium leading-relaxed" data-i18n="hero_subtitle">
+                    En Belón Energy analizamos tu contrato energético, detectamos sobrecostes y gestionamos los cambios con la comercializadora para que no pierdas tiempo ni dinero.
                 </p>
 <div class="anim-fade-up anim-stagger-2 flex flex-col sm:flex-row gap-4">
-<a href="#contacto" class="bg-accent-green hover:bg-accent-green/90 text-white px-8 py-4 rounded-xl text-lg font-bold transition-all transform hover:-translate-y-1 shadow-xl text-center" data-i18n="hero_cta_primary">Analizar factura gratis</a>
-<a href="#contacto" class="bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white px-8 py-4 rounded-xl text-lg font-bold transition-all text-center" data-i18n="hero_cta_secondary">Subir factura</a>
+<a href="#contacto" class="bg-accent-green hover:bg-accent-green/90 text-white px-8 py-4 rounded-lg text-lg font-bold transition-all transform hover:-translate-y-0.5 shadow-md text-center" data-i18n="hero_cta_primary">
+                        Revisar mi factura
+                    </a>
+<a href="https://wa.me/34636497068?text=Hola%20Bel%C3%B3n%20Energy,%20quiero%20que%20revis%C3%A9is%20mi%20factura%20de%20luz%20o%20gas." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-8 py-4 rounded-lg border border-white/60 text-white hover:bg-white/10 text-lg font-bold transition-all text-center gap-2" data-i18n="hero_cta_secondary">
+<span class="material-symbols-outlined text-2xl" aria-hidden="true">chat</span>
+                        Hablar por WhatsApp
+                    </a>
+</div>
+<p class="mt-4 text-sm text-white/80" data-i18n="hero_support">
+                    Asesoramiento independiente para particulares, comunidades y empresas.
+                </p>
+</div>
+<div class="anim-slide-right">
+<div class="relative rounded-3xl overflow-hidden shadow-2xl bg-white/5 ring-1 ring-white/20">
+<img src="assets/img/coins-stack-with-light-bulb-jar.jpg" alt="Factura de luz y ahorro energético con Belón Energy" class="w-full h-full object-cover"/>
+</div>
 </div>
 </div>
 </div>
@@ -315,115 +326,152 @@
 (function(){var v=document.getElementById('hero-video');if(!v)return;var m=window.matchMedia('(max-width:767px)').matches;if(!m){v.src=v.getAttribute('data-src');}else{if('requestIdleCallback'in window){requestIdleCallback(function(){v.src=v.getAttribute('data-src');},{timeout:4e3});}else{setTimeout(function(){v.src=v.getAttribute('data-src');},1500);}}})();
 </script>
 <!-- Authority Section eliminada -->
-<!-- Why Belón Energy -->
-<section class="py-24 bg-white dark:bg-background-dark" id="nosotros">
+<!-- Problema / Dolor -->
+<section class="py-20 bg-white dark:bg-background-dark" id="nosotros">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="text-center mb-12">
-<h2 class="anim-fade-up text-3xl md:text-4xl font-black text-primary dark:text-slate-100 mb-4 tracking-tight" data-i18n="why_title">Tu factura energética no debería ser un problema.</h2>
+<h2 class="anim-fade-up text-3xl md:text-4xl font-black text-primary dark:text-slate-100 mb-4 tracking-tight" data-i18n="problem_title">Tu factura energética no debería ser una incógnita</h2>
 <div class="anim-fade-up anim-stagger-1 h-1.5 w-20 bg-accent-green mx-auto rounded-full"></div>
-<p class="anim-fade-up anim-stagger-2 mt-6 max-w-3xl mx-auto text-lg text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="why_intro">
-                        La mayoría de hogares y pequeños negocios pagan de más porque no tienen tiempo para revisar contratos, entender tarifas ni pelearse con las compañías.
-                        En Belón Energy gestionamos tus facturas para que pagues solo lo necesario.
+<div class="anim-fade-up anim-stagger-2 mt-6 max-w-[700px] mx-auto space-y-4 text-lg text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="problem_text">
+<p>
+                        La factura de la luz y el gas se ha vuelto cada vez más difícil de entender. Tarifas que cambian, potencias mal ajustadas, precios que suben sin que sepamos exactamente por qué.
+                    </p>
+<p>
+                        Muchas personas y empresas terminan pagando más de lo necesario simplemente porque no tienen tiempo o conocimientos para revisar su contrato energético.
+                    </p>
+<p>
+                        En Belón Energy analizamos tu situación energética para ayudarte a pagar solo lo que realmente corresponde a tu consumo.
                     </p>
 </div>
-<div class="grid md:grid-cols-3 gap-8">
-<div class="anim-fade-up anim-stagger-1 p-8 rounded-2xl border border-slate-100 dark:border-primary/40 hover:shadow-xl transition-shadow bg-background-light dark:bg-background-dark">
-<div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6">
-<span class="material-symbols-outlined text-3xl">precision_manufacturing</span>
-</div>
-<h3 class="text-xl font-bold mb-3 text-primary dark:text-slate-100" data-i18n="why_card1_title">Facturas que no se entienden</h3>
-<p class="text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="why_card1_text">Discriminación horaria, peajes, ajustes… Las compañías complican el lenguaje para que no sepas exactamente qué estás pagando.</p>
-</div>
-<div class="anim-fade-up anim-stagger-2 p-8 rounded-2xl border border-slate-100 dark:border-primary/40 hover:shadow-xl transition-shadow bg-background-light dark:bg-background-dark">
-<div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6">
-<span class="material-symbols-outlined text-3xl">speed</span>
-</div>
-<h3 class="text-xl font-bold mb-3 text-primary dark:text-slate-100" data-i18n="why_card2_title">Horas perdidas al teléfono</h3>
-<p class="text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="why_card2_text">Llamadas eternas, menús automáticos y explicaciones distintas según con quién hables. Mientras tanto, tus facturas siguen llegando cada mes.</p>
-</div>
-<div class="anim-fade-up anim-stagger-3 p-8 rounded-2xl border border-slate-100 dark:border-primary/40 hover:shadow-xl transition-shadow bg-background-light dark:bg-background-dark">
-<div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6">
-<span class="material-symbols-outlined text-3xl">architecture</span>
-</div>
-<h3 class="text-xl font-bold mb-3 text-primary dark:text-slate-100" data-i18n="why_card3_title">Subidas de precios sin avisar</h3>
-<p class="text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="why_card3_text">Las condiciones cambian, aparecen cargos extra y casi nunca tienes una visión clara de si estás pagando un precio justo.</p>
-</div>
-</div>
-<div class="mt-14 max-w-4xl mx-auto text-center">
-<h3 class="text-2xl font-black text-primary dark:text-slate-100 mb-3" data-i18n="why_bottom_title">Gestionamos tu energía por ti.</h3>
-<p class="text-slate-600 dark:text-slate-400 text-base md:text-lg leading-relaxed" data-i18n="why_bottom_text">
-                    Nos encargamos de analizar tus facturas, optimizar tus contratos de luz y gas y hablar con las compañías en tu nombre.
-                    Tú solo nos envías tu factura y nosotros nos ocupamos del resto.
-                </p>
 </div>
 </div>
 </section>
-<!-- Services Section -->
-<section class="py-24 text-white bg-[#183644]" id="servicios">
+<!-- Servicios de optimización -->
+<section class="py-20 text-white bg-[#183644]" id="servicios">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="mb-16">
-<h2 class="anim-fade-up text-3xl md:text-4xl font-black mb-4" data-i18n="services_title">Servicios pensados para que pagues menos.</h2>
-<p class="anim-fade-up anim-stagger-1 text-slate-300 max-w-2xl" data-i18n="services_intro">Un servicio integral de gestión de facturas de luz y gas para hogares y pequeños negocios que quieren olvidarse de las compañías energéticas.</p>
+<h2 class="anim-fade-up text-3xl md:text-4xl font-black mb-4" data-i18n="services_title">Servicios de optimización energética</h2>
+<p class="anim-fade-up anim-stagger-1 text-slate-300 max-w-2xl" data-i18n="services_intro">
+                    Nuestro trabajo consiste en revisar tu contrato energético y encontrar oportunidades de mejora que te permitan optimizar tu factura sin complicaciones.
+                </p>
 </div>
 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
 <div class="anim-slide-left anim-stagger-1 group relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 p-8 hover:bg-white/10 transition-all cursor-pointer">
 <span class="material-symbols-outlined text-5xl text-accent-green mb-6 block">receipt_long</span>
-<h3 class="text-2xl font-bold mb-4" data-i18n="service1_title">Auditoría de factura</h3>
-<p class="text-slate-300 mb-6" data-i18n="service1_text">Revisamos tus facturas de luz y gas para detectar sobrecostes, tarifas incorrectas y servicios que no necesitas.</p>
+<h3 class="text-2xl font-bold mb-4" data-i18n="service1_title">Análisis de factura</h3>
+<p class="text-slate-300 mb-6" data-i18n="service1_text">
+                        Estudiamos tu factura de luz o gas para identificar posibles sobrecostes, errores o condiciones mejorables.
+                    </p>
 </div>
 <div class="anim-slide-left anim-stagger-2 group relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 p-8 hover:bg-white/10 transition-all cursor-pointer">
 <span class="material-symbols-outlined text-5xl text-accent-green mb-6 block">tune</span>
 <h3 class="text-2xl font-bold mb-4" data-i18n="service2_title">Optimización de tarifa</h3>
-<p class="text-slate-300 mb-6" data-i18n="service2_text">Comparamos comercializadoras y propuestas para ajustar tu contrato a tu consumo real y cambiarte a la mejor tarifa disponible.</p>
+<p class="text-slate-300 mb-6" data-i18n="service2_text">
+                        Evaluamos si la tarifa contratada y la potencia se ajustan realmente a tu consumo.
+                    </p>
 </div>
 <div class="anim-slide-left anim-stagger-3 group relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 p-8 hover:bg-white/10 transition-all cursor-pointer">
 <span class="material-symbols-outlined text-5xl text-accent-green mb-6 block">support_agent</span>
-<h3 class="text-2xl font-bold mb-4" data-i18n="service3_title">Gestión con compañías</h3>
-<p class="text-slate-300 mb-6" data-i18n="service3_text">Hacemos las llamadas y trámites por ti: cambios de contrato, ajustes de potencia, incidencias de facturación y reclamaciones.</p>
+<h3 class="text-2xl font-bold mb-4" data-i18n="service3_title">Gestión con la comercializadora</h3>
+<p class="text-slate-300 mb-6" data-i18n="service3_text">
+                        Nos encargamos de gestionar los cambios necesarios con la compañía energética.
+                    </p>
 </div>
 <div class="anim-slide-left anim-stagger-3 group relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 p-8 hover:bg-white/10 transition-all cursor-pointer">
 <span class="material-symbols-outlined text-5xl text-accent-green mb-6 block">update</span>
-<h3 class="text-2xl font-bold mb-4" data-i18n="service4_title">Seguimiento continuo</h3>
-<p class="text-slate-300 mb-6" data-i18n="service4_text">Revisamos periódicamente tus facturas para asegurarnos de que sigues con la mejor tarifa y te avisamos si aparece una opción mejor.</p>
+<h3 class="text-2xl font-bold mb-4" data-i18n="service4_title">Seguimiento energético</h3>
+<p class="text-slate-300 mb-6" data-i18n="service4_text">
+                        Revisamos tu situación periódicamente para asegurarnos de que sigues pagando lo justo.
+                    </p>
 </div>
 </div>
 </div>
 </section>
-<!-- Social Proof / Projects -->
-<section class="py-24 bg-white dark:bg-background-dark overflow-hidden" id="proyectos">
+<!-- Cómo funciona -->
+<section class="py-20 bg-white dark:bg-background-dark overflow-hidden" id="proyectos">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
 <div>
-<h2 class="anim-fade-up text-3xl md:text-4xl font-black text-primary dark:text-slate-100 mb-4" data-i18n="how_title">Cómo funciona nuestro servicio para revisar tu factura.</h2>
-<p class="anim-fade-up anim-stagger-1 text-slate-600 dark:text-slate-400" data-i18n="how_intro">Un proceso sencillo de revisión de factura de luz y gas para que pases de facturas confusas a pagar solo lo justo, sin tratar directamente con las compañías.</p>
+<h2 class="anim-fade-up text-3xl md:text-4xl font-black text-primary dark:text-slate-100 mb-4" data-i18n="how_title">Así funciona nuestro servicio</h2>
+<p class="anim-fade-up anim-stagger-1 text-slate-600 dark:text-slate-400" data-i18n="how_intro">
+                    Un proceso sencillo para revisar tu factura de luz o gas y aplicar las mejoras sin que tengas que pelearte con las compañías.
+                </p>
 </div>
 </div>
 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
 <div class="anim-fade-up anim-stagger-1 rounded-2xl border border-slate-100 dark:border-primary/40 bg-background-light dark:bg-background-dark p-6 shadow-sm">
 <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-accent-green text-white text-sm font-bold mb-4">1</span>
-<h3 class="text-lg font-bold text-primary dark:text-slate-100 mb-2" data-i18n="how_step1_title">Subes tu factura o rellenas el formulario</h3>
-<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="how_step1_text">Puedes adjuntar tu factura de luz o gas o simplemente indicarnos tus datos de contacto y tu gasto aproximado.</p>
+<h3 class="text-lg font-bold text-primary dark:text-slate-100 mb-2" data-i18n="how_step1_title">Nos envías tu factura</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="how_step1_text">
+                        Puedes enviarnos una copia de tu factura de luz o gas a través del formulario o por WhatsApp.
+                    </p>
 </div>
 <div class="anim-fade-up anim-stagger-2 rounded-2xl border border-slate-100 dark:border-primary/40 bg-background-light dark:bg-background-dark p-6 shadow-sm">
 <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-accent-green text-white text-sm font-bold mb-4">2</span>
 <h3 class="text-lg font-bold text-primary dark:text-slate-100 mb-2" data-i18n="how_step2_title">Analizamos tu contrato energético</h3>
-<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="how_step2_text">Revisamos condiciones, tarifas, potencias y servicios añadidos para detectar dónde estás pagando de más.</p>
+<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="how_step2_text">
+                        Nuestro equipo revisa consumo, tarifa y condiciones.
+                    </p>
 </div>
 <div class="anim-fade-up anim-stagger-3 rounded-2xl border border-slate-100 dark:border-primary/40 bg-background-light dark:bg-background-dark p-6 shadow-sm">
 <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-accent-green text-white text-sm font-bold mb-4">3</span>
-<h3 class="text-lg font-bold text-primary dark:text-slate-100 mb-2" data-i18n="how_step3_title">Optimizamos tu tarifa y gestionamos los cambios</h3>
-<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="how_step3_text">Hablamos con las compañías por ti para aplicar la tarifa adecuada, ajustar potencias y resolver incidencias.</p>
+<h3 class="text-lg font-bold text-primary dark:text-slate-100 mb-2" data-i18n="how_step3_title">Te explicamos las mejoras</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="how_step3_text">
+                        Te presentamos las opciones de optimización de forma clara y sin compromiso.
+                    </p>
 </div>
 <div class="anim-fade-up anim-stagger-3 rounded-2xl border border-slate-100 dark:border-primary/40 bg-background-light dark:bg-background-dark p-6 shadow-sm">
 <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-accent-green text-white text-sm font-bold mb-4">4</span>
-<h3 class="text-lg font-bold text-primary dark:text-slate-100 mb-2" data-i18n="how_step4_title">Empiezas a pagar menos</h3>
-<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="how_step4_text">Te explicamos de forma sencilla los cambios realizados y cuánto puedes ahorrar a partir de ahora.</p>
+<h3 class="text-lg font-bold text-primary dark:text-slate-100 mb-2" data-i18n="how_step4_title">Gestionamos los cambios</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="how_step4_text">
+                        Si decides aplicar las mejoras, gestionamos los trámites con la compañía.
+                    </p>
+</div>
+</div>
+<div class="mt-10 text-center">
+<a href="#contacto" class="inline-flex items-center justify-center px-10 py-4 rounded-lg bg-accent-green text-white text-lg font-bold shadow-md hover:bg-accent-green/90 transition-all" data-i18n="how_cta">
+                Solicitar revisión de factura
+            </a>
+</div>
+</div>
+</section>
+<!-- Beneficios -->
+<section class="py-20 bg-background-light dark:bg-background-dark" id="beneficios">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-12">
+<h2 class="anim-fade-up text-3xl md:text-4xl font-black text-primary dark:text-slate-100 mb-4" data-i18n="benefits_title">Qué ganas con Belón Energy</h2>
+<div class="anim-fade-up anim-stagger-1 h-1.5 w-20 bg-accent-green mx-auto rounded-full"></div>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="anim-fade-up bg-white dark:bg-background-dark rounded-2xl border border-slate-100 dark:border-primary/40 p-6">
+<h3 class="font-bold text-primary dark:text-slate-100 mb-2 text-lg" data-i18n="benefit1_title">Mayor control sobre tu factura energética</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="benefit1_text">Entiendes qué estás pagando en cada concepto y dónde se puede optimizar.</p>
+</div>
+<div class="anim-fade-up anim-stagger-1 bg-white dark:bg-background-dark rounded-2xl border border-slate-100 dark:border-primary/40 p-6">
+<h3 class="font-bold text-primary dark:text-slate-100 mb-2 text-lg" data-i18n="benefit2_title">Optimización de tu tarifa y potencia contratada</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="benefit2_text">Ajustamos tu contrato a tu consumo real para evitar sobrecostes innecesarios.</p>
+</div>
+<div class="anim-fade-up anim-stagger-2 bg-white dark:bg-background-dark rounded-2xl border border-slate-100 dark:border-primary/40 p-6">
+<h3 class="font-bold text-primary dark:text-slate-100 mb-2 text-lg" data-i18n="benefit3_title">Un interlocutor independiente</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="benefit3_text">Te representamos frente a las compañías energéticas sin intereses comerciales ocultos.</p>
+</div>
+<div class="anim-fade-up anim-stagger-2 bg-white dark:bg-background-dark rounded-2xl border border-slate-100 dark:border-primary/40 p-6">
+<h3 class="font-bold text-primary dark:text-slate-100 mb-2 text-lg" data-i18n="benefit4_title">Más claridad en tus contratos energéticos</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="benefit4_text">Simplificamos la letra pequeña para que tomes decisiones informadas.</p>
+</div>
+<div class="anim-fade-up anim-stagger-3 bg-white dark:bg-background-dark rounded-2xl border border-slate-100 dark:border-primary/40 p-6">
+<h3 class="font-bold text-primary dark:text-slate-100 mb-2 text-lg" data-i18n="benefit5_title">Ahorro de tiempo en gestiones complejas</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="benefit5_text">Olvídate de llamadas, esperas y trámites con las comercializadoras.</p>
+</div>
+<div class="anim-fade-up anim-stagger-3 bg-white dark:bg-background-dark rounded-2xl border border-slate-100 dark:border-primary/40 p-6">
+<h3 class="font-bold text-primary dark:text-slate-100 mb-2 text-lg" data-i18n="benefit6_title">Seguimiento a largo plazo</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="benefit6_text">Revisamos tu situación periódicamente para que sigas pagando solo lo que corresponde.</p>
 </div>
 </div>
 </div>
 </section>
 <!-- Testimonials -->
-<section class="py-24 bg-background-light dark:bg-background-dark">
+<section class="py-20 bg-background-light dark:bg-background-dark">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <h2 class="anim-fade-up text-center text-3xl font-black text-primary dark:text-slate-100 mb-16" data-i18n="testimonials_title">Lo que dicen nuestros clientes</h2>
 <div class="grid md:grid-cols-3 gap-8">
@@ -435,10 +483,10 @@
 <span class="material-symbols-outlined fill-1">star</span>
 <span class="material-symbols-outlined fill-1">star</span>
 </div>
-<p data-i18n="testimonial1_text">"La precisión técnica de Belón es de otro nivel. Todo funcionó exactamente como prometieron en el estudio inicial."</p>
+<p data-i18n="testimonial1_text">"Envié mi factura por WhatsApp y en 48 horas tenía una propuesta clara. Solo con ajustar la potencia ya estoy pagando bastante menos cada mes."</p>
                     <div class="mt-6 flex items-center gap-4 not-italic">
 <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary">JR</div>
-<span class="font-bold text-sm text-primary dark:text-slate-100" data-i18n="testimonial1_author">Juan Rodríguez - Residente Marbella</span>
+<span class="font-bold text-sm text-primary dark:text-slate-100" data-i18n="testimonial1_author">Juan R. · Hogar en Marbella</span>
 </div>
 </div>
 <div class="anim-scale-in anim-stagger-2 bg-white dark:bg-background-dark p-8 rounded-2xl shadow-sm italic text-slate-700 dark:text-slate-300 relative">
@@ -449,10 +497,10 @@
 <span class="material-symbols-outlined fill-1">star</span>
 <span class="material-symbols-outlined fill-1">star</span>
 </div>
-<p data-i18n="testimonial2_text">"Increíble servicio post-venta. Tuvimos una duda con la app y nos atendieron un domingo en 10 minutos. Totalmente recomendados."</p>
+<p data-i18n="testimonial2_text">"Nos explicaron la factura paso a paso y se encargaron de hablar con la comercializadora. No hemos tenido que hacer ni una llamada y la factura ha bajado."</p>
                     <div class="mt-6 flex items-center gap-4 not-italic">
 <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary">ML</div>
-<span class="font-bold text-sm text-primary dark:text-slate-100" data-i18n="testimonial2_author">María López - Gerente Industrial</span>
+<span class="font-bold text-sm text-primary dark:text-slate-100" data-i18n="testimonial2_author">María L. · Administración de fincas</span>
 </div>
 </div>
 <div class="anim-scale-in anim-stagger-3 bg-white dark:bg-background-dark p-8 rounded-2xl shadow-sm italic text-slate-700 dark:text-slate-300 relative">
@@ -463,103 +511,102 @@
 <span class="material-symbols-outlined fill-1">star</span>
 <span class="material-symbols-outlined fill-1">star</span>
 </div>
-<p data-i18n="testimonial3_text">"Buscábamos ingeniería pura y no comerciales agresivos. Belón nos dio la confianza técnica que necesitábamos."</p>
+<p data-i18n="testimonial3_text">"Como pequeña empresa no teníamos tiempo para revisar contratos. Con Belón Energy tenemos a alguien de confianza que nos avisa cuando hay cambios y oportunidades de ahorro."</p>
                     <div class="mt-6 flex items-center gap-4 not-italic">
 <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary">AB</div>
-<span class="font-bold text-sm text-primary dark:text-slate-100" data-i18n="testimonial3_author">Andrés Benítez - Arquitecto</span>
+<span class="font-bold text-sm text-primary dark:text-slate-100" data-i18n="testimonial3_author">Andrés B. · Pyme de servicios</span>
 </div>
 </div>
 </div>
+<p class="mt-8 text-center text-xs text-slate-500 dark:text-slate-400" data-i18n="testimonials_note">
+            Próximamente integraremos reseñas verificadas de Google Reviews.
+        </p>
 </div>
 </section>
 <!-- Strong CTA -->
 <section class="py-20 bg-accent-green">
 <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
 <h2 class="anim-fade-up text-3xl md:text-5xl font-black mb-8 leading-tight" data-i18n="strong_cta_title">Descubre si estás pagando de más en tu factura.</h2>
-<p class="anim-fade-up anim-stagger-1 text-xl opacity-90 mb-10 max-w-2xl mx-auto font-medium" data-i18n="strong_cta_subtitle">Analizamos tu contrato de luz y gas, sin compromiso, y te proponemos cómo pagar menos.</p>
+<p class="anim-fade-up anim-stagger-1 text-xl opacity-90 mb-10 max-w-2xl mx-auto font-medium" data-i18n="strong_cta_subtitle">
+                Analizamos tu contrato de luz y gas, sin compromiso, y te proponemos cómo pagar menos.
+            </p>
 <a href="#contacto" class="anim-fade-up anim-stagger-2 inline-block bg-white text-accent-green px-10 py-5 rounded-xl text-xl font-bold hover:bg-slate-50 transition-all shadow-2xl" data-i18n="strong_cta_button">
-                Analizar factura gratis
+                Revisar mi factura
             </a><p class="text-sm opacity-80 mt-4" data-i18n="strong_cta_note">Estudio energético sin compromiso.</p>
 </div>
 </section>
 
-<!-- Additional Energy Solutions -->
-<section class="py-24 bg-white dark:bg-background-dark">
+<!-- Otros servicios -->
+<section class="py-20 bg-white dark:bg-background-dark" id="otros-servicios">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="mb-16 text-center max-w-4xl mx-auto">
-<h2 class="anim-fade-up text-3xl md:text-4xl font-black text-primary dark:text-slate-100 mb-4" data-i18n="extra_title">Más soluciones para optimizar tu energía</h2>
+<h2 class="anim-fade-up text-3xl md:text-4xl font-black text-primary dark:text-slate-100 mb-4" data-i18n="extra_title">Otras soluciones energéticas</h2>
 <p class="anim-fade-up anim-stagger-1 text-base md:text-lg text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="extra_intro">
-                    Además de gestionar tu factura de luz y gas, ofrecemos soluciones energéticas para viviendas y empresas que buscan reducir costes y mejorar su eficiencia.
+                    Además de la optimización de facturas, en Belón Energy también ofrecemos asesoramiento en otros proyectos relacionados con la energía para particulares, comunidades y empresas.
                 </p>
 </div>
 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-14">
-<article class="anim-slide-left anim-stagger-1 group relative overflow-hidden rounded-2xl bg-primary/5 dark:bg-background-dark border border-primary/10 dark:border-primary/40 p-8 hover:bg-primary/8 dark:hover:bg-background-dark/80 transition-all cursor-pointer">
+<article class="anim-slide-left anim-stagger-1 group relative overflow-hidden rounded-2xl bg-primary/5 dark:bg-background-dark border border-primary/10 dark:border-primary/40 p-8 hover:bg-primary/8 dark:hover:bg-background-dark/80 transition-all cursor-pointer flex flex-col">
 <span class="material-symbols-outlined text-4xl text-accent-green mb-4 block">solar_power</span>
 <h3 class="text-xl font-bold mb-3 text-primary dark:text-slate-100" data-i18n="extra_card1_title">Instalaciones fotovoltaicas</h3>
-<p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed" data-i18n="extra_card1_text">Diseñamos e instalamos sistemas solares adaptados al consumo real de cada vivienda o empresa.</p>
-<ul class="text-sm text-slate-500 dark:text-slate-400 space-y-1.5 mb-3">
-<li data-i18n="extra_card1_li1">· Estudio energético</li>
-<li data-i18n="extra_card1_li2">· Diseño de la instalación</li>
-<li data-i18n="extra_card1_li3">· Tramitación administrativa</li>
-<li data-i18n="extra_card1_li4">· Instalación y puesta en marcha</li>
-</ul>
-<p class="text-sm font-semibold text-slate-700 dark:text-slate-200" data-i18n="extra_card1_footer">Para que produzcas tu propia energía y reduzcas al máximo tu factura eléctrica.</p>
+<p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed" data-i18n="extra_card1_text">
+                        Soluciones de autoconsumo para reducir el consumo energético.
+                    </p>
+<a href="https://wa.me/34636497068?text=Hola%20Bel%C3%B3n%20Energy,%20quiero%20informaci%C3%B3n%20sobre%20instalaciones%20fotovoltaicas." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center mt-auto px-4 py-2 rounded-lg border border-accent-green text-accent-green text-sm font-semibold hover:bg-accent-green/10 transition-all" data-i18n="extra_card_cta">
+                        Consultar servicio
+                    </a>
 </article>
-<article class="anim-slide-left anim-stagger-2 group relative overflow-hidden rounded-2xl bg-primary/5 dark:bg-background-dark border border-primary/10 dark:border-primary/40 p-8 hover:bg-primary/8 dark:hover:bg-background-dark/80 transition-all cursor-pointer">
+<article class="anim-slide-left anim-stagger-2 group relative overflow-hidden rounded-2xl bg-primary/5 dark:bg-background-dark border border-primary/10 dark:border-primary/40 p-8 hover:bg-primary/8 dark:hover:bg-background-dark/80 transition-all cursor-pointer flex flex-col">
 <span class="material-symbols-outlined text-4xl text-accent-green mb-4 block">request_quote</span>
 <h3 class="text-xl font-bold mb-3 text-primary dark:text-slate-100" data-i18n="extra_card2_title">Renting fotovoltaico</h3>
-<p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed" data-i18n="extra_card2_text">Instala energía solar sin inversión inicial y paga una cuota mensual fija.</p>
-<ul class="text-sm text-slate-500 dark:text-slate-400 space-y-1.5 mb-3">
-<li data-i18n="extra_card2_li1">· Sin inversión inicial</li>
-<li data-i18n="extra_card2_li2">· Ahorro desde el primer día</li>
-<li data-i18n="extra_card2_li3">· Mantenimiento incluido</li>
-<li data-i18n="extra_card2_li4">· Contrato flexible</li>
-</ul>
-<p class="text-sm font-semibold text-slate-700 dark:text-slate-200" data-i18n="extra_card2_footer">Una forma sencilla de acceder al autoconsumo sin comprometer tu liquidez.</p>
+<p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed" data-i18n="extra_card2_text">
+                        Opciones de financiación para proyectos solares.
+                    </p>
+<a href="https://wa.me/34636497068?text=Hola%20Bel%C3%B3n%20Energy,%20quiero%20informaci%C3%B3n%20sobre%20renting%20fotovoltaico." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center mt-auto px-4 py-2 rounded-lg border border-accent-green text-accent-green text-sm font-semibold hover:bg-accent-green/10 transition-all" data-i18n="extra_card_cta">
+                        Consultar servicio
+                    </a>
 </article>
-<article class="anim-slide-left anim-stagger-3 group relative overflow-hidden rounded-2xl bg-primary/5 dark:bg-background-dark border border-primary/10 dark:border-primary/40 p-8 hover:bg-primary/8 dark:hover:bg-background-dark/80 transition-all cursor-pointer">
+<article class="anim-slide-left anim-stagger-3 group relative overflow-hidden rounded-2xl bg-primary/5 dark:bg-background-dark border border-primary/10 dark:border-primary/40 p-8 hover:bg-primary/8 dark:hover bg-background-dark/80 transition-all cursor-pointer flex flex-col">
 <span class="material-symbols-outlined text-4xl text-accent-green mb-4 block">warehouse</span>
-<h3 class="text-xl font-bold mb-3 text-primary dark:text-slate-100" data-i18n="extra_card3_title">Alquiler de tejados</h3>
-<p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed" data-i18n="extra_card3_text">Si dispones de una cubierta amplia o nave industrial, podemos alquilar tu tejado para proyectos solares.</p>
-<ul class="text-sm text-slate-500 dark:text-slate-400 space-y-1.5 mb-3">
-<li data-i18n="extra_card3_li1">· Estudio de viabilidad</li>
-<li data-i18n="extra_card3_li2">· Búsqueda de inversores</li>
-<li data-i18n="extra_card3_li3">· Gestión completa del proyecto</li>
-</ul>
-<p class="text-sm font-semibold text-slate-700 dark:text-slate-200" data-i18n="extra_card3_footer">Genera ingresos pasivos sin inversión ni preocupaciones técnicas.</p>
+<h3 class="text-xl font-bold mb-3 text-primary dark:text-slate-100" data-i18n="extra_card3_title">Alquiler de tejados para autoconsumo</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed" data-i18n="extra_card3_text">
+                        Aprovechamiento de cubiertas para generación energética.
+                    </p>
+<a href="https://wa.me/34636497068?text=Hola%20Bel%C3%B3n%20Energy,%20quiero%20informaci%C3%B3n%20sobre%20alquiler%20de%20tejados%20para%20autoconsumo." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center mt-auto px-4 py-2 rounded-lg border border-accent-green text-accent-green text-sm font-semibold hover:bg-accent-green/10 transition-all" data-i18n="extra_card_cta">
+                        Consultar servicio
+                    </a>
 </article>
-<article class="anim-slide-left anim-stagger-3 group relative overflow-hidden rounded-2xl bg-primary/5 dark:bg-background-dark border border-primary/10 dark:border-primary/40 p-8 hover:bg-primary/8 dark:hover:bg-background-dark/80 transition-all cursor-pointer">
+<article class="anim-slide-left anim-stagger-3 group relative overflow-hidden rounded-2xl bg-primary/5 dark:bg-background-dark border border-primary/10 dark:border-primary/40 p-8 hover:bg-primary/8 dark:hover:bg-background-dark/80 transition-all cursor-pointer flex flex-col">
 <span class="material-symbols-outlined text-4xl text-accent-green mb-4 block">assignment_turned_in</span>
-<h3 class="text-xl font-bold mb-3 text-primary dark:text-slate-100" data-i18n="extra_card4_title">Certificado de eficiencia energética</h3>
-<p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed" data-i18n="extra_card4_text">Emitimos certificados energéticos oficiales para viviendas, locales y edificios.</p>
-<ul class="text-sm text-slate-500 dark:text-slate-400 space-y-1.5 mb-3">
-<li data-i18n="extra_card4_li1">· Obligatorio para vender o alquilar</li>
-<li data-i18n="extra_card4_li2">· Válido para trámites inmobiliarios</li>
-<li data-i18n="extra_card4_li3">· Inspección técnica y registro oficial</li>
-</ul>
-<p class="text-sm font-semibold text-slate-700 dark:text-slate-200" data-i18n="extra_card4_footer">Un trámite rápido y seguro para cumplir con la normativa vigente.</p>
+<h3 class="text-xl font-bold mb-3 text-primary dark:text-slate-100" data-i18n="extra_card4_title">Certificados de eficiencia energética</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed" data-i18n="extra_card4_text">
+                        Evaluación energética de viviendas y edificios.
+                    </p>
+<a href="https://wa.me/34636497068?text=Hola%20Bel%C3%B3n%20Energy,%20quiero%20informaci%C3%B3n%20sobre%20certificados%20de%20eficiencia%20energ%C3%A9tica." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center mt-auto px-4 py-2 rounded-lg border border-accent-green text-accent-green text-sm font-semibold hover:bg-accent-green/10 transition-all" data-i18n="extra_card_cta">
+                        Consultar servicio
+                    </a>
 </article>
 </div>
 <div class="text-center">
 <p class="text-sm md:text-base text-slate-600 dark:text-slate-300 mb-4" data-i18n="extra_cta_text">¿Quieres saber qué solución energética es la mejor para tu caso?</p>
-<a href="#contacto" class="inline-flex items-center justify-center px-8 py-3 rounded-xl bg-primary text-white text-sm md:text-base font-bold shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all" data-i18n="extra_cta_button">
-                Solicitar asesoramiento
+<a href="https://wa.me/34636497068?text=Hola%20Bel%C3%B3n%20Energy,%20quiero%20informaci%C3%B3n%20sobre%20otras%20soluciones%20energ%C3%A9ticas." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-8 py-3 rounded-xl bg-primary text-white text-sm md:text-base font-bold shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all" data-i18n="extra_cta_button">
+                Consultar por WhatsApp
             </a>
 </div>
 </div>
 </section>
 
-<!-- Contact Form Section -->
-<section class="py-24 bg-white dark:bg-background-dark" id="contacto">
+<!-- Formulario -->
+<section class="py-20 bg-white dark:bg-background-dark" id="contacto">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="grid lg:grid-cols-2 gap-16 items-start">
 <div class="anim-slide-left">
-<h2 class="text-4xl font-black text-primary dark:text-slate-100 mb-6" data-i18n="contact_section_title">Envíanos tu factura y nos encargamos de todo</h2>
+<h2 class="text-4xl font-black text-primary dark:text-slate-100 mb-6" data-i18n="contact_section_title">Solicita la revisión de tu factura</h2>
 <p class="text-lg text-slate-600 dark:text-slate-400 mb-6 leading-relaxed" data-i18n="contact_section_p1">
-                        Envíanos tu factura de luz o gas y la revisamos línea a línea para detectar sobrecostes y errores. Nosotros hablamos con la distribuidora o comercializadora por ti, sin llamadas eternas ni letra pequeña.
+                        Envíanos tu factura y analizaremos tu contrato energético para identificar posibles mejoras.
                     </p>
 <p class="text-base text-slate-600 dark:text-slate-400 mb-10 leading-relaxed" data-i18n="contact_section_p2">
-                        El formulario flotante que ves a la derecha está siempre disponible para que nos dejes tus datos en cualquier momento de la visita.
+                        Nuestro equipo se pondrá en contacto contigo para explicarte el resultado del análisis.
                     </p>
 <div class="space-y-6">
 <div class="flex items-center gap-4">
@@ -602,7 +649,7 @@
 <button type="button" id="lead-form-close" class="lead-form-close" aria-label="Ocultar formulario">
 <span class="material-symbols-outlined text-base" aria-hidden="true">close</span>
 </button>
-<h3 class="text-lg font-black text-primary dark:text-slate-100 mb-3" data-i18n="lead_panel_title">Consigue tu mejor tarifa sin llamadas eternas</h3>
+<h3 class="text-lg font-black text-primary dark:text-slate-100 mb-3" data-i18n="lead_panel_title">Revisamos tu factura por ti</h3>
 <p class="text-xs text-slate-600 dark:text-slate-400 mb-4 leading-relaxed" data-i18n="lead_panel_intro">
             Déjanos tus datos y, si quieres, sube tu factura de luz. Nosotros hablamos con la distribuidora y te proponemos la mejor opción.
         </p>
@@ -652,7 +699,7 @@
 </select>
 </div>
 <div class="md:col-span-2">
-<label class="block text-xs font-bold text-primary dark:text-slate-100 mb-1.5" for="contact-factura" data-i18n="contact_invoice_label">Sube tu última factura (opcional)</label>
+<label class="block text-xs font-bold text-primary dark:text-slate-100 mb-1.5" for="contact-factura" data-i18n="contact_invoice_label">Subir factura (opcional)</label>
 <div id="file-dropzone" class="file-dropzone px-3 py-3 flex items-center gap-3">
 <div class="flex items-center justify-center w-9 h-9 rounded-full bg-primary/10 text-primary shrink-0">
 <span class="material-symbols-outlined text-xl">upload_file</span>
@@ -665,6 +712,10 @@
 </div>
 <input id="contact-factura" name="factura" class="file-dropzone-input" type="file" accept=".pdf,.jpg,.jpeg,.png"/>
 </div>
+        </div>
+        <div class="md:col-span-2">
+<label class="block text-xs font-bold text-primary dark:text-slate-100 mb-1.5" for="contact-message">Mensaje opcional</label>
+<textarea id="contact-message" name="mensaje" class="w-full rounded-xl border border-slate-200 dark:border-slate-800 dark:bg-slate-800 focus:ring-2 focus:ring-accent-green focus:border-accent-green px-3 py-2.5 text-sm min-h-[96px]" placeholder="Cuéntanos brevemente tu situación o dudas (opcional)"></textarea>
 </div>
 <div class="md:col-span-2 flex items-start gap-2 mt-1">
 <input id="contact-privacy" name="acepta_privacidad" type="checkbox" class="mt-1 rounded border-slate-300 text-accent-green focus:ring-accent-green" required/>
@@ -672,7 +723,7 @@
 </div>
 <div class="md:col-span-2 pt-1.5">
 <button id="contact-submit" class="w-full bg-primary text-white py-3 rounded-xl font-bold text-sm hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 disabled:opacity-60 disabled:cursor-not-allowed" type="submit" data-i18n="contact_submit">
-Quiero que reviséis mi factura
+Enviar factura para revisión
 </button>
 <p class="text-center text-[10px] text-slate-500 mt-2" data-i18n="contact_submit_note">Analizamos tu caso sin compromiso y te llamamos en menos de 48 horas.</p>
 </div>
@@ -734,6 +785,25 @@ Quiero que reviséis mi factura
 </div>
 </div>
 
+<!-- Modal Aviso legal -->
+<div id="modal-legal" class="form-modal" role="dialog" aria-modal="true" aria-labelledby="modal-legal-title">
+<div class="form-modal-backdrop" data-close-modal></div>
+<div class="form-modal-box" style="max-width: 560px; max-height: 85vh; overflow-y: auto;">
+<button type="button" class="form-modal-close" data-close-modal aria-label="Cerrar"><span class="material-symbols-outlined text-xl">close</span></button>
+<h2 id="modal-legal-title" class="text-xl font-black text-primary mb-4">Aviso legal</h2>
+<div class="text-slate-600 text-sm leading-relaxed space-y-4">
+<p><strong class="text-primary">Titular del sitio web.</strong> Este sitio web pertenece a Belón Energy, con domicilio en C. Notario Luis Oliver, 1, 29601 Marbella, Málaga, y correo de contacto hola@belonenergy.com.</p>
+<p><strong class="text-primary">Objeto.</strong> La finalidad de este sitio es ofrecer información sobre los servicios de asesoría energética de Belón Energy y facilitar el contacto para solicitar la revisión de facturas y otros servicios relacionados.</p>
+<p><strong class="text-primary">Condiciones de uso.</strong> El acceso y navegación por este sitio implica la aceptación de estas condiciones de uso. El usuario se compromete a hacer un uso diligente, correcto y lícito de la información y de los formularios de contacto.</p>
+<p><strong class="text-primary">Propiedad intelectual.</strong> Los contenidos, textos, imágenes, logotipos y demás elementos gráficos de este sitio son titularidad de Belón Energy o de terceros con licencia, y no podrán ser reproducidos sin autorización previa.</p>
+<p><strong class="text-primary">Responsabilidad.</strong> Belón Energy no se hace responsable de los daños derivados del uso inadecuado de la información de esta web ni de posibles errores u omisiones en los contenidos, aunque se procurará mantenerlos actualizados y exactos.</p>
+<p><strong class="text-primary">Enlaces.</strong> Este sitio puede incluir enlaces a páginas de terceros sobre las que Belón Energy no tiene control, por lo que no asume responsabilidad sobre su contenido ni sobre las condiciones de uso aplicables en dichas páginas.</p>
+<p><strong class="text-primary">Legislación aplicable.</strong> Las presentes condiciones se rigen por la legislación española. Para cualquier controversia, las partes se someten a los juzgados y tribunales competentes de Marbella (Málaga), salvo que la normativa de consumo disponga otra cosa.</p>
+<p class="text-slate-500 text-xs pt-2">Este texto es informativo y puede adaptarse o ampliarse en función de las necesidades legales de Belón Energy.</p>
+</div>
+</div>
+</div>
+
 <!-- Banner de cookies -->
 <aside id="cookie-banner" class="cookie-banner" aria-label="Aviso de cookies" role="dialog">
 <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
@@ -756,18 +826,24 @@ Quiero que reviséis mi factura
 <img src="assets/img/Logo PNG blanco.png" alt="Belón Energy" class="h-12 w-auto" loading="lazy"/>
 </a>
 <p class="text-slate-400 text-sm leading-relaxed max-w-xs" data-i18n="footer_brand_text">
-Ingeniería especializada en energía fotovoltaica. Soluciones de autoconsumo para un futuro sostenible.
+Belón Energy es una asesoría energética independiente que ayuda a particulares, comunidades y empresas a optimizar sus contratos de luz y gas y gestionar sus servicios energéticos con mayor claridad.
 </p>
 </div>
-<!-- Enlaces útiles (un solo bloque) -->
+<!-- Enlaces y legal -->
 <div>
-<h5 class="font-bold mb-4 text-white text-sm uppercase tracking-wider" data-i18n="footer_links_title">Enlaces</h5>
+<h5 class="font-bold mb-4 text-white text-sm uppercase tracking-wider" data-i18n="footer_sections_title">Servicios y secciones</h5>
 <ul class="space-y-3 text-slate-400 text-sm">
 <li><a class="hover:text-white transition-colors" href="#servicios" data-i18n="footer_link_services">Servicios</a></li>
-<li><a class="hover:text-white transition-colors" href="#proyectos" data-i18n="footer_link_projects">Proyectos</a></li>
-<li><a class="hover:text-white transition-colors" href="#nosotros" data-i18n="footer_link_why">Por qué Belón</a></li>
+<li><a class="hover:text-white transition-colors" href="#otros-servicios" data-i18n="footer_link_other_solutions">Otras soluciones energéticas</a></li>
+<li><a class="hover:text-white transition-colors" href="#nosotros" data-i18n="footer_link_about">Sobre Belón Energy</a></li>
+<li><a class="hover:text-white transition-colors" href="#proyectos" data-i18n="footer_link_how">Cómo funciona</a></li>
 <li><a class="hover:text-white transition-colors" href="#contacto" data-i18n="footer_link_contact">Contacto</a></li>
-<li><button type="button" id="open-privacy-footer" class="text-left hover:text-white transition-colors cursor-pointer" data-i18n="footer_link_privacy">Política de privacidad</button></li>
+</ul>
+<h5 class="font-bold mt-6 mb-3 text-white text-sm uppercase tracking-wider" data-i18n="footer_legal_title">Legal</h5>
+<ul class="space-y-2 text-slate-400 text-sm">
+<li><button type="button" id="open-legal-footer" class="text-left hover:text-white transition-colors cursor-pointer" data-i18n="footer_link_legal">Aviso legal</button></li>
+<li><button type="button" id="open-privacy-footer" class="text-left hover:text-white transition-colors cursor-pointer" data-i18n="footer_link_privacy">Privacidad</button></li>
+<li><button type="button" id="open-cookie-settings" class="text-left hover:text-white transition-colors cursor-pointer" data-i18n="footer_cookie_settings">Cookies</button></li>
 </ul>
 </div>
 <!-- Contacto -->
@@ -802,6 +878,7 @@ Ingeniería especializada en energía fotovoltaica. Soluciones de autoconsumo pa
   var modalError = document.getElementById('modal-error');
   var modalErrorMsg = document.getElementById('modal-error-message');
   var modalPrivacy = document.getElementById('modal-privacy');
+  var modalLegal = document.getElementById('modal-legal');
   var leadFormPanel = document.getElementById('lead-form-panel');
   var leadFormToggle = document.getElementById('lead-form-toggle');
   var contactSection = document.getElementById('contacto');
@@ -907,6 +984,7 @@ Ingeniería especializada en energía fotovoltaica. Soluciones de autoconsumo pa
     closeModal(modalSuccess);
     closeModal(modalError);
     closeModal(modalPrivacy);
+    closeModal(modalLegal);
   }
   document.querySelectorAll('[data-close-modal]').forEach(function(el) {
     el.addEventListener('click', closeAllModals);
@@ -923,6 +1001,10 @@ Ingeniería especializada en energía fotovoltaica. Soluciones de autoconsumo pa
   }
   document.getElementById('open-privacy-from-form') && document.getElementById('open-privacy-from-form').addEventListener('click', openPrivacyModal);
   document.getElementById('open-privacy-footer') && document.getElementById('open-privacy-footer').addEventListener('click', openPrivacyModal);
+  function openLegalModal() {
+    openModal(modalLegal);
+  }
+  document.getElementById('open-legal-footer') && document.getElementById('open-legal-footer').addEventListener('click', openLegalModal);
   document.getElementById('cookie-privacy') && document.getElementById('cookie-privacy').addEventListener('click', function() {
     closeCookieBanner();
     openPrivacyModal();
@@ -963,7 +1045,7 @@ Ingeniería especializada en energía fotovoltaica. Soluciones de autoconsumo pa
     return valid;
   }
 
-  var MAX_LENGTH = { nombre: 200, email: 254, telefono: 50, segmento: 50, tipo_suministro: 100, factura_mensual: 100 };
+  var MAX_LENGTH = { nombre: 200, email: 254, telefono: 50, segmento: 50, tipo_suministro: 100, factura_mensual: 100, mensaje: 1000 };
   function trimToMax(str, max) {
     if (typeof str !== 'string') return '';
     var t = str.trim();
@@ -1221,6 +1303,7 @@ Ingeniería especializada en energía fotovoltaica. Soluciones de autoconsumo pa
       var segmento = trimToMax((segmentHidden && segmentHidden.value) || 'Particular', MAX_LENGTH.segmento);
       var tipoSuministro = trimToMax((form.querySelector('[name="tipo_suministro"]') && form.querySelector('[name="tipo_suministro"]').value) || '', MAX_LENGTH.tipo_suministro);
       var facturaMensual = trimToMax((form.querySelector('[name="factura_mensual"]') && form.querySelector('[name="factura_mensual"]').value) || '', MAX_LENGTH.factura_mensual);
+      var mensaje = trimToMax((form.querySelector('[name="mensaje"]') && form.querySelector('[name="mensaje"]').value) || '', MAX_LENGTH.mensaje);
       var facturaInput = form.querySelector('[name="factura"]');
 
       formData.append('nombre', nombre);
@@ -1229,6 +1312,7 @@ Ingeniería especializada en energía fotovoltaica. Soluciones de autoconsumo pa
       formData.append('segmento', segmento);
       formData.append('tipo_suministro', tipoSuministro);
       formData.append('factura_mensual', facturaMensual);
+      formData.append('mensaje', mensaje);
 
       if (facturaInput && facturaInput.files && facturaInput.files[0]) {
         formData.append('factura', facturaInput.files[0]);
@@ -1262,7 +1346,7 @@ Ingeniería especializada en energía fotovoltaica. Soluciones de autoconsumo pa
         openModal(modalError);
       }).finally(function() {
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Enviar solicitud de estudio';
+        submitBtn.textContent = 'Enviar factura para revisión';
       });
     });
   } else {
