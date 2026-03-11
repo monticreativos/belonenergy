@@ -4,22 +4,15 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta name="robots" content="index, follow"/>
-<!-- Google Tag Manager: inicializa dataLayer y carga el contenedor GTM (GTM-XXXXXXX) de forma asíncrona -->
+<!-- Google Tag Manager -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({
-    'event': 'gtm.js',
-    'gtm.start': new Date().getTime()
-  });
-  (function(w,d,s,l,i){
-    w[l]=w[l]||[];
-    var f=d.getElementsByTagName(s)[0];
-    var j=d.createElement(s);
-    j.async=true;
-    j.src='https://www.googletagmanager.com/gtm.js?id='+i;
-    f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-XXXXXXX');
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-N23G4B2J');
 </script>
+<!-- End Google Tag Manager -->
 <title>Belón Energy | Optimización de facturas de luz y gas</title>
 <meta name="description" content="Analizamos tu factura de luz o gas para detectar sobrecostes y ayudarte a optimizar tu contrato energético."/>
 <link rel="canonical" href="https://belon.es/"/>
@@ -283,12 +276,12 @@
 </script>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
-<!-- Google Tag Manager (noscript): fallback para navegadores sin JavaScript -->
-<noscript>
-  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-          height="0" width="0" style="display:none;visibility:hidden"></iframe>
-</noscript>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N23G4B2J"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <!-- Top Navigation -->
+<!-- Cabecera principal del sitio: branding, navegación y selector de idioma -->
 <header class="sticky top-0 z-50 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-primary/10">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="flex justify-between items-center py-4">
@@ -318,7 +311,7 @@
 </div>
 </div>
 </header>
-<!-- Hero Section -->
+<!-- Hero principal: propuesta de valor + CTAs "Revisar mi factura" y WhatsApp -->
 <section id="hero" class="relative min-h-[85vh] flex items-center overflow-hidden bg-gradient-to-r from-primary/95 to-primary/60">
 <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
 <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -354,7 +347,7 @@
 (function(){var v=document.getElementById('hero-video');if(!v)return;var m=window.matchMedia('(max-width:767px)').matches;if(!m){v.src=v.getAttribute('data-src');}else{if('requestIdleCallback'in window){requestIdleCallback(function(){v.src=v.getAttribute('data-src');},{timeout:4e3});}else{setTimeout(function(){v.src=v.getAttribute('data-src');},1500);}}})();
 </script>
 <!-- Authority Section eliminada -->
-<!-- Problema / Dolor -->
+<!-- Sección de problema/dolor: contexto sobre la factura energética -->
 <section class="py-20 bg-white dark:bg-background-dark" id="nosotros">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="text-center mb-12">
@@ -374,7 +367,7 @@
 </div>
 </div>
 </section>
-<!-- Servicios de optimización -->
+<!-- Servicios de optimización: detalle de la propuesta de valor principal -->
 <section class="py-20 text-white bg-[#183644]" id="servicios">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="mb-16">
@@ -415,7 +408,7 @@
 </div>
 </div>
 </section>
-<!-- Cómo funciona -->
+<!-- Cómo funciona: pasos del proceso hasta el envío de factura -->
 <section class="py-20 bg-white dark:bg-background-dark overflow-hidden" id="proyectos">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
@@ -463,7 +456,7 @@
 </div>
 </div>
 </section>
-<!-- Beneficios -->
+<!-- Beneficios: ventajas concretas para el usuario antes del CTA final -->
 <section class="py-20 bg-background-light dark:bg-background-dark" id="beneficios">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="text-center mb-12">
@@ -498,7 +491,7 @@
 </div>
 </div>
 </section>
-<!-- Testimonials -->
+<!-- Testimonios: prueba social (pendiente de integrar reseñas reales de Google Reviews) -->
 <section class="py-20 bg-background-light dark:bg-background-dark">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <h2 class="anim-fade-up text-center text-3xl font-black text-primary dark:text-slate-100 mb-16" data-i18n="testimonials_title">Lo que dicen nuestros clientes</h2>
@@ -551,7 +544,7 @@
         </p>
 </div>
 </section>
-<!-- Strong CTA -->
+<!-- CTA fuerte intermedio: recordatorio para revisar la factura -->
 <section class="py-20 bg-accent-green">
 <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
 <h2 class="anim-fade-up text-3xl md:text-5xl font-black mb-8 leading-tight" data-i18n="strong_cta_title">Descubre si estás pagando de más en tu factura.</h2>
@@ -564,7 +557,7 @@
 </div>
 </section>
 
-<!-- Otros servicios -->
+<!-- Otros servicios: soluciones energéticas secundarias respecto al servicio de facturas -->
 <section class="py-20 bg-white dark:bg-background-dark" id="otros-servicios">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="mb-16 text-center max-w-4xl mx-auto">
@@ -624,7 +617,7 @@
 </div>
 </section>
 
-<!-- Formulario -->
+<!-- Formulario de captación: objetivo principal de conversión (generate_lead) -->
 <section class="py-20 bg-white dark:bg-background-dark" id="contacto">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="grid lg:grid-cols-2 gap-16 items-start">
@@ -671,7 +664,7 @@
         </div>
         </section>
 
-<!-- Panel flotante con formulario de captación -->
+<!-- Panel flotante con formulario de captación: siempre accesible durante el scroll -->
 <aside id="lead-form-panel" class="lead-form-panel lead-form-panel--floating lead-form-panel--hidden">
 <div class="anim-slide-right bg-background-light dark:bg-slate-900/50 p-4 sm:p-5 md:p-6 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-2xl relative">
 <button type="button" id="lead-form-close" class="lead-form-close" aria-label="Ocultar formulario">
@@ -896,8 +889,10 @@ Belón Energy es una asesoría energética independiente que ayuda a particulare
 </div>
 </footer>
 <script src="js/i18n.js"></script>
+<!-- Lógica principal de UI, formulario y tracking (se recomienda extraer a un main.js en el futuro) -->
 <script>
 (function() {
+  // Claves de almacenamiento y referencias a elementos reutilizadas en todo el script
   var THEME_STORAGE_KEY = 'belon_theme';
   var form = document.getElementById('contact-form');
   var submitBtn = document.getElementById('contact-submit');
@@ -924,6 +919,7 @@ Belón Energy es una asesoría energética independiente que ayuda a particulare
   var formLoadTimeInput = document.getElementById('form-load-time');
   var pageLoadTime = Date.now();
   var leadFormClosedByUser = false;
+  // Copia de textos del CTA flotante por idioma
   var FLOATING_CTA_TEXT = {
     es: 'Analizar factura gratis',
     en: 'Free bill review'
@@ -932,6 +928,10 @@ Belón Energy es una asesoría energética independiente que ayuda a particulare
   // --------------------
   // Tracking de analítica (GTM / GA4 / Meta Pixel)
   // --------------------
+  /**
+   * Envía un evento al dataLayer de forma segura.
+   * GTM recogerá estos eventos para GA4 y Meta Pixel.
+   */
   function pushTrackingEvent(name, payload) {
     try {
       window.dataLayer = window.dataLayer || [];
@@ -1007,6 +1007,7 @@ Belón Energy es una asesoría energética independiente que ayuda a particulare
     });
   }
 
+  // Apertura y cierre de modales reutilizables (éxito, error, privacidad, aviso legal)
   function openModal(modal) {
     if (modal) {
       modal.classList.add('is-open');
@@ -1050,6 +1051,7 @@ Belón Energy es una asesoría energética independiente que ayuda a particulare
     openPrivacyModal();
   });
 
+  // Validación básica del formulario de contacto antes del envío
   function validateForm() {
     var name = document.getElementById('contact-name');
     var email = document.getElementById('contact-email');
@@ -1092,7 +1094,7 @@ Belón Energy es una asesoría energética independiente que ayuda a particulare
     return t.length > max ? t.slice(0, max) : t;
   }
 
-  // Drag & drop para la factura
+  // Drag & drop para la factura (experiencia mejorada de subida de archivo)
   if (fileDropzone && fileInput) {
     ['dragenter','dragover'].forEach(function(evt) {
       fileDropzone.addEventListener(evt, function(e) {
@@ -1306,6 +1308,9 @@ Belón Energy es una asesoría energética independiente que ayuda a particulare
     showLeadForm(false);
   }
 
+  // --------------------
+  // Envío del formulario de captación
+  // --------------------
   if (form && formEndpoint && formEndpoint.trim() !== '') {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
@@ -1333,7 +1338,7 @@ Belón Energy es una asesoría energética independiente que ayuda a particulare
         form.reportValidity();
         return;
       }
-      // Tracking: intentamos registrar un lead cuando el usuario envía el formulario
+      // Tracking: registramos intento de envío de lead (confirmación final vía backend)
       pushTrackingEvent('generate_lead', { form_location: 'lead_panel' });
       submitBtn.disabled = true;
       submitBtn.textContent = 'Enviando…';
@@ -1373,6 +1378,11 @@ Belón Energy es una asesoría energética independiente que ayuda a particulare
       }).then(function(res) {
         return res.json().then(function(data) {
           if (data.success) {
+            // Tracking: lead confirmado solo cuando el backend responde con éxito
+            pushTrackingEvent('generate_lead', {
+              form_location: 'lead_panel',
+              has_file: !!(facturaInput && facturaInput.files && facturaInput.files[0])
+            });
             form.reset();
             openModal(modalSuccess);
           } else {
@@ -1399,7 +1409,7 @@ Belón Energy es una asesoría energética independiente que ayuda a particulare
     });
   }
 
-  /* Gestión de cookies */
+  /* Gestión de cookies y banner de consentimiento */
   var COOKIE_CONSENT_KEY = 'belon_cookie_consent';
   var cookieBanner = document.getElementById('cookie-banner');
   function getCookieConsent() {
