@@ -7,7 +7,7 @@
     es: {
       nav_services: 'Servicios',
       nav_how_it_works: 'Cómo funciona',
-      nav_why_us: 'Por qué nosotros',
+      nav_why_us: 'Beneficios',
       nav_contact: 'Contacto',
 
       hero_title: '¿Estás pagando más de lo necesario en tu factura de luz?',
@@ -189,7 +189,7 @@
     en: {
       nav_services: 'Services',
       nav_how_it_works: 'How it works',
-      nav_why_us: 'Why us',
+      nav_why_us: 'Benefits',
       nav_contact: 'Contact',
 
       hero_title: 'Are you paying more than you should on your electricity bill?',
