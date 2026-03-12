@@ -1,4 +1,0 @@
-# Despliegue en Netlify: el formulario usará /.netlify/functions/send-email
-[build]
-  publish = "."
-  functions = "netlify/functions"

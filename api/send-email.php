@@ -1,27 +1,17 @@
 <?php
 /**
- * Backend del formulario de contacto – versión segura.
- * Validación estricta, saneamiento contra inyección en cabeceras y whitelist de valores.
+ * Backend del formulario de contacto (PHP nativo).
+ * Adaptado al formulario actual que envía datos mediante FormData (multipart/form-data)
+ * y campos: nombre, telefono, email, tipo_suministro, factura_mensual, segmento, mensaje.
  *
- * Configura: $EMAIL_TO y, si usas CORS, $ALLOWED_ORIGIN.
+ * Configura únicamente $EMAIL_TO.
  */
 
 header('Content-Type: application/json; charset=utf-8');
-header('Access-Control-Allow-Methods: POST, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type');
 
 // Configuración: correo donde recibir las solicitudes
 $EMAIL_TO = 'hola@belonenergy.com';
-// Si tu landing está en otro dominio, pon aquí ese origen (ej: https://www.belonenergy.com)
-$ALLOWED_ORIGIN = 'https://www.belonenergy.com';
-if (!empty($ALLOWED_ORIGIN)) {
-    header('Access-Control-Allow-Origin: ' . $ALLOWED_ORIGIN);
-}
-
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    http_response_code(204);
-    exit;
-}
+//$EMAIL_TO = 'dvdmontalba@gmail.com';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
@@ -29,12 +19,14 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-define('MAX_INPUT_BYTES', 4096);
-$LENGTHS = ['nombre' => 200, 'email' => 254, 'telefono' => 50, 'tipo_propiedad' => 50, 'gasto_mensual' => 50, 'tipo_tejado' => 50];
-$ALLOWED_VALUES = [
-    'tipo_propiedad' => ['Vivienda', 'Empresa', 'Comunidad'],
-    'gasto_mensual' => ['<50€', '50–100€', '100–200€', '+200€'],
-    'tipo_tejado' => ['Tejado inclinado', 'Cubierta plana', 'No lo sé']
+$LENGTHS = [
+    'nombre'          => 200,
+    'email'           => 254,
+    'telefono'        => 50,
+    'tipo_suministro' => 50,
+    'factura_mensual' => 50,
+    'segmento'        => 50,
+    'mensaje'         => 1000,
 ];
 
 function sanitize($str, $maxLen) {
@@ -50,59 +42,49 @@ function json_error($code, $message) {
     exit;
 }
 
-$raw = file_get_contents('php://input');
-if (strlen($raw) > MAX_INPUT_BYTES) {
-    json_error(400, 'Solicitud demasiado grande');
-}
+$nombre          = sanitize($_POST['nombre'] ?? '',          $LENGTHS['nombre']);
+$email           = sanitize($_POST['email'] ?? '',           $LENGTHS['email']);
+$telefono        = sanitize($_POST['telefono'] ?? '',        $LENGTHS['telefono']);
+$tipo_suministro = sanitize($_POST['tipo_suministro'] ?? '', $LENGTHS['tipo_suministro']);
+$factura_mensual = sanitize($_POST['factura_mensual'] ?? '', $LENGTHS['factura_mensual']);
+$segmento        = sanitize($_POST['segmento'] ?? '',        $LENGTHS['segmento']);
+$mensaje         = sanitize($_POST['mensaje'] ?? '',         $LENGTHS['mensaje']);
 
-$data = json_decode($raw, true);
-if (!is_array($data)) {
-    json_error(400, 'Datos no válidos');
-}
-
-$nombre = sanitize($data['nombre'] ?? '', $LENGTHS['nombre']);
-$email = sanitize($data['email'] ?? '', $LENGTHS['email']);
-$telefono = sanitize($data['telefono'] ?? '', $LENGTHS['telefono']);
-$tipo_propiedad = sanitize($data['tipo_propiedad'] ?? '', $LENGTHS['tipo_propiedad']);
-$gasto_mensual = sanitize($data['gasto_mensual'] ?? '', $LENGTHS['gasto_mensual']);
-$tipo_tejado = sanitize($data['tipo_tejado'] ?? '', $LENGTHS['tipo_tejado']);
-
+// Validaciones básicas: nombre obligatorio y al menos un dato de contacto (teléfono o email)
 if ($nombre === '') {
     json_error(400, 'El nombre es obligatorio');
 }
-if ($email === '') {
-    json_error(400, 'El email es obligatorio');
+if ($telefono === '' && $email === '') {
+    json_error(400, 'Debes indicar teléfono o email');
 }
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+if ($email !== '' && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     json_error(400, 'El email no es válido');
 }
-if (!in_array($tipo_propiedad, $ALLOWED_VALUES['tipo_propiedad'], true)) {
-    json_error(400, 'Tipo de propiedad no válido');
-}
-if (!in_array($gasto_mensual, $ALLOWED_VALUES['gasto_mensual'], true)) {
-    json_error(400, 'Gasto mensual no válido');
-}
-if (!in_array($tipo_tejado, $ALLOWED_VALUES['tipo_tejado'], true)) {
-    json_error(400, 'Tipo de tejado no válido');
-}
 
-$subject = 'Solicitud de estudio - Belón Energy';
-$body = "Nueva solicitud de estudio - Belón Energy\n";
-$body .= "----------------------------------------\n";
+// Información sobre si se adjuntó factura (el propio contenido no se adjunta con mail() en esta versión)
+$tieneFactura = (!empty($_FILES['factura']['name']) && $_FILES['factura']['error'] === UPLOAD_ERR_OK) ? 'Sí' : 'No';
+
+$subject = 'Nueva solicitud de revisión de factura - Belón Energy';
+$body  = "Nueva solicitud de revisión de factura - Belón Energy\n";
+$body .= "------------------------------------------------------\n";
+$body .= "Segmento: $segmento\n";
 $body .= "Nombre: $nombre\n";
-$body .= "Email: $email\n";
 $body .= "Teléfono: $telefono\n";
-$body .= "Tipo de propiedad: $tipo_propiedad\n";
-$body .= "Gasto mensual: $gasto_mensual\n";
-$body .= "Tipo de tejado: $tipo_tejado\n";
+$body .= "Email: $email\n";
+$body .= "Tipo de suministro: $tipo_suministro\n";
+$body .= "Factura mensual aproximada: $factura_mensual\n";
+$body .= "Factura adjunta: $tieneFactura\n";
+$body .= "Mensaje adicional:\n$mensaje\n";
 
-$mailHeaders = [
-    'Reply-To: ' . $email,
+$headers = [
     'X-Mailer: PHP/' . phpversion(),
-    'Content-Type: text/plain; charset=UTF-8'
+    'Content-Type: text/plain; charset=UTF-8',
 ];
+if ($email !== '') {
+    $headers[] = 'Reply-To: ' . $email;
+}
 
-$sent = @mail($EMAIL_TO, $subject, $body, implode("\r\n", $mailHeaders));
+$sent = @mail($EMAIL_TO, $subject, $body, implode("\r\n", $headers));
 
 if (!$sent) {
     json_error(500, 'No se pudo enviar. Inténtelo más tarde.');

@@ -674,8 +674,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p class="text-xs text-slate-600 dark:text-slate-400 mb-4 leading-relaxed" data-i18n="lead_panel_intro">
             Déjanos tus datos y, si quieres, sube tu factura de luz. Nosotros hablamos con la distribuidora y te proponemos la mejor opción.
         </p>
-<!-- Endpoint propio: Netlify = "/.netlify/functions/send-email" | PHP = "https://tudominio.com/api/send-email.php" -->
-<form id="contact-form" class="grid grid-cols-1 md:grid-cols-2 gap-4" novalidate data-form-endpoint="/.netlify/functions/send-email">
+<!-- Endpoint propio: ahora usando PHP local en /api/send-email.php -->
+<form id="contact-form" class="grid grid-cols-1 md:grid-cols-2 gap-4" novalidate data-form-endpoint="/api/send-email.php">
 <!-- Honeypot anti-spam: si un bot lo rellena, no enviamos -->
 <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="absolute opacity-0 pointer-events-none h-0 w-0 overflow-hidden" aria-hidden="true"/>
 <!-- Campos anti-spam adicionales: tiempo de carga y marca de interacción humana -->
